@@ -1,0 +1,26 @@
+{
+  "name": "mbsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svnnkv/MBsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/svnnkv/MBsite/issues"
+  },
+  "homepage": "https://github.com/svnnkv/MBsite#readme",
+  "dependencies": {
+    "astro": "^6.1.5"
+  }
+}

@@ -1,8 +1,8 @@
 /* Подключение шрифтов */
 @font-face {
     font-family: 'Druk Text Wide Cyr';
-    src: url('Font/DrukTextWideCyr-Medium.woff2') format('woff2'),
-         url('Font/DrukTextWideCyr-Medium.woff') format('woff');
+    src: url('/fonts/Druk-Text-Wide-Cyr-Medium.woff2') format('woff2'),
+         url('/fonts/Druk-Text-Wide-Cyr-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -10,14 +10,14 @@
 
 @font-face {
     font-family: 'Raleway';
-    src: url('Font/Raleway-Regular.woff2') format('woff2'),
-         url('Font/Raleway-Regular.woff') format('woff');
+    src: url('/fonts/Raleway-VariableFont_wght.woff2') format('woff2'),
+         url('/fonts/Raleway-VariableFont_wght.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Raleway';
     src: url('Font/Raleway-Medium.woff2') format('woff2'),
          url('Font/Raleway-Medium.woff') format('woff');
@@ -33,7 +33,7 @@
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 * {
     margin: 0;
@@ -58,6 +58,25 @@ body {
     color: var(--text-color);
     background-color: #ffffff;
     position: relative;
+}
+
+/* Стилизация всех скроллбаров на странице */
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    background: transparent;
+    cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 }
 
 /* Обновление типографики для заголовков */
@@ -360,24 +379,6 @@ h1, h2, h3, h4,
     margin-bottom: 1rem;
 }
 
-/* Стилизация скроллбара месяцев */
-.months-scroll::-webkit-scrollbar {
-    height: 10px;
-    background: transparent;
-    cursor: pointer;
-}
-
-.months-scroll::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.months-scroll::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-}
-
 .month {
     flex: 0 0 auto;
     background-color: #ffffff;
@@ -569,24 +570,6 @@ h1, h2, h3, h4,
     margin-bottom: 1rem;
 }
 
-/* Стилизация скроллбара историй */
-.stories-scroll::-webkit-scrollbar {
-    height: 10px;
-    background: transparent;
-    cursor: pointer;
-}
-
-.stories-scroll::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.stories-scroll::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-}
-
 .story-card {
     flex: 0 0 300px;
     background: var(--primary-color);
@@ -743,22 +726,6 @@ h1, h2, h3, h4,
 
 .team-members-scroll.active {
     display: flex;
-}
-
-/* Стилизация скроллбара команды */
-.team-members-scroll::-webkit-scrollbar {
-    height: 10px;
-    background: transparent;
-}
-
-.team-members-scroll::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 20px;
-}
-
-.team-members-scroll::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
 }
 
 .team-member {
