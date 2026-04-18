@@ -1,0 +1,114 @@
+---
+import data from '../data/events.json'
+
+const {startDate} = Astro.props;
+
+const startDateObj = new Date(startDate);
+const allDates = Array(12).keys().map(i => {
+    const d = new Date(startDateObj);
+    d.setMonth(d.getMonth() + i);
+    return d; 
+}).toArray();
+
+const monthNames = [
+    'Январь', 'Февраль',
+    'Март', 'Апрель', 'Май',
+    'Июнь', 'Июль', 'Август',
+    'Сентябрь', 'Октябрь', 'Ноябрь',
+    'Декабрь'
+];
+
+const monthNamesForm2 = [
+    'января', 'февраля',
+    'марта', 'апреля', 'мая',
+    'июня', 'июля', 'августа',
+    'сентября', 'октября', 'ноября',
+    'декабря'
+];
+
+let title = `СОБЫТИЯ ${allDates[0].getFullYear()}`;
+if (allDates[0].getFullYear() !== allDates[allDates.length-1].getFullYear()) {
+    title += ` - ${allDates[allDates.length-1].getFullYear()}`;
+}
+
+---
+
+<h1 class="events-title">{title}</h1>
+
+<div class="months-container">
+    <div class="months-scroll">
+        {allDates.map(date => 
+            <button class="button month" data-month={date.getMonth()} data-year={date.getFullYear()}>
+                {monthNames[date.getMonth()]}
+            </button>
+        )}
+    </div>
+</div>
+
+<div class="event-cards">
+    {data.map(event => {
+        const dateObj = new Date(event.date);
+        const dateDay = dateObj.getDate().toString();
+        const dateMonth = monthNamesForm2[dateObj.getMonth()];
+        return (
+            <div class="event-card" data-month={dateObj.getMonth()} data-year={dateObj.getFullYear()}>
+                <div class="event-image">
+                    <img src={event.image} alt={event.name}/>
+                </div>
+                <div class="event-info">
+                    <h3>{event.name}</h3>
+                    <div class="event-date">{dateDay} {dateMonth}</div>
+                    <div class="event-location">{event.address}</div>
+                    <div class="event-description">{event.description}</div>
+                </div>
+            </div>
+        );
+    })}
+    <div class="null-event">
+        В этом месяце нет событий :(
+    </div>
+</div>
+
+<script>
+    // Фильтрует события по дате
+    function onFilterEvents(month: number, year: number) {
+        // buttons
+        document.querySelectorAll(".months-scroll .month").forEach(el => {
+            if (el instanceof HTMLElement) {
+                const isActive = Number(el.dataset.month) === month && Number(el.dataset.year) === year;
+                el.classList.toggle('active', isActive);
+            }
+        });
+        // cards
+        let hasActiveEvent = false;
+        document.querySelectorAll(".event-cards .event-card").forEach(el => {
+            if (el instanceof HTMLElement) {
+                const isActive = Number(el.dataset.month) === month && Number(el.dataset.year) === year;
+                el.classList.toggle('active', isActive);
+                hasActiveEvent ||= isActive;
+            }
+        });
+        document.querySelector(".event-cards .null-event")?.toggleAttribute('hidden', hasActiveEvent);
+    }
+
+    // Навешиваем колбэки на кнопки
+    document.querySelectorAll(".months-scroll .month").forEach(el => {
+        el.addEventListener('click', () => {
+            if (el instanceof HTMLElement) {
+                onFilterEvents(Number(el.dataset.month), Number(el.dataset.year));
+            }
+        });
+    });
+
+    // Инициализируем состояние - выбираем текущий месяц
+    const now = new Date();
+    onFilterEvents(now.getMonth(), now.getFullYear());
+
+    // Изначально ставим скролл на текущий месяц
+    const activeMonth = document.querySelector('.months-scroll .month.active');
+    activeMonth?.scrollIntoView({
+        inline: 'center',
+        block: 'nearest'
+    });
+
+</script>

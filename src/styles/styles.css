@@ -1,8 +1,10 @@
 /* Подключение шрифтов */
+/* todo: сделать через Astro */
 @font-face {
     font-family: 'Druk Text Wide Cyr';
     src: url('/fonts/Druk-Text-Wide-Cyr-Medium.woff2') format('woff2'),
-         url('/fonts/Druk-Text-Wide-Cyr-Medium.woff') format('woff');
+         url('/fonts/Druk-Text-Wide-Cyr-Medium.woff') format('woff'),
+         url('/fonts/Druk-Text-Wide-Cyr-Medium.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -11,8 +13,9 @@
 @font-face {
     font-family: 'Raleway';
     src: url('/fonts/Raleway-VariableFont_wght.woff2') format('woff2'),
-         url('/fonts/Raleway-VariableFont_wght.woff') format('woff');
-    font-weight: 400;
+         url('/fonts/Raleway-VariableFont_wght.woff') format('woff'),
+         url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
@@ -46,10 +49,15 @@
     --secondary-color: #4B6BFB;
     --accent-color: #2541b2;
     --text-color: #000000;
-    --light-text: #ffffff;
+    --light-color: #ffffff;
     --background-dark: #1E1E1E;
     --heading-font: 'Druk Text Wide Cyr', sans-serif;
     --body-font: 'Raleway', sans-serif;
+    /* todo: dynamic padding */
+    --side-padding: 4rem;
+    --text-card-padding: 2rem;
+    --corner-radius: 30px;
+    --card-bg: #00000007;
 }
 
 body {
@@ -60,46 +68,131 @@ body {
     position: relative;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Стилизация всех скроллбаров на странице */
 *::-webkit-scrollbar {
     height: 10px;
     width: 10px;
-    background: transparent;
+    background-color: transparent;
     cursor: pointer;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     border-radius: 20px;
     transition: background-color 0.3s ease;
 }
 
 *::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 20px;
 }
 
 /* Обновление типографики для заголовков */
-h1, h2, h3, h4, 
+/* h1, h2, h3, h4, 
 .hero-title,
-.schedule-title,
+.events-title,
 .member-expanded-name {
     font-family: var(--heading-font);
     font-weight: 500;
+} */
+
+/* Добавление отступов от краев экрана и между секциями */
+#events,
+#about,
+#team,
+#stories,
+#contacts {
+    padding-right: var(--side-padding);
+    padding-left: var(--side-padding);
+    padding-top: var(--side-padding);
+    /* padding-bottom: var(--side-padding); */
 }
 
-/* Обновление типографики для навигации */
-.nav-links a {
-    font-family: var(--body-font);
-    font-weight: 500;
+/* Обновление стилей для всех заголовков секций */
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--heading-font);
+} 
+
+/* Добавление отступов для абзацев */
+p {
+    margin-bottom: 16px;
 }
 
-/* Обновление типографики для кнопок и фильтров */
-.month span,
-.team-filter,
-.event-button {
+/* Стиль кнопок по умолчанию */
+.button {
     font-family: var(--body-font);
     font-weight: 500;
+    flex: 0 0 auto;
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    scroll-snap-align: start;
+    color: var(--text-color);
+    transition:
+        transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+        background-color 0.3s ease,
+        color 0.25s ease,
+        border-color 0.3s ease,
+        box-shadow 0.35s ease;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.button:hover {
+    border-color: transparent;
+    transform: translateY(-4px);
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+}
+
+.button.active {
+    border-color: transparent;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+}
+
+.button:active {
+    color: var(--light-color);
+    transform: translateY(-1px) scale(0.97);
+}
+
+.button.inverse {
+    background-color: var(--text-color);
+    border: 2px solid var(--light-color);
+    color: var(--light-color);
+}
+
+.button.inverse:hover {
+    background-color: var(--light-color);
+    color: var(--text-color);
+}
+
+.button.active.inverse {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.button.inverse:active {
+    color: var(--text-color);
 }
 
 /* Обновление типографики для карточек */
@@ -118,82 +211,6 @@ h1, h2, h3, h4,
     font-family: var(--body-font);
 }
 
-/* Декоративные векторные элементы */
-.vector-decoration {
-    position: absolute;
-    background-image: url('assets/Vector.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Верхний правый вектор */
-.vector-top-right {
-    top: 29.4%;
-    right: 10%;
-    width: 1200px;
-    height: 1200px;
-    transform: rotate(50deg);
-    opacity: 1;
-}
-
-/* Средний вектор */
-.vector-middle-left {
-    top: 48%;
-    left: -25%;
-    width: 1700px;
-    height: 1700px;
-    transform: rotate(10deg);
-    opacity: 1;
-}
-
-/* Нижний правый вектор */
-.vector-bottom-right {
-    top: 83%;
-    right: 80%;
-    width: 700px;
-    height: 700px;
-    transform: rotate(45deg);
-    opacity: 1;
-}
-
-/* Header */
-.header {
-    position: fixed;
-    width: 87%;
-    top: 0;
-    z-index: 1000;
-    padding: 1rem 0;
-    display: flex;
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40%;
-    height: 100%;
-    background-color: #ffffff;
-    border-bottom-right-radius: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
-    z-index: -1;
-}
-
-/* Обеспечиваем, чтобы секции были над векторами */
-.hero,
-.about,
-.schedule,
-.stories,
-.team,
-.contacts,
-.footer {
-    position: relative;
-    z-index: 2;
-}
-
 /* Только для секций, где нужен белый фон */
 .story-card,
 .event-info,
@@ -201,18 +218,57 @@ h1, h2, h3, h4,
     background-color: var(--primary-color);
 }
 
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    filter: drop-shadow(1.2px 1.2px 1.2px #00000020);
+}
+
+.header nav {
+    padding: 1rem 0;
+    background-color: #fff;
+    border-bottom-right-radius: var(--corner-radius);
+    min-height: calc(2 * var(--corner-radius));
+}
+
+.outer-corner {
+    background-color: transparent;
+    height: var(--corner-radius);
+    width: var(--corner-radius);
+    border-top-left-radius: var(--corner-radius);
+    box-shadow: -20px -20px 0 20px #fff;
+    position: absolute;
+    z-index: -1;
+}
+
+.outer-corner[data-tag="1"] {
+    top: 0;
+    right: calc(-1 * var(--corner-radius));
+}
+
+.outer-corner[data-tag="2"] {
+    left: 0;
+    bottom: calc(-1 * var(--corner-radius));
+}
+
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
     padding-left: 2rem;
+    padding-right: 2rem;
+    white-space: nowrap;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s linear;
+    font-family: var(--body-font);
 }
 
 .nav-links a:hover {
@@ -222,238 +278,97 @@ h1, h2, h3, h4,
 /* Hero Section */
 .hero {
     height: 100vh;
-    position: relative;
-    color: var(--light-text);
-    display: flex;
-    align-items: center;
-    padding: 0 4rem;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    color: var(--light-color);
+    display: grid;
+    align-items: end;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
     width: 100%;
     height: 100%;
-    z-index: 0;
-}
-
-.video-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
 }
 
 .video-background video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-bottom-right-radius: var(--corner-radius);
+    border-bottom-left-radius: var(--corner-radius);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: var(--light-text);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 100%;
+    padding: var(--side-padding);
 }
 
 .hero-title {
-    font-size: 6rem;
-    font-weight: bold;
     margin-bottom: 2rem;
-    color: var(--light-text);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    /* todo: maybe add shadow */
 }
 
-.hero p {
+.hero-slogan {
     font-size: 1.5rem;
     line-height: 1.6;
     margin-bottom: 2rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.hero-button {
-    padding: 1.2rem 3rem;
-    font-size: 1.1rem;
-    font-family: var(--body-font);
-    font-weight: 500;
-    background: #ffffff;
-    color: var(--text-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-}
-
-.hero-button:hover {
-    border-color: transparent;
-    transform: translateY(-2px);
-    background: var(--primary-color);
-    color: var(--light-text);
-}
-
-.hero-button:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    border-radius: 2rem;
-    z-index: -1;
-}
-
-.hero-button:active {
-    transform: scale(0.95);
-}
-
 /* About Section */
-.about {
-    padding: 4rem;
-}
-
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: var(--text-card-padding);
 }
 
 .about-image {
     width: 100%;
-    border-radius: 10px;
+    border-radius: var(--corner-radius);
+    object-fit: cover;
+    object-position: 50% 25%;
 }
 
-/* Schedule Section */
-.schedule {
-    padding: 4rem;
-    color: var(--text-color);
+.about-text {
+    background-color: var(--card-bg);
+    padding: var(--text-card-padding);
+    border-radius: var(--corner-radius);
 }
 
-.schedule-title {
-    text-align: center;
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
+/* Events Section */
 .months-container {
-    position: relative;
-    width: 100%;
+    /* position: relative; */
     margin: 2rem 0;
     overflow: hidden;
-    padding: 0 2rem;
 }
 
 .months-scroll {
     display: flex;
-    gap: 1rem;
+    gap: 0.85rem;
     overflow-x: auto;
-    padding: 1rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    padding: 0.75rem 2rem 1rem;
+    /* scroll-snap-type: x proximity; */
+    /* -webkit-overflow-scrolling: touch; */
+    scroll-padding: 0 2.5rem;
     margin-bottom: 1rem;
-}
-
-.month {
-    flex: 0 0 auto;
-    background-color: #ffffff;
-    border: 2px solid var(--primary-color);
-    border-radius: 2rem;
-    padding: 1rem 2rem;
-    min-width: 160px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    scroll-snap-align: start;
-    color: var(--text-color);
-}
-
-.month span {
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-/* Эффект при наведении */
-.month:hover {
-    border-color: transparent;
-    transform: translateY(-2px);
-    background: var(--primary-color);
-    color: var(--light-text);
-}
-
-.month:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    border-radius: 2rem;
-    z-index: 1;
-}
-
-.month:hover span {
-    color: var(--light-text);
-}
-
-/* Активный месяц */
-.month.active {
-    border-color: transparent;
-    background: var(--primary-color);
-    color: var(--light-text);
-}
-
-.month.active span {
-    color: var(--light-text);
-}
-
-/* Анимация при клике */
-.month:active {
-    transform: scale(0.95);
+    margin-left: 0;
+    padding-left: 2rem;
+    list-style: none;
 }
 
 /* Event Cards */
 .event-cards {
-    padding: 2rem;
     margin-top: 2rem;
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .event-card {
@@ -500,29 +415,29 @@ h1, h2, h3, h4,
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: var(--light-text);
+    color: var(--light-color);
 }
 
 .event-date {
     font-size: 1.2rem;
-    color: var(--light-text);
+    color: var(--light-color);
     margin-bottom: 0.5rem;
 }
 
 .event-location {
     font-size: 1.1rem;
-    color: var(--light-text);
+    color: var(--light-color);
     margin-bottom: 1.5rem;
 }
 
 .event-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--light-text);
+    color: var(--light-color);
     margin-bottom: 2rem;
 }
 
-.event-button {
+/* .event-button {
     align-self: flex-start;
     padding: 1rem 2rem;
     font-size: 1.1rem;
@@ -539,20 +454,15 @@ h1, h2, h3, h4,
 .event-button:hover {
     transform: translateY(-2px);
     background: var(--primary-color);
-    color: var(--light-text);
+    color: var(--light-color);
     border-color: transparent;
 }
 
 .event-button:active {
     transform: scale(0.95);
-}
+} */
 
 /* Stories Section */
-.stories {
-    padding: 4rem;
-    color: var(--text-color);
-}
-
 .stories-container {
     position: relative;
     width: 100%;
@@ -619,35 +529,27 @@ h1, h2, h3, h4,
 }
 
 /* Анимация текста при наведении */
-.story-card:hover .story-name {
-    color: var(--light-text);
-}
-
-.story-card:hover .story-faculty {
-    transform: translateY(-2px);
-}
-
 .story-name {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     transition: color 0.3s ease;
-    color: var(--light-text);
+    color: var(--light-color);
 }
 
 .story-faculty {
     font-size: 1rem;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
-    color: var(--light-text);
+    color: var(--light-color);
 }
 
 .story-description {
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    color: var(--light-text);
+    color: var(--light-color);
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
@@ -660,15 +562,11 @@ h1, h2, h3, h4,
     font-size: 0.8rem;
     margin-top: auto;
     transition: color 0.3s ease;
-    color: var(--light-text);
+    color: var(--light-color);
     opacity: 0.6;
 }
 
 /* Team Section */
-.team {
-    padding: 4rem;
-}
-
 .team-filters {
     display: flex;
     justify-content: center;
@@ -676,7 +574,7 @@ h1, h2, h3, h4,
     margin-bottom: 3rem;
 }
 
-.team-filter {
+/* .team-filter {
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: #ffffff;
@@ -692,11 +590,21 @@ h1, h2, h3, h4,
 .team-filter:hover,
 .team-filter.active {
     border-color: transparent;
-    color: var(--light-text);
+    color: var(--light-color);
     background: var(--primary-color);
+} */
+
+/* .team-filters :first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
-.team-filter:hover::before,
+.team-filters :last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+} */
+
+/* .team-filter:hover::before,
 .team-filter.active::before {
     content: '';
     position: absolute;
@@ -707,7 +615,8 @@ h1, h2, h3, h4,
     background: var(--primary-color);
     border-radius: 2rem;
     z-index: -1;
-}
+} */
+
 
 .team-members-container {
     position: relative;
@@ -716,16 +625,12 @@ h1, h2, h3, h4,
 }
 
 .team-members-scroll {
-    display: none;
+    display: flex;
     gap: 2rem;
     overflow-x: auto;
     padding: 1rem 0;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-}
-
-.team-members-scroll.active {
-    display: flex;
 }
 
 .team-member {
@@ -745,14 +650,21 @@ h1, h2, h3, h4,
     transform: translateY(-8px);
 }
 
+.team-member.hidden {
+    display: none;
+}
+
 .team-member.active .member-image {
     transform: scale(1.05);
+    border: none;
     box-shadow: 0 0 0 3px var(--secondary-color), 0 10px 30px rgba(75, 107, 251, 0.2);
 }
 
 .member-image {
     width: 200px;
     height: 200px;
+    border: 2px solid #000;
+    box-sizing: border-box;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -819,7 +731,7 @@ h1, h2, h3, h4,
     flex: 3;
     min-height: 100%;
     padding: 2.5rem;
-    color: var(--light-text);
+    color: var(--light-color);
     display: flex;
     flex-direction: column;
     background: var(--primary-color);
@@ -837,9 +749,9 @@ h1, h2, h3, h4,
     display: inline-block;
     padding: 0.75rem 2rem;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--light-text);
+    border: 1px solid var(--light-color);
     border-radius: 100px;
-    color: var(--light-text);
+    color: var(--light-color);
     font-size: 1.1rem;
     margin-bottom: 2rem;
     align-self: flex-start;
@@ -886,11 +798,6 @@ h1, h2, h3, h4,
 }
 
 /* Hover эффекты */
-.team-member:hover .member-image {
-    transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(75, 107, 251, 0.1);
-}
-
 .team-member:hover .member-image img {
     transform: scale(1.1);
 }
@@ -930,12 +837,12 @@ h1, h2, h3, h4,
     color: var(--text-color);
 }
 
-.contact-button {
+/* .contact-button {
     margin-top: 2rem;
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: var(--primary-color);
-    color: var(--light-text);
+    color: var(--light-color);
     border: none;
     border-radius: 2rem;
     cursor: pointer;
@@ -948,12 +855,12 @@ h1, h2, h3, h4,
 
 .contact-button:active {
     transform: scale(0.95);
-}
+} */
 
 /* Footer */
 .footer {
     background-color: #000000;
-    color: var(--light-text);
+    color: var(--light-color);
     padding: 3rem 0;
 }
 
@@ -967,7 +874,7 @@ h1, h2, h3, h4,
 }
 
 .footer-logo {
-    color: var(--light-text);
+    color: var(--light-color);
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -975,7 +882,7 @@ h1, h2, h3, h4,
 .footer-info p,
 .footer-links a,
 .footer-policy h3 {
-    color: var(--light-text);
+    color: var(--light-color);
     text-decoration: none;
 }
 
@@ -989,88 +896,76 @@ h1, h2, h3, h4,
 }
 
 /* Обновляем цвета для остальных секций */
-.section-title,
+/* .section-title,
 .about h2,
-.schedule h2,
+.events h2,
 .stories h2,
+.responsible h2,
+.organizers h2,
 .team h2,
 .contacts h2 {
     color: var(--text-color);
-}
+} */
 
-.month {
+/* .month {
     background: #ffffff;
     color: var(--text-color);
-}
+} */
 
-.month.active,
+/* .month.active,
 .month:hover {
     background: var(--primary-color);
-    color: var(--light-text);
-}
+    color: var(--light-color);
+} */
 
-.story-card {
+/* .story-card {
     background: var(--primary-color);
-}
+} */
 
-.story-name,
+/* .story-name,
 .story-faculty,
 .story-description,
 .story-date {
-    color: var(--light-text);
-}
+    color: var(--light-color);
+} */
 
-.team-filter {
+/* .team-filter {
     background: #ffffff;
     color: var(--text-color);
-}
+} */
 
-.team-filter.active,
+/* .team-filter.active,
 .team-filter:hover {
     background: var(--primary-color);
-    color: var(--light-text);
-}
+    color: var(--light-color);
+} */
 
-.contact-info {
+/* .contact-info {
     color: var(--text-color);
-}
+} */
 
-.contact-button {
+/* .contact-button {
     background: var(--secondary-color);
-    color: var(--light-text);
-}
+    color: var(--light-color);
+} */
 
 /* Общие стили */
-h2 {
+/* h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
-}
+} */
 
-button {
+/* button {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 button:hover {
     transform: translateY(-2px);
-}
+} */
 
 /* Ensure sections are positioned relative to body */
-main {
+/* main {
     position: relative;
-}
+} */
 
-/* Обновление стилей для всех заголовков секций */
-.schedule-title,
-.about h2,
-.stories h2,
-.team h2,
-.contacts h2 {
-    text-align: center;
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: var(--heading-font);
-} 

@@ -1,732 +1,122 @@
+﻿---
+import { Image } from "astro:assets";
+import EventList from "../components/EventList.astro";
+import MemberList from "../components/MemberList.astro";
+import StoriesList from "../components/StoriesList.astro";
+---
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITMO.MEGABATTLE</title>
     <link rel="stylesheet" href="/src/styles/styles.css">
+    <script src="https://api-maps.yandex.ru/v3/?apikey=b12309b1-b915-4496-b073-c2c1fe400b0f&lang=ru_RU"></script>
+      
 </head>
 <body>
     <!-- Декоративные векторы -->
-    <div class="vector-decoration vector-top-right"></div>
-    <div class="vector-decoration vector-middle-left"></div>
-    <div class="vector-decoration vector-bottom-right"></div>
+    <!-- <div class="vector-decoration vector-top-right"></div> -->
+    <!-- <div class="vector-decoration vector-middle-left"></div> -->
+    <!-- <div class="vector-decoration vector-bottom-right"></div> -->
     
     <header class="header">
-        <nav class="header">
+        <nav>
             <ul class="nav-links">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#about">О проекте</a></li>
-                <li><a href="#events">Мероприятия</a></li>
+                <li><a href="#events">События</a></li>
+                <li><a href="#team">Команда</a></li>
+                <li><a href="#organizers">Организаторы</a></li>
+                <li><a href="#responsible">Ответственные</a></li>
+                <li><a href="#stories">Участники</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
         </nav>
+        <div class="outer-corner" data-tag="1"></div>
+        <div class="outer-corner" data-tag="2"></div>
     </header>
-
+    
     <main>
-        <section class="hero">
+        <div class="hero" id="home">
             <div class="video-background">
                 <video autoplay muted loop playsinline>
-                    <source src="/hero-video.mp4" type="video/mp4">
+                    <source src="/hero-video.mp4" type="video/mp4"/>
                 </video>
             </div>
             <div class="hero-content">
-                <h1></h1>
-                <div class="hero-title">ITMO.MEGABATTLE</div>
-                <p>Проект, объединяющий талант студентов в одном месте</p>
-                <div class="hero-buttons">
-                    <a href="#" class="hero-button">Зарегистрироваться</a>
-                    <a href="#" class="hero-button">Подробнее</a>
-                </div>
+                <img class="hero-title" src="megabattle.svg" alt="ITMO.MEGABATTLE"/>
+                <p class="hero-slogan">Не для всех, а для каждого</p>
             </div>
-        </section>
+        </div>
 
         <section id="about" class="about">
-            <h2>О ПРОЕКТЕ</h2>
+            <h1>О&nbsp;ПРОЕКТЕ</h1>
             <div class="about-content">
-                <img src="assets/about-image.jpg" alt="О проекте" class="about-image">
+                <Image src="/src/images/about-image.png" width="670" height="777" alt="О проекте" class="about-image"/>
                 <div class="about-text">
-                    <p>ITMO.MEGABATTLE - это уникальный проект, объединяющий неравнодушных студентов в творческую деятельность, направленную на создание крупного мероприятия-концерта на базе Университета ИТМО...</p>
+                    <p>
+                        ITMO.Megabattle — проект, представляющий собой масштабную 
+                        студенческую инициативу, нацеленную на создание открытой, 
+                        многоуровневой площадки для культурно-творческого, организаторского 
+                        и личностного роста студентов Университета ИТМО. Проект соединил 
+                        в себе традиции двух ранее существовавших мероприятий — «Весна в 
+                        ИТМО» и «Я первокурсник», образовав целостную экосистему, где 
+                        каждый студент может найти себе подходящую роль.
+                    </p>
+                    <p>
+                        Уникальность проекта заключается в полном цикле организации и 
+                        реализации силами студенческого актива без привлечения внешних 
+                        специалистов. 
+                    </p>
+                    <p>
+                        ITMO.Megabattle — это не просто серия мероприятий, а полноценная 
+                        экосистема, стимулирующая развитие творческого, организаторского 
+                        и профессионального потенциала студентов. Проект формирует сильное 
+                        студенческое сообщество, создает условия для реализации самых разнообразных
+                        идей и проектов, укрепляет бренд Университета ИТМО как места, где каждый 
+                        может раскрыть себя и получить бесценный опыт.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section id="schedule" class="schedule">
-            <h2 class="schedule-title">МЕРОПРИЯТИЯ 2024 - 2025</h2>
-            <div class="months-container">
-                <div class="months-scroll">
-                    <div class="month">
-                        <span>Сентябрь</span>
-                    </div>
-                    <div class="month">
-                        <span>Октябрь</span>
-                    </div>
-                    <div class="month active">
-                        <span>Ноябрь</span>
-                    </div>
-                    <div class="month">
-                        <span>Декабрь</span>
-                    </div>
-                    <div class="month">
-                        <span>Январь</span>
-                    </div>
-                    <div class="month">
-                        <span>Февраль</span>
-                    </div>
-                    <div class="month">
-                        <span>Март</span>
-                    </div>
-                    <div class="month">
-                        <span>Апрель</span>
-                    </div>
-                    <div class="month">
-                        <span>Май</span>
-                    </div>
-                    <div class="month">
-                        <span>Июнь</span>
-                    </div>
-                    <div class="month">
-                        <span>Июль</span>
-                    </div>
-                    <div class="month">
-                        <span>Август</span>
-                    </div>
-                </div>
+        <section id="events" class="events">
+            <EventList startDate="november 2025"/>
+        </section>
+
+        <!-- Чтобы были рабочие якорные ссылки -->
+        <span id="organizers"></span>
+        <span id="responsible"></span>
+
+        <section class="team" id="team">
+            <h1 class="team-title">КОМАНДА</h1>
+        
+            <div class="team-filters">
+                <button class="button team-filter" data-tag="organizers">Мегаорганизаторы</button>
+                <button class="button team-filter" data-tag="responsible">Мегаответственные</button>
             </div>
-            <div class="event-cards">
-                <!-- Ноябрь -->
-                <div class="event-card active">
-                    <div class="event-image">
-                        <img src="assets/event1.jpg" alt="Мероприятие 1">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 1</h3>
-                        <div class="event-date">29 ноября</div>
-                        <div class="event-location">Ул. Ломоносова, д. 9</div>
-                        <div class="event-description">Описание мероприятия 1. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
 
-                <!-- Декабрь -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event2.jpg" alt="Мероприятие 2">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 2</h3>
-                        <div class="event-date">15 декабря</div>
-                        <div class="event-location">Кронверкский пр., д. 49</div>
-                        <div class="event-description">Описание мероприятия 2. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Январь -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event3.jpg" alt="Мероприятие 3">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 3</h3>
-                        <div class="event-date">20 января</div>
-                        <div class="event-location">Биржевая линия, д. 14</div>
-                        <div class="event-description">Описание мероприятия 3. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Февраль -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event4.jpg" alt="Мероприятие 4">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 4</h3>
-                        <div class="event-date">10 февраля</div>
-                        <div class="event-location">Ул. Чайковского, д. 11/2</div>
-                        <div class="event-description">Описание мероприятия 4. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Март -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event5.jpg" alt="Мероприятие 5">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 5</h3>
-                        <div class="event-date">15 марта</div>
-                        <div class="event-location">Кронверкский пр., д. 49</div>
-                        <div class="event-description">Описание мероприятия 5. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Апрель -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event6.jpg" alt="Мероприятие 6">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 6</h3>
-                        <div class="event-date">5 апреля</div>
-                        <div class="event-location">Ул. Ломоносова, д. 9</div>
-                        <div class="event-description">Описание мероприятия 6. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Май -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event7.jpg" alt="Мероприятие 7">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 7</h3>
-                        <div class="event-date">20 мая</div>
-                        <div class="event-location">Биржевая линия, д. 14</div>
-                        <div class="event-description">Описание мероприятия 7. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Июнь -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event8.jpg" alt="Мероприятие 8">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 8</h3>
-                        <div class="event-date">10 июня</div>
-                        <div class="event-location">Кронверкский пр., д. 49</div>
-                        <div class="event-description">Описание мероприятия 8. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Июль -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event9.jpg" alt="Мероприятие 9">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 9</h3>
-                        <div class="event-date">5 июля</div>
-                        <div class="event-location">Ул. Чайковского, д. 11/2</div>
-                        <div class="event-description">Описание мероприятия 9. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Август -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event10.jpg" alt="Мероприятие 10">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 10</h3>
-                        <div class="event-date">15 августа</div>
-                        <div class="event-location">Ул. Ломоносова, д. 9</div>
-                        <div class="event-description">Описание мероприятия 10. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Сентябрь -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event11.jpg" alt="Мероприятие 11">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 11</h3>
-                        <div class="event-date">20 сентября</div>
-                        <div class="event-location">Биржевая линия, д. 14</div>
-                        <div class="event-description">Описание мероприятия 11. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-
-                <!-- Октябрь -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/event12.jpg" alt="Мероприятие 12">
-                    </div>
-                    <div class="event-info">
-                        <h3>Мероприятие 12</h3>
-                        <div class="event-date">10 октября</div>
-                        <div class="event-location">Кронверкский пр., д. 49</div>
-                        <div class="event-description">Описание мероприятия 12. Здесь будет подробная информация о мероприятии, его целях и программе.</div>
-                        <button class="event-button">Подробнее</button>
-                    </div>
-                </div>
-            </div>
+            <MemberList />
         </section>
 
         <section id="stories" class="stories">
-            <h2>ИСТОРИИ УЧАСТНИКОВ</h2>
-            <div class="stories-container">
-                <div class="stories-scroll">
-                    <!-- Карточка 1 -->
-                    <div class="story-card">
-                        <div class="story-image-container">
-                            <img src="assets/participant1.jpg" alt="Участник 1" class="story-image">
-                        </div>
-                        <h3 class="story-name">ИМЯ ФАМИЛ</h3>
-                        <p class="story-faculty">Мегафакультет: КТУ</p>
-                        <p class="story-description">Годовой проект состоит из двух раундов и включает в себя лекции по повышению надпрофессиональных качеств студентов, выезды мегафакультетов в УСОЦ «Ягодное», интеллектуальные игры, спортивные состязания и многое другое.</p>
-                        <p class="story-date">2 ноября 2024</p>
-                    </div>
-                    <!-- Карточка 2 -->
-                    <div class="story-card">
-                        <div class="story-image-container">
-                            <img src="assets/participant2.jpg" alt="Участник 2" class="story-image">
-                        </div>
-                        <h3 class="story-name">ИМЯ ФАМИЛ</h3>
-                        <p class="story-faculty">Мегафакультет: ТИНТ</p>
-                        <p class="story-description">Участие в проекте позволило мне раскрыть свой потенциал и найти единомышленников. Особенно запомнились творческие мастер-классы и командные соревнования.</p>
-                        <p class="story-date">15 ноября 2024</p>
-                    </div>
-                    <!-- Карточка 3 -->
-                    <div class="story-card">
-                        <div class="story-image-container">
-                            <img src="assets/participant3.jpg" alt="Участник 3" class="story-image">
-                        </div>
-                        <h3 class="story-name">ИМЯ ФАМИЛ</h3>
-                        <p class="story-faculty">Мегафакультет: ФТиН</p>
-                        <p class="story-description">MEGABATTLE стал для меня отличной возможностью проявить свои организаторские способности. Работа в команде и обмен опытом с другими участниками - бесценны.</p>
-                        <p class="story-date">5 декабря 2024</p>
-                    </div>
-                    <!-- Карточка 4 -->
-                    <div class="story-card">
-                        <div class="story-image-container">
-                            <img src="assets/participant4.jpg" alt="Участник 4" class="story-image">
-                        </div>
-                        <h3 class="story-name">ИМЯ ФАМИЛ</h3>
-                        <p class="story-faculty">Мегафакультет: ИКТ</p>
-                        <p class="story-description">Благодаря проекту я смог применить свои технические навыки в организации мероприятий. Особенно понравилась работа со звуковым и световым оборудованием.</p>
-                        <p class="story-date">18 декабря 2024</p>
-                    </div>
-                    <!-- Карточка 5 -->
-                    <div class="story-card">
-                        <div class="story-image-container">
-                            <img src="assets/participant5.jpg" alt="Участник 5" class="story-image">
-                        </div>
-                        <h3 class="story-name">ИМЯ ФАМИЛ</h3>
-                        <p class="story-faculty">Мегафакультет: БиТ</p>
-                        <p class="story-description">MEGABATTLE научил меня работать в условиях многозадачности и сжатых сроков. Это отличная школа личностного роста и профессионального развития.</p>
-                        <p class="story-date">10 января 2025</p>
-                    </div>
-                    <!-- Карточка 6 -->
-                    <div class="story-card">
-                        <div class="story-image-container">
-                            <img src="assets/participant6.jpg" alt="Участник 6" class="story-image">
-                        </div>
-                        <h3 class="story-name">ИМЯ ФАМИЛ</h3>
-                        <p class="story-faculty">Мегафакультет: КТУ</p>
-                        <p class="story-description">Участие в проекте помогло мне развить soft skills и найти новых друзей. Командная работа и творческая атмосфера вдохновляют на новые достижения.</p>
-                        <p class="story-date">25 января 2025</p>
-                    </div>
-                </div>
-            </div>
+            <h1>ИСТОРИИ УЧАСТНИКОВ</h1>
+            <StoriesList />
         </section>
 
-        <section class="team">
-            <div class="team-filters">
-                <button class="team-filter active" data-filter="organizers">Мегаорганизаторы</button>
-                <button class="team-filter" data-filter="responsible">Мегаответственные</button>
-            </div>
-            
-            <div class="team-members-container">
-                <div class="team-members-scroll organizers active">
-                    <div class="team-member" data-member="member1">
-                        <div class="member-image">
-                            <img src="assets/member1.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member2">
-                        <div class="member-image">
-                            <img src="assets/member2.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member3">
-                        <div class="member-image">
-                            <img src="assets/member3.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member4">
-                        <div class="member-image">
-                            <img src="assets/member4.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member5">
-                        <div class="member-image">
-                            <img src="assets/member5.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member6">
-                        <div class="member-image">
-                            <img src="assets/member6.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                </div>
-
-                <div class="member-info-expanded" id="member1-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member1-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="team-members-scroll responsible">
-                    <div class="team-member" data-member="member7">
-                        <div class="member-image">
-                            <img src="assets/member7.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member8">
-                        <div class="member-image">
-                            <img src="assets/member8.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member9">
-                        <div class="member-image">
-                            <img src="assets/member9.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member10">
-                        <div class="member-image">
-                            <img src="assets/member10.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member11">
-                        <div class="member-image">
-                            <img src="assets/member11.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                    <div class="team-member" data-member="member12">
-                        <div class="member-image">
-                            <img src="assets/member12.jpg" alt="Участник команды">
-                        </div>
-                        <h3 class="member-name">Имя Фамилия</h3>
-                        <p class="member-role">Деятельность</p>
-                    </div>
-                </div>
-
-                <div class="member-info-expanded" id="member7-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member7-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 2 Info -->
-                <div class="member-info-expanded" id="member2-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member2-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 3 Info -->
-                <div class="member-info-expanded" id="member3-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member3-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 4 Info -->
-                <div class="member-info-expanded" id="member4-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member4-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 5 Info -->
-                <div class="member-info-expanded" id="member5-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member5-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 6 Info -->
-                <div class="member-info-expanded" id="member6-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member6-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 8 Info -->
-                <div class="member-info-expanded" id="member8-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member8-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 9 Info -->
-                <div class="member-info-expanded" id="member9-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member9-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 10 Info -->
-                <div class="member-info-expanded" id="member10-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member10-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 11 Info -->
-                <div class="member-info-expanded" id="member11-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member11-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 12 Info -->
-                <div class="member-info-expanded" id="member12-info">
-                    <div class="member-expanded-image">
-                        <img src="assets/member12-full.jpg" alt="Фото участника">
-                    </div>
-                    <div class="member-expanded-info">
-                        <h2 class="member-expanded-name">Имя Фамилия</h2>
-                        <span class="member-expanded-role">Мегаотв. КТУ</span>
-                        <div class="member-expanded-contacts">
-                            <h4>Контактные данные:</h4>
-                            <p>Номер</p>
-                            <p>Почта</p>
-                        </div>
-                        <p class="member-expanded-description">
-                            че то еще<br>
-                            кто это зачем это что это
-                        </p>
-                        <div class="member-expanded-footer">
-                            <span class="member-expanded-date">5 декабря 2024</span>
-                            <span class="member-expanded-smile">:)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="contacts" class="contacts">
-            <h2>КОНТАКТЫ</h2>
+            <h1>КОНТАКТЫ</h1>
             <div class="contacts-container">
-                <div id="map" class="map">
-                    <!-- Карта будет добавлена через JavaScript -->
+                <div id="map" class="map" style="width: 600px; height: 400px">
+
                 </div>
                 <div class="contact-info">
                     <p><i class="icon-location"></i> ул. Ломоносова, д.9</p>
                     <p><i class="icon-phone"></i> +7 (999) 999-99-99</p>
                     <p><i class="icon-email"></i> artem.b@itmo.ru</p>
-                    <button class="contact-button">Построить маршрут</button>
+                    <button class="button">Построить маршрут</button>
                 </div>
             </div>
         </section>
@@ -757,9 +147,9 @@
     <script src="/src/js/maps.js"></script>
     <script src="/src/js/index.js"></script>
     <script lang='js'>
-        // Инициализация карты
-        const itmoMap = new ITMOMap('map');
-        itmoMap.init();
+        // // Инициализация карты
+        // const itmoMap = new ITMOMap('map');
+        // itmoMap.init();
 
         // Обработка кнопки построения маршрута
         document.querySelector('.contact-button').addEventListener('click', () => {
