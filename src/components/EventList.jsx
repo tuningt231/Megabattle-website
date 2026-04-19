@@ -121,7 +121,7 @@ export default function EventList({ startDate = 'november 2025' }) {
           return (
             <div className="event-card active" key={event.key ?? `${event.name}-${event.date}`}>
               <div className="event-image">
-                <img src={event.image} alt={event.name} />
+                <img src={Api.normalizeURL(event.image)} alt={event.name} />
               </div>
               <div className="event-info">
                 <h3>{event.name}</h3>

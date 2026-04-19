@@ -2,6 +2,9 @@ import React from "react";
 import EventList from "./components/EventList";
 import MemberList from "./components/MemberList";
 import StoriesList from "./components/StoriesList";
+import heroVideo from "/hero-video.mp4";
+import heroImg from "/megabattle.svg";
+import aboutImg from "/images/about-image.png";
 
 export default function App() {
   return (
@@ -43,13 +46,13 @@ export default function App() {
         <div className="hero" id="home">
           <div className="video-background">
             <video autoPlay muted loop playsInline>
-              <source src="/hero-video.mp4" type="video/mp4" />
+              <source src={heroVideo} type="video/mp4" />
             </video>
           </div>
           <div className="hero-content">
             <img
               className="hero-title"
-              src="/megabattle.svg"
+              src={heroImg}
               alt="ITMO.MEGABATTLE"
             />
             <p className="hero-slogan">Не для всех, а для каждого</p>
@@ -60,7 +63,7 @@ export default function App() {
           <h1>О ПРОЕКТЕ</h1>
           <div className="about-content">
             <img
-              src="/images/about-image.png"
+              src={aboutImg}
               width="670"
               height="777"
               alt="О проекте"

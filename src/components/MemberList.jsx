@@ -79,7 +79,7 @@ export default function MemberList() {
               onClick={() => handleMemberClick(member)}
             >
               <div className="member-image">
-                <img src={member.smallImage} alt={member.name} />
+                <img src={Api.normalizeURL(member.smallImage)} alt={member.name} />
               </div>
               <h3 className="member-name">{member.name}</h3>
               <p className="member-role">{member.activity}</p>
@@ -91,7 +91,7 @@ export default function MemberList() {
         {activeMember && (
           <div className="member-info-expanded active">
             <div className="member-expanded-image">
-              <img src={activeMember.bigImage} alt={activeMember.name} />
+              <img src={Api.normalizeURL(activeMember.bigImage)} alt={activeMember.name} />
             </div>
             <div className="member-expanded-info">
               <h2 className="member-expanded-name">{activeMember.name}</h2>

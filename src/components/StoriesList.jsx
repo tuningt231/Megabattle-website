@@ -17,7 +17,7 @@ export default function StoriesList() {
         {stories.map((story, idx) => (
           <div className="story-card" key={story.key ?? `${story.name}-${idx}`}>
             <div className="story-image-container">
-              <img src={story.image} alt={story.alt} className="story-image" />
+              <img src={Api.normalizeURL(story.image)} alt={story.alt} className="story-image" />
             </div>
             <h3 className="story-name">{story.name}</h3>
             <p className="story-faculty">{story.faculty}</p>

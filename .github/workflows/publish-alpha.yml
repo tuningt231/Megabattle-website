@@ -1,0 +1,48 @@
+name: Build and publish to GH pages
+
+on:
+  push:
+    branches: ['alpha']
+  pull_request:
+    branches: ['alpha']
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  deploy: 
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install deps
+        run: npm install
+
+      - name: Set Vite base path
+        run: echo "VITE_BASE_PATH=/Megabattle-website/" >> "$GITHUB_ENV"
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        id: upload_files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
+                
