@@ -1,29 +1,29 @@
 [
     {
         "key": "organizer-1",
-        "name": "Елизавета Смирнова",
+        "name": "Елизавета Смирнова 2",
         "activity": "Координация команд",
         "role": "Главный организатор",
         "description": "Отвечает за планирование сезона и синхронизацию работы всех направлений.",
-        "smallImage": "/people/member.jpg",
-        "bigImage": "/people/member-full.jpg"
+        "smallImage": "/images/people/member.jpg",
+        "bigImage": "/images/people/member-full.jpg"
     },
     {
         "key": "organizer-2",
-        "name": "Артем Васильев",
+        "name": "Артем Васильев 2",
         "activity": "Логистика мероприятий",
         "role": "Организатор площадок",
         "description": "Ведет работу с площадками, таймингом и организацией перемещений участников.",
-        "smallImage": "/people/member.jpg",
-        "bigImage": "/people/member-full.jpg"
+        "smallImage": "/images/people/member.jpg",
+        "bigImage": "/images/people/member-full.jpg"
     },
     {
         "key": "organizer-3",
-        "name": "Дарья Крылова",
+        "name": "Дарья Крылова 2",
         "activity": "Коммуникации и PR",
         "role": "Организатор медиа",
         "description": "Курирует информационные анонсы, посты и взаимодействие с участниками проекта.",
-        "smallImage": "/people/member.jpg",
-        "bigImage": "/people/member-full.jpg"
+        "smallImage": "/images/people/member.jpg",
+        "bigImage": "/images/people/member-full.jpg"
     }
 ]
