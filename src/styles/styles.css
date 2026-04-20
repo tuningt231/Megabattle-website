@@ -14,7 +14,7 @@
 } */
 
 /* Добавление отступов от краев экрана и между секциями */
-#events,
+/* #events,
 #about,
 #team,
 #stories,
@@ -22,8 +22,8 @@
     padding-right: var(--side-padding);
     padding-left: var(--side-padding);
     padding-top: var(--side-padding);
-    /* padding-bottom: var(--side-padding); */
-}
+    padding-bottom: var(--side-padding);
+} */
 
 /* Обновление типографики для карточек */
 .story-name,
@@ -576,7 +576,6 @@
 
 /* Contacts Section */
 .contacts {
-    padding: 4rem;
     color: var(--text-color);
 }
 

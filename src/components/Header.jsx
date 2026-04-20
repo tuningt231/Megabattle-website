@@ -1,31 +1,39 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <header className="header">
       <nav>
         <ul className="nav-links">
-          <li>
-            <a href="#home">Главная</a>
+          {/* <li>
+            <Link to="/">Главная</Link>
           </li>
           <li>
-            <a href="#about">О проекте</a>
+            <Link to="/">О проекте</Link>
           </li>
           <li>
-            <a href="#events">События</a>
+            <Link to="/">События</Link>
           </li>
           <li>
-            <a href="#team">Команда</a>
+            <Link to="/people">Команда</Link>
           </li>
           <li>
-            <a href="#organizers">Организаторы</a>
+            <Link to="/people">Организаторы</Link>
           </li>
           <li>
-            <a href="#responsible">Ответственные</a>
+            <Link to="/people">Ответственные</Link>
           </li>
           <li>
-            <a href="#stories">Участники</a>
+            <Link to="/people">Участники</Link>
           </li>
           <li>
-            <a href="#contacts">Контакты</a>
+            <Link to="/">Контакты</Link>
+          </li> */}
+          <li>
+            <Link to="/">Главная</Link>
+          </li>
+          <li>
+            <Link to="/people">Люди</Link>
           </li>
         </ul>
       </nav>

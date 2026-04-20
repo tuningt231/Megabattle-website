@@ -91,3 +91,23 @@ h1 {
 p {
     margin-bottom: 16px;
 }
+
+/* Добавление отступов от краев экрана и между секциями */
+section {
+    margin-left: var(--side-padding);
+    margin-right: var(--side-padding);
+    max-width: 1200px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    align-items: stretch;
+}
+
+/* * {
+    outline: 1px solid red;
+} */

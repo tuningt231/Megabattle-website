@@ -8,8 +8,8 @@
     --heading-font: 'Druk Text Wide Cyr', sans-serif;
     --body-font: 'Raleway', sans-serif;
     /* todo: dynamic padding */
-    --side-padding: 4rem;
-    --text-card-padding: 2rem;
+    --side-padding: min(4rem, 5vw);
+    --text-card-padding: min(2rem, 2.5vw);
     --corner-radius: 30px;
     --card-bg: #00000007;
 }
