@@ -5,43 +5,13 @@ import StoriesList from "./components/StoriesList";
 import heroVideo from "/hero-video.mp4";
 import heroImg from "/megabattle.svg";
 import aboutImg from "/images/about-image.png";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 export default function App() {
   return (
     <>
-      <header className="header">
-        <nav>
-          <ul className="nav-links">
-            <li>
-              <a href="#home">Главная</a>
-            </li>
-            <li>
-              <a href="#about">О проекте</a>
-            </li>
-            <li>
-              <a href="#events">События</a>
-            </li>
-            <li>
-              <a href="#team">Команда</a>
-            </li>
-            <li>
-              <a href="#organizers">Организаторы</a>
-            </li>
-            <li>
-              <a href="#responsible">Ответственные</a>
-            </li>
-            <li>
-              <a href="#stories">Участники</a>
-            </li>
-            <li>
-              <a href="#contacts">Контакты</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="outer-corner" data-tag="1"></div>
-        <div className="outer-corner" data-tag="2"></div>
-      </header>
-
+      <Header />
       <main>
         <div className="hero" id="home">
           <div className="video-background">
@@ -50,11 +20,7 @@ export default function App() {
             </video>
           </div>
           <div className="hero-content">
-            <img
-              className="hero-title"
-              src={heroImg}
-              alt="ITMO.MEGABATTLE"
-            />
+            <img className="hero-title" src={heroImg} alt="ITMO.MEGABATTLE" />
             <p className="hero-slogan">Не для всех, а для каждого</p>
           </div>
         </div>
@@ -106,7 +72,7 @@ export default function App() {
         <span id="responsible"></span>
 
         <section className="team" id="team">
-          <h1 className="team-title">КОМАНДА</h1>
+          <h1>КОМАНДА</h1>
           <MemberList />
         </section>
 
@@ -119,10 +85,12 @@ export default function App() {
           <h1>КОНТАКТЫ</h1>
           <div className="contacts-container">
             <iframe
-              className="map"
+              className="yandex-map"
               title="Карта ИТМО"
-              src="https://yandex.ru/map-widget/v1/?ll=30.338712%2C59.926503&z=16&pt=30.338712,59.926503,pm2blm"
-            ></iframe>
+              src="https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=16"
+            >
+              Карта ИТМО
+            </iframe>
             <div className="contact-info">
               <p>ул. Ломоносова, д.9</p>
               <p>+7 (999) 999-99-99</p>
@@ -144,33 +112,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-logo">ITMO.MEGABATTLE</div>
-          <div className="footer-info">
-            <p>© 1993-2024</p>
-            <p>г. Санкт-Петербург</p>
-            <p>ул. Ломоносова, д.9</p>
-          </div>
-          <div className="footer-links">
-            <h3>Главная</h3>
-            <ul>
-              <li>
-                <a href="#about">Мероприятия</a>
-              </li>
-              <li>
-                <a href="#team">Команда</a>
-              </li>
-              <li>
-                <a href="#contacts">Контакты</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-policy">
-            <h3>Политика конфиденциальности</h3>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

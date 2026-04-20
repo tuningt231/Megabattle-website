@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #4B6BFB;
+    --accent-color: #2541b2;
+    --text-color: #000000;
+    --light-color: #ffffff;
+    --background-dark: #1E1E1E;
+    --heading-font: 'Druk Text Wide Cyr', sans-serif;
+    --body-font: 'Raleway', sans-serif;
+    /* todo: dynamic padding */
+    --side-padding: 4rem;
+    --text-card-padding: 2rem;
+    --corner-radius: 30px;
+    --card-bg: #00000007;
+}
