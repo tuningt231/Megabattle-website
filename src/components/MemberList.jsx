@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Api } from '../api';
+import '../styles/member-list.css';
 
 export default function MemberList() {
   const [organizers, setOrganizers] = useState([]);

@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Api } from '../api';
+import '../styles/event-list.css';
 
 const monthNames = [
   'Январь',
@@ -88,7 +89,7 @@ export default function EventList({ startDate = 'november 2025' }) {
 
   return (
     <>
-      <h1 className="events-title">{title}</h1>
+      <h1>{title}</h1>
 
       <div className="months-container">
         <div className="months-scroll">

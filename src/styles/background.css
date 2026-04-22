@@ -1,0 +1,30 @@
+.vector-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    pointer-events: none;
+    user-select: none;
+    width: 100%;
+    max-width: 100%;
+    opacity: 0.2;
+
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 400px;
+    /* padding-top: 500px; */
+}
+
+
+/* todo: inline it, fix stroke width, change stroke color */
+.vector-container svg {
+    width: 130%;
+    margin-left: -15%;
+    height: auto;
+    /* stroke-width: calc(100px / 1vw); */
+    stroke-width: 2px;
+    stroke: var(--accent-color);
+    
+}

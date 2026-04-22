@@ -21,7 +21,7 @@
     height: var(--corner-radius);
     width: var(--corner-radius);
     border-top-left-radius: var(--corner-radius);
-    box-shadow: -20px -20px 0 20px #fff;
+    box-shadow: -20px -20px 0 18px #fff;
     position: absolute;
     z-index: -1;
 }

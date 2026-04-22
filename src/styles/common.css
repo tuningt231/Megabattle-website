@@ -89,13 +89,12 @@ h1 {
 
 /* Добавление отступов для абзацев */
 p {
-    margin-bottom: 16px;
+    margin-bottom: 0.8rem;
 }
 
 /* Добавление отступов от краев экрана и между секциями */
 section {
-    margin-left: var(--side-padding);
-    margin-right: var(--side-padding);
+    width: 100%;
     max-width: 1200px;
 }
 
@@ -105,9 +104,12 @@ main {
     gap: 4rem;
     padding-top: 4rem;
     padding-bottom: 4rem;
-    align-items: stretch;
+    align-items: center;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
 }
 
 /* * {
     outline: 1px solid red;
 } */
+

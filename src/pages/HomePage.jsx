@@ -2,6 +2,7 @@ import EventList from "../components/EventList";
 import heroVideo from "/hero-video.mp4";
 import heroImg from "/megabattle.svg";
 import aboutImg from "/images/about-image.png";
+import '../styles/page-home.css';
 
 export default function HomePage() {
   return (
