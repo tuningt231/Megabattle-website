@@ -4,7 +4,6 @@ import StoriesList from "../components/StoriesList";
 export default function PeoplePage() {
   return (
     <main>
-
       <section className="team" id="team">
         <h1>КОМАНДА</h1>
         <MemberList />
