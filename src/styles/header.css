@@ -54,5 +54,5 @@
 }
 
 .nav-links a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }

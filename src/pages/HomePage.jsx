@@ -2,7 +2,7 @@ import EventList from "../components/EventList";
 import heroVideo from "/hero-video.mp4";
 import heroImg from "/megabattle.svg";
 import aboutImg from "/images/about-image.png";
-import '../styles/page-home.css';
+import "../styles/page-home.css";
 
 export default function HomePage() {
   return (
@@ -59,7 +59,13 @@ export default function HomePage() {
         </section>
 
         <section id="events" className="events">
+          <h1>БЛИЖАЙШИЕ СОБЫТИЯ</h1>
           <EventList startDate="november 2025" />
+        </section>
+
+        <section id="partners" className="partners">
+          <h1>ПАРТНЕРЫ</h1>
+          Эту секцию пока никто не сделал :(
         </section>
 
         <section id="contacts" className="contacts">
@@ -73,13 +79,23 @@ export default function HomePage() {
               Карта ИТМО
             </iframe>
             <div className="contact-info">
-              <p>ул. Ломоносова, д.9</p>
-              <p>+7 (999) 999-99-99</p>
-              <p>artem.b@itmo.ru</p>
+              <p>
+                <i className="fa-solid fa-location-dot"></i>
+                ул. Ломоносова, д.9
+              </p>
+              <p>
+                <i className="fa-solid fa-phone"></i>
+                +7 (999) 999-99-99
+              </p>
+              <p>
+                <i className="fa-solid fa-at"></i>
+                artem.b@itmo.ru
+              </p>
               <button
                 className="button"
                 type="button"
                 onClick={() =>
+                  // todo: он строит маршрут к черному ходу, а не к основному
                   window.open(
                     "https://yandex.ru/maps/?rtext=~59.926503,30.338712&rtt=auto",
                     "_blank",

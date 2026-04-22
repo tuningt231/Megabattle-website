@@ -1,3 +1,4 @@
+@import "./variables.css";
 
 /* Обновление типографики для заголовков */
 /* h1, h2, h3, h4, 
@@ -14,10 +15,10 @@
 #team,
 #stories,
 #contacts {
-    padding-right: var(--side-padding);
-    padding-left: var(--side-padding);
-    padding-top: var(--side-padding);
-    padding-bottom: var(--side-padding);
+    padding-right: var(--screen-edge-padding);
+    padding-left: var(--screen-edge-padding);
+    padding-top: var(--screen-edge-padding);
+    padding-bottom: var(--screen-edge-padding);
 } */
 
 /* Обновление типографики для карточек */
@@ -45,7 +46,7 @@
 
 /* Hero Section */
 .hero {
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     display: grid;
     align-items: end;
     padding-right: 0;
@@ -72,7 +73,7 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     width: 100%;
-    padding: var(--side-padding);
+    padding: var(--screen-edge-padding);
 }
 
 .hero-title {
@@ -92,7 +93,7 @@
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--text-card-padding);
+    gap: var(--card-padding);
 }
 
 .about-image {
@@ -103,8 +104,8 @@
 }
 
 .about-text {
-    background-color: var(--card-bg);
-    padding: var(--text-card-padding);
+    background-color: var(--surface-color);
+    padding: var(--card-padding);
     border-radius: var(--corner-radius);
 }
 
@@ -126,39 +127,52 @@
     width: 100%;
     border-radius: var(--corner-radius);
     overflow: hidden;
+    border: 0;
 }
 
-/* Стили для элементов управления картой */
-/* .ymaps-2-1-79-map {
-    border-radius: 10px;
-} */
-
-/* .ymaps-2-1-79-controls__control {
-    margin: 10px;
-} */
-
-/* .contact-info {
-    padding: 2rem;
-    color: var(--text-color);
-} */
-
-/* .contact-button {
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    background: var(--primary-color);
-    color: var(--light-color);
-    border: none;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.contact-info {
+    background: var(--surface-color);
+    border-radius: var(--corner-radius);
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.9rem;
 }
 
-.contact-button:hover {
-    transform: translateY(-2px);
+.contact-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
 }
 
-.contact-button:active {
-    transform: scale(0.95);
-} */
+.contact-info i {
+    width: 1.1rem;
+    text-align: center;
+}
+
+.contact-info .button {
+    margin-top: 0.8rem;
+    width: fit-content;
+}
+
+@media (max-width: 900px) {
+    .contacts-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .yandex-map {
+        height: 300px;
+    }
+
+    .contact-info {
+        gap: 0.75rem;
+    }
+
+    .contact-info .button {
+        width: 100%;
+    }
+}
 

@@ -4,7 +4,7 @@
 /* Footer */
 .footer {
     background-color: #000000;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     padding: 3rem 0;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .footer-logo {
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -26,7 +26,7 @@
 .footer-info p,
 .footer-links a,
 .footer-policy h3 {
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     text-decoration: none;
 }
 
@@ -36,5 +36,5 @@
 }
 
 .footer-links a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }

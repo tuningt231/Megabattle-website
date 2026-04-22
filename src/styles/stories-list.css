@@ -1,4 +1,5 @@
 @import './button.css';
+@import "./variables.css";
 
 
 /* Stories Section */
@@ -74,21 +75,21 @@
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     transition: color 0.3s ease;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
 }
 
 .story-faculty {
     font-size: 1rem;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
 }
 
 .story-description {
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
@@ -101,6 +102,6 @@
     font-size: 0.8rem;
     margin-top: auto;
     transition: color 0.3s ease;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     opacity: 0.6;
 }

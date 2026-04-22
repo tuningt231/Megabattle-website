@@ -5,6 +5,7 @@ export default function Background() {
   const svgRef = useRef(null);
   const container = useRef(null);
 
+  // Автоматически продлевать БГ при скролле
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -53,13 +54,13 @@ export default function Background() {
           className="vector-item"
           ref={svgRef}
         >
-          <use href="#vector-001" x="0" y="0" />
-          <use href="#vector-001" x="-5" y="30" />
-          <use href="#vector-001" x="-10" y="60" />
-          <use href="#vector-001" x="-15" y="90" />
-          <use href="#vector-001" x="-20" y="120" />
-          <use href="#vector-001" x="-25" y="150" />
-          <use href="#vector-001" x="-30" y="180" />
+          <use href="#vector-001" x="21" y="0" />
+          <use href="#vector-001" x="14" y="33" />
+          <use href="#vector-001" x="7" y="60" />
+          <use href="#vector-001" x="0" y="95" />
+          <use href="#vector-001" x="-7" y="125" />
+          <use href="#vector-001" x="-14" y="155" />
+          <use href="#vector-001" x="-21" y="190" />
         </svg>
       </div>
     </>

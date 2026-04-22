@@ -1,4 +1,5 @@
 @import './button.css';
+@import "./variables.css";
 
 
 /* Team Section */
@@ -25,7 +26,7 @@
 .team-filter:hover,
 .team-filter.active {
     border-color: transparent;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     background: var(--primary-color);
 } */
 
@@ -92,7 +93,7 @@
 .team-member.active .member-image {
     transform: scale(1.05);
     border: none;
-    box-shadow: 0 0 0 3px var(--secondary-color), 0 10px 30px rgba(75, 107, 251, 0.2);
+    box-shadow: 0 0 0 3px var(--accent-color), 0 10px 30px rgba(75, 107, 251, 0.2);
 }
 
 .member-image {
@@ -115,7 +116,7 @@
 }
 
 .team-member.active .member-name {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 .member-name {
@@ -166,7 +167,7 @@
     flex: 3;
     min-height: 100%;
     padding: 2.5rem;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     display: flex;
     flex-direction: column;
     background: var(--primary-color);
@@ -184,9 +185,9 @@
     display: inline-block;
     padding: 0.75rem 2rem;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--light-color);
+    border: 1px solid var(--text-color-inverted);
     border-radius: 100px;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     font-size: 1.1rem;
     margin-bottom: 2rem;
     align-self: flex-start;

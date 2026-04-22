@@ -32,30 +32,30 @@
     border-color: transparent;
     transform: translateY(-4px);
     background-color: var(--primary-color);
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
 }
 
 .button.active {
     border-color: transparent;
     background-color: var(--primary-color);
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
 }
 
 .button:active {
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     transform: translateY(-1px) scale(0.97);
 }
 
 .button.inverse {
     background-color: var(--text-color);
-    border: 2px solid var(--light-color);
-    color: var(--light-color);
+    border: 2px solid var(--text-color-inverted);
+    color: var(--text-color-inverted);
 }
 
 .button.inverse:hover {
-    background-color: var(--light-color);
+    background-color: var(--text-color-inverted);
     color: var(--text-color);
 }
 

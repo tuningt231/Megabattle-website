@@ -49,7 +49,7 @@ body {
     font-family: var(--body-font);
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #ffffff;
+    background-color: var(--background-color);
     position: relative;
 }
 
@@ -74,6 +74,14 @@ html {
 *::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+}
+
+/* Иконки с FontAwesome */
+.fa-regular,
+.fa-solid,
+.fa-light,
+.fa-thin {
+    width: 1.5em;
 }
 
 /* Обновление стилей для всех заголовков секций */
@@ -105,8 +113,8 @@ main {
     padding-top: 4rem;
     padding-bottom: 4rem;
     align-items: center;
-    padding-left: var(--side-padding);
-    padding-right: var(--side-padding);
+    padding-left: var(--screen-edge-padding);
+    padding-right: var(--screen-edge-padding);
 }
 
 /* * {

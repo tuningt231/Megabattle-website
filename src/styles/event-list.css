@@ -1,25 +1,5 @@
 @import './button.css';
-
-/* Events Section */
-.months-container {
-    /* position: relative; */
-    margin: 2rem 0;
-    overflow: hidden;
-}
-
-.months-scroll {
-    display: flex;
-    gap: 0.85rem;
-    overflow-x: auto;
-    padding: 0.75rem 2rem 1rem;
-    /* scroll-snap-type: x proximity; */
-    /* -webkit-overflow-scrolling: touch; */
-    scroll-padding: 0 2.5rem;
-    margin-bottom: 1rem;
-    margin-left: 0;
-    padding-left: 2rem;
-    list-style: none;
-}
+@import "./variables.css";
 
 /* Event Cards */
 .event-cards {
@@ -32,27 +12,24 @@
 }
 
 .event-card {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
+    display: flex;
+    gap: 0;
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.5s ease;
     width: 1200px;
     max-width: 100%;
-}
-
-.event-card.active {
-    display: flex;
-    gap: 2rem;
-    opacity: 1;
-    transform: translateY(0);
+    border-radius: var(--corner-radius);
+    overflow: hidden;
+    background: var(--primary-color);
 }
 
 .event-image {
     flex: 3;
     height: 500px;
     overflow: hidden;
-    border-radius: var(--corner-radius);
-    background: var(--primary-color);
+    border-radius: 0;
+    background: transparent;
 }
 
 .event-image img {
@@ -64,35 +41,49 @@
 
 .event-info {
     flex: 2;
-    padding: 2rem;
+    padding: var(--card-padding);
     display: flex;
     flex-direction: column;
-    background: var(--primary-color);
-    border-radius: var(--corner-radius);
+    background: transparent;
+    border-radius: 0;
 }
 
 .event-info h3 {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
 }
 
 .event-date {
-    font-size: 1.2rem;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     margin-bottom: 0.5rem;
 }
 
 .event-location {
-    font-size: 1.1rem;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     margin-bottom: 1.5rem;
 }
 
 .event-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--light-color);
+    color: var(--text-color-inverted);
     margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+    .event-card {
+        flex-direction: column;
+    }
+
+    .event-image {
+        width: 100%;
+        height: 280px;
+        flex: none;
+    }
+
+    .event-info {
+        width: 100%;
+    }
 }
