@@ -79,18 +79,18 @@ export default function HomePage() {
               Карта ИТМО
             </iframe>
             <div className="contact-info">
-              <p>
+              <div>
                 <i className="fa-solid fa-location-dot"></i>
                 ул. Ломоносова, д.9
-              </p>
-              <p>
+              </div>
+              <div>
                 <i className="fa-solid fa-phone"></i>
                 +7 (999) 999-99-99
-              </p>
-              <p>
+              </div>
+              <div>
                 <i className="fa-solid fa-at"></i>
                 artem.b@itmo.ru
-              </p>
+              </div>
               <button
                 className="button"
                 type="button"

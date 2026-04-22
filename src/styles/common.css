@@ -93,7 +93,16 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: var(--heading-font);
+    /* todo: add some text shadow */
 } 
+
+h1::before {
+    content: '◄ ';
+}
+
+h1::after {
+    content: ' ►';
+}
 
 /* Добавление отступов для абзацев */
 p {

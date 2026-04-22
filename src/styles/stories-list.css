@@ -34,6 +34,8 @@
     overflow: hidden;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
 }
 
 /* Анимации при наведении на карточку */

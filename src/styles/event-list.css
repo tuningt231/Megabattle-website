@@ -22,6 +22,8 @@
     border-radius: var(--corner-radius);
     overflow: hidden;
     background: var(--primary-color);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
 }
 
 .event-image {

@@ -106,6 +106,7 @@
     margin-bottom: 1rem;
     transition: all 0.5s ease;
     position: relative;
+    box-shadow: var(--card-shadow);
 }
 
 .member-image img {
@@ -155,6 +156,8 @@
     border-radius: var(--corner-radius);;
     overflow: hidden;
     background: var(--primary-color);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
 }
 
 .member-expanded-image img {
@@ -171,7 +174,9 @@
     display: flex;
     flex-direction: column;
     background: var(--primary-color);
-    border-radius: var(--corner-radius);;
+    border-radius: var(--corner-radius);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
 }
 
 .member-expanded-name {
