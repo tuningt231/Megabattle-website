@@ -32,12 +32,12 @@
 }
 
 .outer-corner[data-tag="1"] {
-    top: 0;
+    top: -1px;
     right: calc(-1 * var(--corner-radius));
 }
 
 .outer-corner[data-tag="2"] {
-    left: 0;
+    left: -1px;
     bottom: calc(-1 * var(--corner-radius));
 }
 

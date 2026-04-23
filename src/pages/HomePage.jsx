@@ -1,10 +1,24 @@
+import { useEffect, useState } from "react";
 import EventList from "../components/EventList";
 import heroVideo from "/hero-video.mp4";
 import aboutImg from "/images/about-image.png";
 import "../styles/page-home.css";
 import Megabattle from "../components/Megabattle";
+import { Theme } from "../theme";
 
 export default function HomePage() {
+  const [theme, setTheme] = useState(Theme.get());
+  const isDarkTheme = theme === "dark";
+
+  useEffect(() => {
+    Theme.addListener(setTheme, false);
+    return () => Theme.removeListener(setTheme);
+  }, []);
+
+  const mapSrc = `https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=16${
+    isDarkTheme ? "&theme=dark" : "&theme=light"
+  }`;
+
   return (
     <>
       <div className="hero" id="home">
@@ -15,7 +29,7 @@ export default function HomePage() {
         </div>
         <div className="hero-content">
           {/* <img className="hero-title" src={heroImg} alt="ITMO.MEGABATTLE" /> */}
-          <Megabattle className="hero-title"/>
+          <Megabattle className="hero-title" />
           <p className="hero-slogan">Не для всех, а для каждого</p>
         </div>
       </div>
@@ -67,16 +81,13 @@ export default function HomePage() {
         <section id="partners" className="partners">
           <h1>ПАРТНЕРЫ</h1>
           Эту секцию пока никто не сделал :(
+          <a href="#about">about</a>
         </section>
 
         <section id="contacts" className="contacts">
           <h1>КОНТАКТЫ</h1>
           <div className="contacts-container">
-            <iframe
-              className="yandex-map"
-              title="Карта ИТМО"
-              src="https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=16"
-            >
+            <iframe className="yandex-map" title="Карта ИТМО" src={mapSrc}>
               Карта ИТМО
             </iframe>
             <div className="contact-info">
