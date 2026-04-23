@@ -53,9 +53,9 @@ body {
     position: relative;
 }
 
-:root {
+/* :root {
     scroll-behavior: smooth;
-}
+} */
 
 ::selection {
     background-color: color-mix(in srgb, var(--accent-color) 75%, transparent);
