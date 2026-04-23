@@ -155,7 +155,6 @@
     aspect-ratio: 1/1;
     border-radius: var(--corner-radius);;
     overflow: hidden;
-    background: var(--primary-color);
     box-shadow: var(--card-shadow);
     border: var(--card-border);
 }
@@ -170,29 +169,27 @@
     flex: 3;
     min-height: 100%;
     padding: 2.5rem;
-    color: var(--text-color-inverted);
+    color: var(--text-color-special);
     display: flex;
     flex-direction: column;
-    background: var(--primary-color);
+    background-color: var(--surface-color-special);
     border-radius: var(--corner-radius);
     box-shadow: var(--card-shadow);
     border: var(--card-border);
 }
 
 .member-expanded-name {
-    font-size: 3.5rem;
-    font-weight: bold;
+    /* font-size: 3.5rem; */
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .member-expanded-role {
     display: inline-block;
     padding: 0.75rem 2rem;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--text-color-inverted);
+    border: 1px solid currentColor;
     border-radius: 100px;
-    color: var(--text-color-inverted);
     font-size: 1.1rem;
     margin-bottom: 2rem;
     align-self: flex-start;

@@ -6,7 +6,7 @@
     font-family: var(--body-font);
     font-weight: 500;
     flex: 0 0 auto;
-    background-color: #fff;
+    background-color: var(--background-color);
     border: 2px solid var(--primary-color);
     border-radius: 2rem;
     padding: 1rem 2rem;
@@ -61,7 +61,7 @@
 
 .button.active.inverse {
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--text-color-inverted);
 }
 
 .button.inverse:active {

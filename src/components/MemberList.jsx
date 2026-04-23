@@ -20,18 +20,18 @@ export default function MemberList() {
 
   // разделы #responsible и #organizers объединены в один.
   // сделать так, чтобы работали якорные ссылки на оба
-  useEffect(() => {
-    const onHashChange = () => {
-      if (window.location.hash === '#responsible') {
-        setActiveFilter('responsible');
-      } else if (window.location.hash === '#organizers') {
-        setActiveFilter('organizers');
-      }
-    };
-    onHashChange();
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
+  // useEffect(() => {
+  //   const onHashChange = () => {
+  //     if (window.location.hash === '#responsible') {
+  //       setActiveFilter('responsible');
+  //     } else if (window.location.hash === '#organizers') {
+  //       setActiveFilter('organizers');
+  //     }
+  //   };
+  //   onHashChange();
+  //   window.addEventListener('hashchange', onHashChange);
+  //   return () => window.removeEventListener('hashchange', onHashChange);
+  // }, []);
 
   const visibleMembers = activeFilter === 'organizers' ? organizers : responsible;
 
@@ -51,7 +51,6 @@ export default function MemberList() {
           className={`button team-filter${activeFilter === 'organizers' ? ' active' : ''}`}
           type="button"
           onClick={() => {
-            window.location.hash = 'organizers';
             setActiveFilter('organizers');
           }}
         >
@@ -61,7 +60,6 @@ export default function MemberList() {
           className={`button team-filter${activeFilter === 'responsible' ? ' active' : ''}`}
           type="button"
           onClick={() => {
-            window.location.hash = 'responsible';
             setActiveFilter('responsible');
           }}
         >
@@ -95,7 +93,7 @@ export default function MemberList() {
               <img src={Api.normalizeURL(activeMember.bigImage)} alt={activeMember.name} />
             </div>
             <div className="member-expanded-info">
-              <h2 className="member-expanded-name">{activeMember.name}</h2>
+              <h3 className="member-expanded-name">{activeMember.name}</h3>
               <span className="member-expanded-role">{activeMember.role}</span>
               <p className="member-expanded-description">{activeMember.description}</p>
             </div>

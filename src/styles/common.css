@@ -57,6 +57,16 @@ html {
     scroll-behavior: smooth;
 }
 
+::selection {
+    background-color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    color: var(--text-color-inverted);
+}
+
+::-moz-selection {
+    background-color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    color: var(--text-color-inverted);
+}
+
 /* Стилизация всех скроллбаров на странице */
 *::-webkit-scrollbar {
     height: 10px;
@@ -84,7 +94,8 @@ html {
     width: 1.5em;
 }
 
-/* Обновление стилей для всех заголовков секций */
+/* Обновление стилей заголовков */
+/* h1 - заголовки секций */
 h1 {
     text-align: center;
     font-size: 3.5rem;
@@ -94,14 +105,24 @@ h1 {
     letter-spacing: 2px;
     font-family: var(--heading-font);
     /* todo: add some text shadow */
+    text-shadow: 3px 3px 0px color-mix(in srgb, var(--accent-color) 60%, transparent);
 } 
+
+/* h3 - заголовки на карточках */
+h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 
 h1::before {
     content: '◄ ';
+    text-wrap: nowrap;
 }
 
 h1::after {
     content: ' ►';
+    text-wrap: nowrap;
 }
 
 /* Добавление отступов для абзацев */
@@ -110,6 +131,7 @@ p {
 }
 
 /* Добавление отступов от краев экрана и между секциями */
+.section,
 section {
     width: 100%;
     max-width: 1200px;

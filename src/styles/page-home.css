@@ -77,10 +77,11 @@
     padding: var(--screen-edge-padding);
 }
 
+/* todo: maybe add shadow */
 .hero-title {
-    margin-bottom: 2rem;
     width: 100%;
-    /* todo: maybe add shadow */
+    margin-bottom: 2rem;
+    fill: white !important;
 }
 
 .hero-slogan {
@@ -88,6 +89,7 @@
     line-height: 1.6;
     margin-bottom: 2rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 /* About Section */

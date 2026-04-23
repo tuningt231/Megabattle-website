@@ -1,8 +1,8 @@
 import EventList from "../components/EventList";
 import heroVideo from "/hero-video.mp4";
-import heroImg from "/megabattle.svg";
 import aboutImg from "/images/about-image.png";
 import "../styles/page-home.css";
+import Megabattle from "../components/Megabattle";
 
 export default function HomePage() {
   return (
@@ -14,7 +14,8 @@ export default function HomePage() {
           </video>
         </div>
         <div className="hero-content">
-          <img className="hero-title" src={heroImg} alt="ITMO.MEGABATTLE" />
+          {/* <img className="hero-title" src={heroImg} alt="ITMO.MEGABATTLE" /> */}
+          <Megabattle className="hero-title"/>
           <p className="hero-slogan">Не для всех, а для каждого</p>
         </div>
       </div>

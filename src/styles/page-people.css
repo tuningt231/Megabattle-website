@@ -1,0 +1,8 @@
+@import "./variables.css";
+
+
+
+.people-title {
+    margin: 2rem 0;
+    fill: var(--text-color) !important;
+}

@@ -3,9 +3,14 @@
 
 /* Footer */
 .footer {
-    background-color: #000000;
-    color: var(--text-color-inverted);
+    background-color: var(--surface-color-special);
+    color: #ffffff;
     padding: 3rem 0;
+    border-top-left-radius: var(--corner-radius);
+    border-top-right-radius: var(--corner-radius);
+    border: var(--card-border);
+    border-left-width: 0;
+    border-right-width: 0;
 }
 
 .footer-content {
@@ -18,7 +23,6 @@
 }
 
 .footer-logo {
-    color: var(--text-color-inverted);
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -26,7 +30,6 @@
 .footer-info p,
 .footer-links a,
 .footer-policy h3 {
-    color: var(--text-color-inverted);
     text-decoration: none;
 }
 

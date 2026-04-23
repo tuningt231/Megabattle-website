@@ -12,7 +12,7 @@ export default function Footer() {
           <p>ул. Ломоносова, д.9</p>
         </div>
         <div className="footer-links">
-          <h3>Главная</h3>
+          <span>Главная</span>
           <ul>
             {/* todo:  */}
             {/* <li>
@@ -27,7 +27,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="footer-policy">
-          <h3>Политика конфиденциальности</h3>
+          <span>Политика конфиденциальности</span>
         </div>
       </div>
     </footer>

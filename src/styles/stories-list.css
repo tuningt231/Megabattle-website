@@ -22,7 +22,8 @@
 
 .story-card {
     flex: 0 0 300px;
-    background: var(--primary-color);
+    background-color: var(--surface-color-special);
+    color: var(--text-color-special);
     border-radius: var(--corner-radius);;
     padding: 2rem;
     scroll-snap-align: start;
@@ -41,7 +42,6 @@
 /* Анимации при наведении на карточку */
 .story-card:hover {
     transform: translateY(-10px);
-    background: var(--primary-color);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -77,21 +77,18 @@
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     transition: color 0.3s ease;
-    color: var(--text-color-inverted);
 }
 
 .story-faculty {
     font-size: 1rem;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
-    color: var(--text-color-inverted);
 }
 
 .story-description {
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    color: var(--text-color-inverted);
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
@@ -104,6 +101,5 @@
     font-size: 0.8rem;
     margin-top: auto;
     transition: color 0.3s ease;
-    color: var(--text-color-inverted);
     opacity: 0.6;
 }
