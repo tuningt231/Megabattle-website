@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Api } from '../api';
+import '../styles/stories-list.css';
 
 export default function StoriesList() {
   const [stories, setStories] = useState([]);

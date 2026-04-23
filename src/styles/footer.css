@@ -1,0 +1,43 @@
+@import "./variables.css";
+
+
+/* Footer */
+.footer {
+    background-color: var(--surface-color-special);
+    color: #ffffff;
+    padding: 3rem 0;
+    border-top-left-radius: var(--corner-radius);
+    border-top-right-radius: var(--corner-radius);
+    border: var(--card-border);
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.footer-info p,
+.footer-links a,
+.footer-policy h3 {
+    text-decoration: none;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}

@@ -1,0 +1,154 @@
+@import "./variables.css";
+
+/* Подключение шрифтов */
+@font-face {
+    font-family: 'Druk Text Wide Cyr';
+    src: url('/fonts/Druk-Text-Wide-Cyr-Medium.woff2') format('woff2'),
+         url('/fonts/Druk-Text-Wide-Cyr-Medium.woff') format('woff'),
+         url('/fonts/Druk-Text-Wide-Cyr-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('/fonts/Raleway-VariableFont_wght.woff2') format('woff2'),
+         url('/fonts/Raleway-VariableFont_wght.woff') format('woff'),
+         url('/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'Raleway';
+    src: url('Font/Raleway-Medium.woff2') format('woff2'),
+         url('Font/Raleway-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('Font/Raleway-Bold.woff2') format('woff2'),
+         url('Font/Raleway-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    color: var(--text-color-inverted);
+}
+
+::-moz-selection {
+    background-color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    color: var(--text-color-inverted);
+}
+
+/* Стилизация всех скроллбаров на странице */
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+/* Иконки с FontAwesome */
+.fa-regular,
+.fa-solid,
+.fa-light,
+.fa-thin {
+    width: 1.5em;
+}
+
+/* Обновление стилей заголовков */
+/* h1 - заголовки секций */
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--heading-font);
+    /* todo: add some text shadow */
+    text-shadow: 3px 3px 0px color-mix(in srgb, var(--accent-color) 60%, transparent);
+} 
+
+/* h3 - заголовки на карточках */
+h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h1::before {
+    content: '◄ ';
+    text-wrap: nowrap;
+}
+
+h1::after {
+    content: ' ►';
+    text-wrap: nowrap;
+}
+
+/* Добавление отступов для абзацев */
+p {
+    margin-bottom: 0.8rem;
+}
+
+/* Добавление отступов от краев экрана и между секциями */
+.section,
+section {
+    width: 100%;
+    max-width: 1200px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    align-items: center;
+    padding-left: var(--screen-edge-padding);
+    padding-right: var(--screen-edge-padding);
+}
+
+/* * {
+    outline: 1px solid red;
+} */
+

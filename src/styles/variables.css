@@ -1,0 +1,39 @@
+:root {
+    color-scheme: light;
+    --background-color: #ffffff;
+    --primary-color: #000000;
+    --accent-color: #4B6BFB;
+    /* --accent-color: #2541b2; */
+    --text-color: #000000;
+    --text-color-inverted: #ffffff;
+    /* special color - inverted in light mode, normal in dark mode */
+    --text-color-special: #ffffff; 
+    /* --background-dark: #1E1E1E; */
+    --surface-color: #f8f8f8dd;
+    --surface-color-special: #000000;
+    --border-color: #D8D8D8;
+
+    --heading-font: 'Druk Text Wide Cyr', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+    --body-font: 'Raleway', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+
+    --screen-edge-padding: min(4rem, 5vw);
+    --card-padding: min(2rem, 2.5vw);
+    --corner-radius: 30px;
+    --card-shadow: 0px 12px 24px rgba(34, 34, 34, 0.12);
+    --card-border: 1px solid var(--border-color);
+    /* --card-border-inverted: 1px solid #373737; */
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --background-color: #151515;
+    --primary-color: #f3f3f3;
+    --accent-color: #8ba5ff;
+    --text-color: #f3f3f3;
+    --text-color-inverted: #0f0f0f;
+    --text-color-special: var(--text-color);
+    --surface-color: #232323dd;
+    --surface-color-special: var(--surface-color);
+    --card-shadow: 0px 12px 24px rgba(0, 0, 0, 0.35);
+    --border-color: #373737;
+}

@@ -1,0 +1,74 @@
+@import "./variables.css";
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+
+    /* filter: drop-shadow(1.2px 1.2px 1.2px red); */
+    filter: drop-shadow(1.8px 1.8px 0 var(--border-color));
+
+    background-color: var(--background-color);
+    border-bottom-right-radius: var(--corner-radius);
+    min-height: calc(2 * var(--corner-radius));
+    font-size: 1.1rem;
+}
+
+.outer-corner {
+    background-color: transparent;
+    height: var(--corner-radius);
+    width: var(--corner-radius);
+    border-top-left-radius: var(--corner-radius);
+    box-shadow: -20px -20px 0 18px var(--background-color);
+    position: absolute;
+    z-index: -1;
+}
+
+.outer-corner[data-tag="1"] {
+    top: 0;
+    right: calc(-1 * var(--corner-radius));
+}
+
+.outer-corner[data-tag="2"] {
+    left: 0;
+    bottom: calc(-1 * var(--corner-radius));
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2rem;
+    min-width: 2.2rem;
+    padding: 0.7rem;
+    border-radius: 99px;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.header-item:hover {
+    background-color: color-mix(var(--accent-color) 16%, transparent);
+    color: var(--accent-color);
+}
+
+.theme-toggle {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background-color: transparent;
+}
+

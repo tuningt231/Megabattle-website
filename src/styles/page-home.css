@@ -1,0 +1,190 @@
+@import "./variables.css";
+
+/* Обновление типографики для заголовков */
+/* h1, h2, h3, h4, 
+.hero-title,
+.events-title,
+.member-expanded-name {
+    font-family: var(--heading-font);
+    font-weight: 500;
+} */
+
+/* Добавление отступов от краев экрана и между секциями */
+/* #events,
+#about,
+#team,
+#stories,
+#contacts {
+    padding-right: var(--screen-edge-padding);
+    padding-left: var(--screen-edge-padding);
+    padding-top: var(--screen-edge-padding);
+    padding-bottom: var(--screen-edge-padding);
+} */
+
+/* Обновление типографики для карточек */
+/* .story-name,
+.member-name,
+.member-expanded-role {
+    font-family: var(--heading-font);
+    font-weight: 500;
+}
+
+.story-faculty,
+.story-description,
+.member-role,
+.member-expanded-description,
+.member-expanded-contacts {
+    font-family: var(--body-font);
+}
+
+/* Только для секций, где нужен белый фон */
+/* .story-card,
+.event-info,
+.member-expanded-info {
+    background-color: var(--primary-color);
+} */ 
+
+/* Hero Section */
+.hero {
+    color: var(--text-color-inverted);
+    display: grid;
+    align-items: end;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.video-background {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 100%;
+    height: 100%;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100dvh;
+    object-fit: cover;
+    border-bottom-right-radius: var(--corner-radius);
+    border-bottom-left-radius: var(--corner-radius);
+    background-color: #002346;
+    /* background-color: var(--accent-color); */
+}
+
+.hero-content {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 100%;
+    padding: var(--screen-edge-padding);
+}
+
+/* todo: maybe add shadow */
+.hero-title {
+    width: 100%;
+    margin-bottom: 2rem;
+    fill: white !important;
+}
+
+.hero-slogan {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--card-padding);
+}
+
+.about-image {
+    width: 100%;
+    border-radius: var(--corner-radius);
+    object-fit: cover;
+    object-position: 50% 25%;
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+}
+
+.about-text {
+    background-color: var(--surface-color);
+    padding: var(--card-padding);
+    border-radius: var(--corner-radius);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+}
+
+/* Contacts Section */
+.contacts {
+    color: var(--text-color);
+}
+
+.contacts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Map Styles */
+.yandex-map {
+    height: 400px;
+    width: 100%;
+    border-radius: var(--corner-radius);
+    overflow: hidden;
+    border: 0;
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+}
+
+.contact-info {
+    background: var(--surface-color);
+    border-radius: var(--corner-radius);
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.9rem;
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+}
+
+/* .contact-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+} */
+
+/* .contact-info i {
+    width: 1.1rem;
+    text-align: center;
+} */
+
+/* .contact-info .button {
+    margin-top: 0.8rem;
+    width: fit-content;
+} */
+
+@media (max-width: 900px) {
+    .contacts-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .yandex-map {
+        height: 300px;
+    }
+
+    .contact-info {
+        gap: 0.75rem;
+    }
+
+    .contact-info .button {
+        width: 100%;
+    }
+}
+
