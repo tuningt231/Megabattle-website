@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Api } from '../api';
-import '../styles/stories-list.css';
+import React, { useEffect, useState } from "react";
+import { Api } from "../api";
+import "../styles/stories-list.css";
+import { useQuery } from "@tanstack/react-query";
 
 export default function StoriesList() {
-  const [stories, setStories] = useState([]);
+  // const [stories, setStories] = useState([]);
 
   // получить данные с API
-  useEffect(() => {
-    Api.getStories()
-      .then(setStories)
-      .catch(console.error);
-  }, []);
+  // useEffect(() => {
+  //   Api.getStories()
+  //     .then(setStories)
+  //     .catch(console.error);
+  // }, []);
+
+  // получить данные с API (или из кэша)
+  const stories = useQuery({
+    queryKey: ["stories"],
+    queryFn: Api.getStories,
+    initialData: [],
+  }).data;
 
   return (
     <div className="stories-container">
@@ -18,7 +26,11 @@ export default function StoriesList() {
         {stories.map((story, idx) => (
           <div className="story-card" key={story.key ?? `${story.name}-${idx}`}>
             <div className="story-image-container">
-              <img src={Api.normalizeURL(story.image)} alt={story.alt} className="story-image" />
+              <img
+                src={Api.normalizeURL(story.image)}
+                alt={story.alt}
+                className="story-image"
+              />
             </div>
             <h3 className="story-name">{story.name}</h3>
             <p className="story-faculty">{story.faculty}</p>

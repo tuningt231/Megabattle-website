@@ -16,16 +16,17 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import PeoplePage from "./pages/PeoplePage";
 import "./styles/common.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   return (
-    <>
+    <QueryClientProvider client={new QueryClient()}>
       <Header />
       <Background />
       <Outlet />
       <ScrollRestoration />
       <Footer />
-    </>
+    </QueryClientProvider>
   );
 }
 

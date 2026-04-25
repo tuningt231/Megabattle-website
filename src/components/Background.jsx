@@ -7,6 +7,7 @@ export default function Background() {
 
   // Автоматически продлевать БГ при скролле
   useEffect(() => {
+    // todo: broken when starting in the middle of a page e.g /#contacts
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         observer.disconnect();
