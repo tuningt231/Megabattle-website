@@ -1,22 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { Api } from '../api';
-import '../styles/member-list.css';
+import React, { useEffect, useState } from "react";
+import { Api } from "../api";
+import "../styles/member-list.css";
+import { useQuery } from "@tanstack/react-query";
 
 export default function MemberList() {
-  const [organizers, setOrganizers] = useState([]);
-  const [responsible, setResponsible] = useState([]);
-  const [activeFilter, setActiveFilter] = useState('organizers');
+  // const [organizers, setOrganizers] = useState([]);
+  // const [responsible, setResponsible] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("organizers");
   const [activeMember, setActiveMember] = useState(null);
 
   // получить данные с API
-  useEffect(() => {
-    Promise.all([Api.getOrganizers(), Api.getResponsible()])
-      .then(([organizersResult, responsibleResult]) => {
-        setOrganizers(organizersResult);
-        setResponsible(responsibleResult);
-      })
-      .catch(console.error);
-  }, []);
+  // useEffect(() => {
+  //   Promise.all([Api.getOrganizers(), Api.getResponsible()])
+  //     .then(([organizersResult, responsibleResult]) => {
+  //       setOrganizers(organizersResult);
+  //       setResponsible(responsibleResult);
+  //     })
+  //     .catch(console.error);
+  // }, []);
+  // получить данные с API (или из кэша )
+  const organizers = useQuery({
+    queryKey: ["organizers"],
+    queryFn: Api.getOrganizers,
+    initialData: [],
+  }).data;
+  const responsible = useQuery({
+    queryKey: ["responsible"],
+    queryFn: Api.getResponsible,
+    initialData: [],
+  }).data;
 
   // разделы #responsible и #organizers объединены в один.
   // сделать так, чтобы работали якорные ссылки на оба
@@ -33,7 +45,8 @@ export default function MemberList() {
   //   return () => window.removeEventListener('hashchange', onHashChange);
   // }, []);
 
-  const visibleMembers = activeFilter === 'organizers' ? organizers : responsible;
+  const visibleMembers =
+    activeFilter === "organizers" ? organizers : responsible;
 
   // колбэк на выбор нового просматриваемого участника
   const handleMemberClick = (member) => {
@@ -48,19 +61,19 @@ export default function MemberList() {
     <>
       <div className="team-filters">
         <button
-          className={`button team-filter${activeFilter === 'organizers' ? ' active' : ''}`}
+          className={`button team-filter${activeFilter === "organizers" ? " active" : ""}`}
           type="button"
           onClick={() => {
-            setActiveFilter('organizers');
+            setActiveFilter("organizers");
           }}
         >
           Мегаорганизаторы
         </button>
         <button
-          className={`button team-filter${activeFilter === 'responsible' ? ' active' : ''}`}
+          className={`button team-filter${activeFilter === "responsible" ? " active" : ""}`}
           type="button"
           onClick={() => {
-            setActiveFilter('responsible');
+            setActiveFilter("responsible");
           }}
         >
           Мегаответственные
@@ -69,33 +82,41 @@ export default function MemberList() {
 
       <div className="team-members-container">
         <div className="team-members-scroll">
-        {visibleMembers.map((member) => {
-          const isActive = activeMember === member;
-          return (
-            <div
-              key={member.key ?? `${member.name}-${member.activity}`}
-              className={`team-member${isActive ? ' active' : ''}`}
-              onClick={() => handleMemberClick(member)}
-            >
-              <div className="member-image">
-                <img src={Api.normalizeURL(member.smallImage)} alt={member.name} />
+          {visibleMembers.map((member) => {
+            const isActive = activeMember === member;
+            return (
+              <div
+                key={member.key ?? `${member.name}-${member.activity}`}
+                className={`team-member${isActive ? " active" : ""}`}
+                onClick={() => handleMemberClick(member)}
+              >
+                <div className="member-image">
+                  <img
+                    src={Api.normalizeURL(member.smallImage)}
+                    alt={member.name}
+                  />
+                </div>
+                <h3 className="member-name">{member.name}</h3>
+                <p className="member-role">{member.activity}</p>
               </div>
-              <h3 className="member-name">{member.name}</h3>
-              <p className="member-role">{member.activity}</p>
-            </div>
-          );
-        })}
+            );
+          })}
         </div>
 
         {activeMember && (
           <div className="member-info-expanded active">
             <div className="member-expanded-image">
-              <img src={Api.normalizeURL(activeMember.bigImage)} alt={activeMember.name} />
+              <img
+                src={Api.normalizeURL(activeMember.bigImage)}
+                alt={activeMember.name}
+              />
             </div>
             <div className="member-expanded-info">
               <h3 className="member-expanded-name">{activeMember.name}</h3>
               <span className="member-expanded-role">{activeMember.role}</span>
-              <p className="member-expanded-description">{activeMember.description}</p>
+              <p className="member-expanded-description">
+                {activeMember.description}
+              </p>
             </div>
           </div>
         )}

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Api } from "../api";
 import "../styles/event-list.css";
+import { useQuery } from "@tanstack/react-query";
 
 const monthNamesForm2 = [
   "января",
@@ -18,12 +19,18 @@ const monthNamesForm2 = [
 ];
 
 export default function EventList() {
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
 
   // получить данные с API
-  useEffect(() => {
-    Api.getEvents().then(setEvents).catch(console.error);
-  }, []);
+  // useEffect(() => {
+  //   Api.getEvents().then(setEvents).catch(console.error);
+  // }, []);
+  // получить данные с API (или из кэша)
+  const events = useQuery({
+    queryKey: ["events"],
+    queryFn: Api.getEvents,
+    initialData: [],
+  }).data;
 
   // показываем только события сегодня и в будущем
   const visibleEvents = useMemo(() => {
