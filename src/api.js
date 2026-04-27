@@ -29,4 +29,8 @@ export const Api = {
   getStories() {
     return fetchJson('data/stories.json');
   },
+
+  getPartners() {
+  return fetchJson('data/partners.json');
+  }
 };

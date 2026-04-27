@@ -1,0 +1,107 @@
+.partners-section {
+  width: 100vw;
+  margin: 0 calc(-50vw + 50%);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  padding: 80px 0;
+}
+
+/* ===== РЯД ===== */
+.carousel-row {
+  width: 100%;
+  overflow: hidden;
+    margin-bottom: 100px;
+  position: relative;
+}
+
+.carousel-row:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== ТРЕК (движение) ===== */
+.track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+
+  animation: move-left 40s linear infinite;
+}
+
+/* второй ряд — в обратную сторону */
+.carousel-row.reverse .track {
+  animation: move-right 40s linear infinite;
+}
+
+/* пауза при наведении */
+.carousel-row:hover .track {
+  animation-play-state: paused;
+}
+
+/* ===== КАРТОЧКА ===== */
+.partner-card {
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+
+  position: relative;
+  cursor: pointer;
+}
+
+/* ===== АВАТАРКА ===== */
+.avatar {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  position: relative;
+
+  background: var(--surface-color-special);
+  border: var(--card-border);
+}
+
+/* картинка полностью заполняет круг */
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ===== ХОВЕР (опционально, делает живее) ===== */
+.partner-card {
+  transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: scale(1.08);
+}
+
+/* ===== БЕЗОПАСНОСТЬ ОТ СКРОЛЛА ===== */
+html, body {
+  overflow-x: hidden;
+}
