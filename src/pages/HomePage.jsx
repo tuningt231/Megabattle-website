@@ -5,6 +5,7 @@ import aboutImg from "/images/about-image.png";
 import "../styles/page-home.css";
 import Megabattle from "../components/Megabattle";
 import Partners from "../components/Partners";
+import { Theme } from "../theme";
 
 export default function HomePage() {
   const [theme, setTheme] = useState(Theme.get());
