@@ -4,7 +4,7 @@ import heroVideo from "/hero-video.mp4";
 import aboutImg from "/images/about-image.png";
 import "../styles/page-home.css";
 import Megabattle from "../components/Megabattle";
-import { Theme } from "../theme";
+import Partners from "../components/Partners";
 
 export default function HomePage() {
   const [theme, setTheme] = useState(Theme.get());
@@ -80,8 +80,7 @@ export default function HomePage() {
 
         <section id="partners" className="partners">
           <h1>ПАРТНЕРЫ</h1>
-          Эту секцию пока никто не сделал :(
-          <a href="#about">about</a>
+          <Partners />
         </section>
 
         <section id="contacts" className="contacts">
