@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/doble.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
@@ -37,42 +37,7 @@
   {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/doble.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
-  },
-  {
-    "id": 2,
-    "name": "Microsoft",
-    "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
-  },
-  {
-    "id": 3,
-    "name": "Amazon",
-    "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
-  },
-  {
-    "id": 4,
-    "name": "IBM",
-    "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
-  },
-  {
-    "id": 5,
-    "name": "Intel",
-    "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
-  },
-    {
-    "id": 1,
-    "name": "лвлв",
-    "logo": "/images/partners/doble.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
@@ -107,7 +72,7 @@
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/doble.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
@@ -142,7 +107,7 @@
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/doble.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
@@ -177,7 +142,7 @@
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/doble.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
@@ -212,7 +177,42 @@
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/doble.png",
+    "logo": "/images/partners/double.png",
+    "description": "Технологический партнёр",
+    "link": "https://google.com"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft",
+    "logo": "/images/partners/drinkit.png",
+    "description": "Облачные решения",
+    "link": "https://microsoft.com"
+  },
+  {
+    "id": 3,
+    "name": "Amazon",
+    "logo": "/images/partners/kaori.jpg",
+    "description": "Партнёр по облачным технологиям",
+    "link": "https://amazon.com"
+  },
+  {
+    "id": 4,
+    "name": "IBM",
+    "logo": "/images/partners/perekr.jpeg",
+    "description": "Партнёр по искусственному интеллекту",
+    "link": "https://ibm.com"
+  },
+  {
+    "id": 5,
+    "name": "Intel",
+    "logo": "/images/partners/podpisn.jpeg",
+    "description": "Партнёр по аппаратному обеспечению",
+    "link": "https://intel.com"
+  },
+    {
+    "id": 1,
+    "name": "лвлв",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
