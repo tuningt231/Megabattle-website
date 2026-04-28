@@ -4,14 +4,6 @@ import "../styles/stories-list.css";
 import { useQuery } from "@tanstack/react-query";
 
 export default function StoriesList() {
-  // const [stories, setStories] = useState([]);
-
-  // получить данные с API
-  // useEffect(() => {
-  //   Api.getStories()
-  //     .then(setStories)
-  //     .catch(console.error);
-  // }, []);
 
   // получить данные с API (или из кэша)
   const stories = useQuery({
@@ -28,7 +20,7 @@ export default function StoriesList() {
             <div className="story-image-container">
               <img
                 src={Api.normalizeURL(story.image)}
-                alt={story.alt}
+                alt={story.name}
                 className="story-image"
               />
             </div>

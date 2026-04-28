@@ -17,7 +17,10 @@
     --body-font: 'Raleway', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
 
     --screen-edge-padding: min(4rem, 5vw);
-    --card-padding: min(2rem, 2.5vw);
+
+    --card-padding-horizontal: min(2rem, 2.5vw);
+    --card-padding-vertical: 2rem;
+    
     --corner-radius: 30px;
     --card-shadow: 0px 12px 24px rgba(34, 34, 34, 0.12);
     --card-border: 1px solid var(--border-color);

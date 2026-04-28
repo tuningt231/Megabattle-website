@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { Api } from "../api";
 import "../styles/partners.css";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Partners() {
-  const [partners, setPartners] = useState([]);
   const [activeId, setActiveId] = useState(null);
 
-  useEffect(() => {
-    Api.getPartners()
-      .then(setPartners)
-      .catch(console.error);
-  }, []);
+  // получить данные с API (или из кэша)
+  const partners = useQuery({
+    queryKey: ["partners"],
+    queryFn: Api.getPartners,
+    initialData: [],
+  }).data;
 
   const row1 = partners.filter((_, i) => i % 2 === 0);
   const row2 = partners.filter((_, i) => i % 2 !== 0);

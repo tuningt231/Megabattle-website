@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { Api } from "../api";
 import "../styles/event-list.css";
-import { useQuery } from "@tanstack/react-query";
 
 const monthNamesForm2 = [
   "января",
@@ -19,12 +19,6 @@ const monthNamesForm2 = [
 ];
 
 export default function EventList() {
-  // const [events, setEvents] = useState([]);
-
-  // получить данные с API
-  // useEffect(() => {
-  //   Api.getEvents().then(setEvents).catch(console.error);
-  // }, []);
   // получить данные с API (или из кэша)
   const events = useQuery({
     queryKey: ["events"],
@@ -62,23 +56,46 @@ export default function EventList() {
             className="event-card"
             key={event.key ?? `${event.name}-${event.date}`}
           >
+            {/* Картинка события */}
             <div className="event-image">
               <img src={Api.normalizeURL(event.image)} alt={event.name} />
             </div>
+
             <div className="event-info">
               <h3>{event.name}</h3>
-              <div className="event-date">
-                <i className="fa-regular fa-calendar" aria-hidden="true"></i>
-                <span>
-                  {dateDay} {dateMonth}
-                  {hasEventTime ? `, ${eventTime}` : ""}
+
+              {/* Дата и место */}
+              <p>
+                <span className="event-date">
+                  <i className="fa-regular fa-calendar" aria-hidden="true"></i>
+                  <span>
+                    {dateDay} {dateMonth}
+                    {hasEventTime ? `, ${eventTime}` : ""}
+                  </span>
                 </span>
-              </div>
-              <div className="event-location">
-                <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span>{event.address}</span>
-              </div>
-              <div className="event-description">{event.description}</div>
+                <br />
+                <span className="event-location">
+                  <i
+                    className="fa-solid fa-location-dot"
+                    aria-hidden="true"
+                  ></i>
+                  <span>{event.address}</span>
+                </span>
+              </p>
+
+              {/* Описание */}
+              <p className="event-description">{event.description}</p>
+
+              {/* Ссылка на регистрацию */}
+              {event.registrationLink && (
+                <button
+                  className="button special event-button"
+                  type="button"
+                  onClick={() => window.open(event.registrationLink, "_blank")}
+                >
+                  Регистрация
+                </button>
+              )}
             </div>
           </div>
         );

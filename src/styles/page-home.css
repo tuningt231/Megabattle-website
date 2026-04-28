@@ -46,7 +46,6 @@
 
 /* Hero Section */
 .hero {
-    color: var(--text-color-inverted);
     display: grid;
     align-items: end;
     padding-right: 0;
@@ -92,11 +91,38 @@
     color: white;
 }
 
+/* Socials section */
+.socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+
+    font-size: 1.4rem;
+}
+
+.social-item {
+    white-space: nowrap;
+    display: flex;
+    gap: 3px;
+}
+
 /* About Section */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--card-padding);
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .about-image {
+        height: auto;
+        max-width: 100%;
+    }
 }
 
 .about-image {
@@ -110,7 +136,7 @@
 
 .about-text {
     background-color: var(--surface-color);
-    padding: var(--card-padding);
+    padding: var(--card-padding-vertical) var(--card-padding-horizontal);
     border-radius: var(--corner-radius);
     box-shadow: var(--card-shadow);
     border: var(--card-border);
@@ -142,7 +168,7 @@
 .contact-info {
     background: var(--surface-color);
     border-radius: var(--corner-radius);
-    padding: var(--card-padding);
+    padding: var(--card-padding-vertical) var(--card-padding-horizontal);
     display: flex;
     flex-direction: column;
     justify-content: center;
