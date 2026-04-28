@@ -41,6 +41,7 @@
     bottom: calc(-1 * var(--corner-radius));
 }
 
+.header a:hover,
 .header a {
     text-decoration: none;
 }

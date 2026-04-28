@@ -99,12 +99,12 @@ body {
 h1 {
     text-align: center;
     font-size: 3.5rem;
+    font-size: clamp(1.8rem, 7.5vw, 3.5rem);
     font-weight: bold;
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: var(--heading-font);
-    /* todo: add some text shadow */
     text-shadow: 3px 3px 0px color-mix(in srgb, var(--accent-color) 60%, transparent);
 } 
 
@@ -128,6 +128,17 @@ h1::after {
 /* Добавление отступов для абзацев */
 p {
     margin-bottom: 0.8rem;
+}
+
+/* Декорация ссылок */
+a {
+    color: currentColor;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Добавление отступов от краев экрана и между секциями */

@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Api } from "../api";
 import "../styles/member-list.css";
-import { useQuery } from "@tanstack/react-query";
 
 export default function MemberList() {
-  // const [organizers, setOrganizers] = useState([]);
-  // const [responsible, setResponsible] = useState([]);
   const [activeFilter, setActiveFilter] = useState("organizers");
   const [activeMember, setActiveMember] = useState(null);
 
-  // получить данные с API
-  // useEffect(() => {
-  //   Promise.all([Api.getOrganizers(), Api.getResponsible()])
-  //     .then(([organizersResult, responsibleResult]) => {
-  //       setOrganizers(organizersResult);
-  //       setResponsible(responsibleResult);
-  //     })
-  //     .catch(console.error);
-  // }, []);
-  // получить данные с API (или из кэша )
+  // получить данные с API (или из кэша)
   const organizers = useQuery({
     queryKey: ["organizers"],
     queryFn: Api.getOrganizers,
@@ -29,21 +18,6 @@ export default function MemberList() {
     queryFn: Api.getResponsible,
     initialData: [],
   }).data;
-
-  // разделы #responsible и #organizers объединены в один.
-  // сделать так, чтобы работали якорные ссылки на оба
-  // useEffect(() => {
-  //   const onHashChange = () => {
-  //     if (window.location.hash === '#responsible') {
-  //       setActiveFilter('responsible');
-  //     } else if (window.location.hash === '#organizers') {
-  //       setActiveFilter('organizers');
-  //     }
-  //   };
-  //   onHashChange();
-  //   window.addEventListener('hashchange', onHashChange);
-  //   return () => window.removeEventListener('hashchange', onHashChange);
-  // }, []);
 
   const visibleMembers =
     activeFilter === "organizers" ? organizers : responsible;
@@ -112,8 +86,12 @@ export default function MemberList() {
               />
             </div>
             <div className="member-expanded-info">
-              <h3 className="member-expanded-name">{activeMember.name}</h3>
-              <span className="member-expanded-role">{activeMember.role}</span>
+              <h3>{activeMember.name}</h3>
+              <p>
+                <span className="member-expanded-role">
+                  {activeMember.role}
+                </span>
+              </p>
               <p className="member-expanded-description">
                 {activeMember.description}
               </p>

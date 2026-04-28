@@ -1,70 +1,90 @@
-@import "./variables.css";
-
-
-/* Стиль кнопок по умолчанию */
 .button {
     font-family: var(--body-font);
     font-weight: 500;
     flex: 0 0 auto;
+
     background-color: var(--background-color);
+    color: var(--text-color);
+
     border: 2px solid var(--primary-color);
     border-radius: 2rem;
+
     padding: 1rem 2rem;
     min-width: 160px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
     overflow: hidden;
     scroll-snap-align: start;
-    color: var(--text-color);
-    transition:
-        transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-        background-color 0.3s ease,
-        color 0.25s ease,
-        border-color 0.3s ease,
-        box-shadow 0.35s ease;
-    font-size: 1.1rem;
     white-space: nowrap;
+    font-size: 1.1rem;
+
+    transition:
+        transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+        background-color 0.25s ease,
+        color 0.2s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .button:hover {
-    border-color: transparent;
-    transform: translateY(-4px);
     background-color: var(--primary-color);
     color: var(--text-color-inverted);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+    border-color: var(--primary-color);
+
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
-.button.active {
-    border-color: transparent;
-    background-color: var(--primary-color);
-    color: var(--text-color-inverted);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+.button:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px color-mix(in srgb, var(--primary-color) 35%, transparent),
+        0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .button:active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
     color: var(--text-color-inverted);
-    transform: translateY(-1px) scale(0.97);
+
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
-.button.inverse {
-    background-color: var(--text-color);
-    border: 2px solid var(--text-color-inverted);
-    color: var(--text-color-inverted);
-}
-
-.button.inverse:hover {
-    background-color: var(--text-color-inverted);
-    color: var(--text-color);
-}
-
-.button.active.inverse {
+.button.active {
     background-color: var(--primary-color);
     color: var(--text-color-inverted);
+    border-color: var(--primary-color);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.button.inverse:active {
-    color: var(--text-color);
+.button.special {
+    background-color: var(--surface-color-special);
+    color: var(--text-color-special);
+    border-color: var(--text-color-special);
 }
 
+.button.special:hover {
+    background-color: var(--text-color-special);
+    color: var(--surface-color-special);
+    border-color: var(--text-color-special);
+}
+
+.button.special:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px color-mix(in srgb, var(--text-color-special) 35%, transparent);
+}
+
+.button.special:active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--text-color-inverted);
+}

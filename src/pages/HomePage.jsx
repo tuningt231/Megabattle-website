@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import EventList from "../components/EventList";
 import heroVideo from "/hero-video.mp4";
 import aboutImg from "/images/about-image.png";
+import vkIcon from "/icons/vk.svg";
+import telegramIcon from "/icons/telegram.svg";
 import "../styles/page-home.css";
 import Megabattle from "../components/Megabattle";
 import Partners from "../components/Partners";
@@ -16,7 +18,7 @@ export default function HomePage() {
     return () => Theme.removeListener(setTheme);
   }, []);
 
-  const mapSrc = `https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=16${
+  const mapSrc = `https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=17${
     isDarkTheme ? "&theme=dark" : "&theme=light"
   }`;
 
@@ -29,14 +31,36 @@ export default function HomePage() {
           </video>
         </div>
         <div className="hero-content">
-          {/* <img className="hero-title" src={heroImg} alt="ITMO.MEGABATTLE" /> */}
+          {/* <img className="hero-title" src={heroImg} alt="ITMO MEGABATTLE" /> */}
           <Megabattle className="hero-title" />
           <p className="hero-slogan">Не для всех, а для каждого</p>
         </div>
       </div>
       <main>
+        <section id="socials" className="socials">
+          <div className="social-item">
+            <img src={vkIcon} />
+            <a
+              href="https://vk.com/itmomegabattle"
+              title="Группа в ВК"
+              target="_blank"
+            >
+              ВКонтакте
+            </a>
+          </div>
+          <div className="social-item">
+            <img src={telegramIcon} />
+            <a
+              href="https://t.me/itmomegabattle"
+              title="Группа в Telegram"
+              target="_blank"
+            >
+              Telegram
+            </a>
+          </div>
+        </section>
         <section id="about" className="about">
-          <h1>О ПРОЕКТЕ</h1>
+          <h1>О&nbsp;ПРОЕКТЕ</h1>
           <div className="about-content">
             <img
               src={aboutImg}
@@ -47,7 +71,7 @@ export default function HomePage() {
             />
             <div className="about-text">
               <p>
-                ITMO.Megabattle — проект, представляющий собой масштабную
+                <b>ITMO Megabattle</b> — проект, представляющий собой масштабную
                 студенческую инициативу, нацеленную на создание открытой,
                 многоуровневой площадки для культурно-творческого,
                 организаторского и личностного роста студентов Университета
@@ -62,13 +86,13 @@ export default function HomePage() {
                 специалистов.
               </p>
               <p>
-                ITMO.Megabattle — это не просто серия мероприятий, а полноценная
-                экосистема, стимулирующая развитие творческого, организаторского
-                и профессионального потенциала студентов. Проект формирует
-                сильное студенческое сообщество, создает условия для реализации
-                самых разнообразных идей и проектов, укрепляет бренд
-                Университета ИТМО как места, где каждый может раскрыть себя и
-                получить бесценный опыт.
+                <b>ITMO Megabattle</b> — это не просто серия мероприятий, а
+                полноценная экосистема, стимулирующая развитие творческого,
+                организаторского и профессионального потенциала студентов.
+                Проект формирует сильное студенческое сообщество, создает
+                условия для реализации самых разнообразных идей и проектов,
+                укрепляет бренд Университета ИТМО как места, где каждый может
+                раскрыть себя и получить бесценный опыт.
               </p>
             </div>
           </div>

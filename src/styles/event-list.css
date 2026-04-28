@@ -44,26 +44,17 @@
 
 .event-info {
     flex: 2;
-    padding: var(--card-padding);
+    padding: var(--card-padding-vertical) var(--card-padding-horizontal);
     display: flex;
     flex-direction: column;
     background: transparent;
     border-radius: 0;
 }
 
-
-.event-date {
-    margin-bottom: 0.5rem;
-}
-
-.event-location {
-    margin-bottom: 1.5rem;
-}
-
 .event-description {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    flex-grow: 1;
 }
 
 @media (max-width: 900px) {
