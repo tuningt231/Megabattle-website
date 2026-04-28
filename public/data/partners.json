@@ -2,278 +2,245 @@
   {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
   {
     "id": 2,
     "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
+    "logo": "/images/partners/drinkit.png",
     "description": "Облачные решения",
     "link": "https://microsoft.com"
   },
   {
     "id": 3,
     "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
+    "logo": "/images/partners/kaori.jpg",
     "description": "Партнёр по облачным технологиям",
     "link": "https://amazon.com"
   },
   {
     "id": 4,
     "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
+    "logo": "/images/partners/perekr.jpeg",
     "description": "Партнёр по искусственному интеллекту",
     "link": "https://ibm.com"
   },
   {
     "id": 5,
     "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
+    "logo": "/images/partners/podpisn.jpeg",
+    "description": "Партнёр по аппаратному обеспечению",
+    "link": "https://intel.com"
+  },
+  {
+    "id": 1,
+    "name": "лвлв",
+    "logo": "/images/partners/double.png",
+    "description": "Технологический партнёр",
+    "link": "https://google.com"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft",
+    "logo": "/images/partners/drinkit.png",
+    "description": "Облачные решения",
+    "link": "https://microsoft.com"
+  },
+  {
+    "id": 3,
+    "name": "Amazon",
+    "logo": "/images/partners/kaori.jpg",
+    "description": "Партнёр по облачным технологиям",
+    "link": "https://amazon.com"
+  },
+  {
+    "id": 4,
+    "name": "IBM",
+    "logo": "/images/partners/perekr.jpeg",
+    "description": "Партнёр по искусственному интеллекту",
+    "link": "https://ibm.com"
+  },
+  {
+    "id": 5,
+    "name": "Intel",
+    "logo": "/images/partners/podpisn.jpeg",
     "description": "Партнёр по аппаратному обеспечению",
     "link": "https://intel.com"
   },
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
   {
     "id": 2,
     "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
+    "logo": "/images/partners/drinkit.png",
     "description": "Облачные решения",
     "link": "https://microsoft.com"
   },
   {
     "id": 3,
     "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
+    "logo": "/images/partners/kaori.jpg",
     "description": "Партнёр по облачным технологиям",
     "link": "https://amazon.com"
   },
   {
     "id": 4,
     "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
+    "logo": "/images/partners/perekr.jpeg",
     "description": "Партнёр по искусственному интеллекту",
     "link": "https://ibm.com"
   },
   {
     "id": 5,
     "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
-  },  {
-    "id": 1,
-    "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
-  },
-  {
-    "id": 2,
-    "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
-  },
-  {
-    "id": 3,
-    "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
-  },
-  {
-    "id": 4,
-    "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
-  },
-  {
-    "id": 5,
-    "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
+    "logo": "/images/partners/podpisn.jpeg",
     "description": "Партнёр по аппаратному обеспечению",
     "link": "https://intel.com"
   },
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
   {
     "id": 2,
     "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
+    "logo": "/images/partners/drinkit.png",
     "description": "Облачные решения",
     "link": "https://microsoft.com"
   },
   {
     "id": 3,
     "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
+    "logo": "/images/partners/kaori.jpg",
     "description": "Партнёр по облачным технологиям",
     "link": "https://amazon.com"
   },
   {
     "id": 4,
     "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
+    "logo": "/images/partners/perekr.jpeg",
     "description": "Партнёр по искусственному интеллекту",
     "link": "https://ibm.com"
   },
   {
     "id": 5,
     "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
-  }, 
-    {
-    "id": 1,
-    "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
-  },
-  {
-    "id": 2,
-    "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
-  },
-  {
-    "id": 3,
-    "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
-  },
-  {
-    "id": 4,
-    "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
-  },
-  {
-    "id": 5,
-    "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
+    "logo": "/images/partners/podpisn.jpeg",
     "description": "Партнёр по аппаратному обеспечению",
     "link": "https://intel.com"
   },
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
   {
     "id": 2,
     "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
+    "logo": "/images/partners/drinkit.png",
     "description": "Облачные решения",
     "link": "https://microsoft.com"
   },
   {
     "id": 3,
     "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
+    "logo": "/images/partners/kaori.jpg",
     "description": "Партнёр по облачным технологиям",
     "link": "https://amazon.com"
   },
   {
     "id": 4,
     "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
+    "logo": "/images/partners/perekr.jpeg",
     "description": "Партнёр по искусственному интеллекту",
     "link": "https://ibm.com"
   },
   {
     "id": 5,
     "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
-  },  {
-    "id": 1,
-    "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
-  },
-  {
-    "id": 2,
-    "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
-  },
-  {
-    "id": 3,
-    "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
-  },
-  {
-    "id": 4,
-    "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
-  },
-  {
-    "id": 5,
-    "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
+    "logo": "/images/partners/podpisn.jpeg",
     "description": "Партнёр по аппаратному обеспечению",
     "link": "https://intel.com"
   },
     {
     "id": 1,
     "name": "лвлв",
-    "logo": "/images/partners/дабл.png",
+    "logo": "/images/partners/double.png",
     "description": "Технологический партнёр",
     "link": "https://google.com"
   },
   {
     "id": 2,
     "name": "Microsoft",
-    "logo": "/images/partners/дринкит.png",
+    "logo": "/images/partners/drinkit.png",
     "description": "Облачные решения",
     "link": "https://microsoft.com"
   },
   {
     "id": 3,
     "name": "Amazon",
-    "logo": "/images/partners/каори.jpg",
+    "logo": "/images/partners/kaori.jpg",
     "description": "Партнёр по облачным технологиям",
     "link": "https://amazon.com"
   },
   {
     "id": 4,
     "name": "IBM",
-    "logo": "/images/partners/перекресток.jpeg",
+    "logo": "/images/partners/perekr.jpeg",
     "description": "Партнёр по искусственному интеллекту",
     "link": "https://ibm.com"
   },
   {
     "id": 5,
     "name": "Intel",
-    "logo": "/images/partners/подписные издания.jpeg",
+    "logo": "/images/partners/podpisn.jpeg",
+    "description": "Партнёр по аппаратному обеспечению",
+    "link": "https://intel.com"
+  },
+    {
+    "id": 1,
+    "name": "лвлв",
+    "logo": "/images/partners/double.png",
+    "description": "Технологический партнёр",
+    "link": "https://google.com"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft",
+    "logo": "/images/partners/drinkit.png",
+    "description": "Облачные решения",
+    "link": "https://microsoft.com"
+  },
+  {
+    "id": 3,
+    "name": "Amazon",
+    "logo": "/images/partners/kaori.jpg",
+    "description": "Партнёр по облачным технологиям",
+    "link": "https://amazon.com"
+  },
+  {
+    "id": 4,
+    "name": "IBM",
+    "logo": "/images/partners/perekr.jpeg",
+    "description": "Партнёр по искусственному интеллекту",
+    "link": "https://ibm.com"
+  },
+  {
+    "id": 5,
+    "name": "Intel",
+    "logo": "/images/partners/podpisn.jpeg",
     "description": "Партнёр по аппаратному обеспечению",
     "link": "https://intel.com"
   }
