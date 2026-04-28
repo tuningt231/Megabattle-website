@@ -4,15 +4,13 @@
 
 /* Stories Section */
 .stories-container {
-    position: relative;
     width: 100%;
-    margin-top: 2rem;
     overflow: hidden;
 }
 
 .stories-scroll {
     display: flex;
-    gap: 2rem;
+    gap: min(2vw, 60px);
     overflow-x: auto;
     padding: 1rem 0;
     scroll-snap-type: x mandatory;
@@ -21,11 +19,11 @@
 }
 
 .story-card {
-    flex: 0 0 300px;
+    flex: 0 0 clamp(200px, 40vw, 300px);
     background-color: var(--surface-color-special);
     color: var(--text-color-special);
     border-radius: var(--corner-radius);;
-    padding: 2rem;
+    padding: var(--card-padding-vertical) var(--card-padding-horizontal);
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -46,8 +44,8 @@
 }
 
 .story-image-container {
-    width: 200px;
-    height: 200px;
+    width: calc(100% - 50px); 
+    aspect-ratio: 1/1;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 1.5rem;

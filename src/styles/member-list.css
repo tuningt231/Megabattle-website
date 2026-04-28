@@ -5,27 +5,25 @@
 .team-filters {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 /* Scroll container */
 .team-members-scroll {
   display: flex;
-  gap: 2rem;
   overflow-x: auto;
   padding: 1rem 0;
-  scroll-snap-type: x mandatory;
 }
 
 /* Card */
 .team-member {
-  flex: 0 0 300px;
   text-align: center;
   cursor: pointer;
-  padding: 1rem;
   scroll-snap-align: start;
   transition: transform 0.3s;
+  padding: 0 min(4vw, 30px);
 }
 
 .team-member.active {
@@ -34,8 +32,8 @@
 
 /* Avatar */
 .member-image {
-  width: 200px;
-  height: 200px;
+  width: clamp(100px, 30vw, 200px);
+  height: clamp(100px, 30vw, 200px);
   margin: 0 auto 1rem;
   border-radius: 50%;
   overflow: hidden;
@@ -74,6 +72,8 @@
 .member-role {
   opacity: 0.8;
 }
+
+
 
 /* Expanded block */
 .member-info-expanded {
