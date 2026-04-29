@@ -12,33 +12,43 @@
     gap: 0.5rem;
     padding: 0.6rem 1.2rem 0.6rem 1.2rem;
 
-    /* filter: drop-shadow(1.2px 1.2px 1.2px red); */
-    filter: drop-shadow(1.8px 1.8px 0 var(--border-color));
+    filter: drop-shadow(1.2px 1.2px 2px rgba(0, 0, 0, 0.1));
+    /* filter: drop-shadow(1.8px 1.8px 0 var(--border-color)); */
 
     background-color: var(--background-color);
     border-bottom-right-radius: var(--corner-radius);
     min-height: calc(2 * var(--corner-radius));
     font-size: 1.1rem;
+
+    border-right: 1px inset var(--border-color);
+    border-bottom: 1px inset var(--border-color);
+
 }
 
 .outer-corner {
-    background-color: transparent;
-    height: var(--corner-radius);
-    width: var(--corner-radius);
-    border-top-left-radius: var(--corner-radius);
-    box-shadow: -20px -20px 0 18px var(--background-color);
     position: absolute;
-    z-index: -1;
+    z-index: 10;
+}
+
+.outer-corner path:first-child {
+    stroke: none;
+    fill: var(--background-color);
+}
+
+.outer-corner path:last-child {
+    stroke: var(--border-color);
+    stroke-width: 1px;
+    fill: none;
 }
 
 .outer-corner[data-tag="1"] {
-    top: -1px;
-    right: calc(-1 * var(--corner-radius));
+    top: -4px;
+    right: -37px;
 }
 
 .outer-corner[data-tag="2"] {
-    left: -1px;
-    bottom: calc(-1 * var(--corner-radius));
+    left: -4px;
+    bottom: -37px;
 }
 
 .header a:hover,

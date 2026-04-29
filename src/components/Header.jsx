@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/header.css";
 import { Theme } from "../theme";
 
-const THEME_STORAGE_KEY = "mbsite-theme";
-
 function SunIcon() {
   return (
     <svg
@@ -86,8 +84,23 @@ function MoonIcon() {
   );
 }
 
+function OuterCorner({ tag }) {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      xmlns="http://www.w3.org/2000/svg"
+      className="outer-corner"
+      data-tag={tag}
+    >
+      <path d="M 33 3.5 A 30 30 0 0 0 3.5 33 L 0 33 L 0 0 L 33 0 Z" />
+      <path d="M 33 3.5 A 30 30 0 0 0 3.5 33" />
+    </svg>
+  );
+}
+
 export default function Header() {
-  
   const [theme, setTheme] = useState(Theme.get());
   const isDarkTheme = theme === "dark";
 
@@ -120,8 +133,8 @@ export default function Header() {
         {isDarkTheme ? <SunIcon /> : <MoonIcon />}
       </button>
 
-      <div className="outer-corner" data-tag="1"></div>
-      <div className="outer-corner" data-tag="2"></div>
+      <OuterCorner tag="1" />
+      <OuterCorner tag="2" />
     </header>
   );
 }
