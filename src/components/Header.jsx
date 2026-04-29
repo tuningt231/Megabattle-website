@@ -100,6 +100,20 @@ function OuterCorner({ tag }) {
   );
 }
 
+function InnerSpace() {
+  return (
+    <svg
+      width="1000"
+      height="100"
+      viewBox="0 0 1000 100"
+      xmlns="http://www.w3.org/2000/svg"
+      className="inner-space"
+    >
+      <path d="M 0 0 L 999.5 0 L 999.5 69.5 A 30 30 0 0 1 969.5 99.5 L 0 99.5 Z" />
+    </svg>
+  )
+}
+
 export default function Header() {
   const [theme, setTheme] = useState(Theme.get());
   const isDarkTheme = theme === "dark";
@@ -133,8 +147,10 @@ export default function Header() {
         {isDarkTheme ? <SunIcon /> : <MoonIcon />}
       </button>
 
+      <InnerSpace/>
       <OuterCorner tag="1" />
       <OuterCorner tag="2" />
+      
     </header>
   );
 }

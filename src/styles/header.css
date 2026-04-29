@@ -15,19 +15,20 @@
     filter: drop-shadow(1.2px 1.2px 2px rgba(0, 0, 0, 0.1));
     /* filter: drop-shadow(1.8px 1.8px 0 var(--border-color)); */
 
-    background-color: var(--background-color);
-    border-bottom-right-radius: var(--corner-radius);
+    /* background-color: var(--background-color); */
+    /* border-bottom-right-radius: var(--corner-radius); */
     min-height: calc(2 * var(--corner-radius));
     font-size: 1.1rem;
 
-    border-right: 1px inset var(--border-color);
-    border-bottom: 1px inset var(--border-color);
+    /* border-right: 1px inset var(--border-color); */
+    /* border-bottom: 1px inset var(--border-color); */
 
 }
 
+.inner-space,
 .outer-corner {
     position: absolute;
-    z-index: 10;
+    z-index: -10;
 }
 
 .outer-corner path:first-child {
@@ -43,12 +44,20 @@
 
 .outer-corner[data-tag="1"] {
     top: -4px;
-    right: -37px;
+    right: -36px;
 }
 
 .outer-corner[data-tag="2"] {
     left: -4px;
-    bottom: -37px;
+    bottom: -36px;
+}
+
+.inner-space {
+    fill: var(--background-color);
+    stroke-width: 1px;
+    stroke: var(--border-color);
+    right: 0;
+    bottom: 0;
 }
 
 .header a:hover,
