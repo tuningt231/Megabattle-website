@@ -1,31 +1,36 @@
 :root {
     color-scheme: light;
+
+    /* ОСНОВНЫЕ ЦВЕТА */
     --background-color: #ffffff;
     --primary-color: #000000;
     --accent-color: #4B6BFB;
     /* --accent-color: #2541b2; */
     --text-color: #000000;
     --text-color-inverted: #ffffff;
-    /* special color - inverted in light mode, normal in dark mode */
-    --text-color-special: #ffffff; 
-    /* --background-dark: #1E1E1E; */
     --surface-color: #f8f8f8dd;
+    --text-color-special: #ffffff; /* special color - инвертирован в light mode, обычный в dark mode */
     --surface-color-special: #000000;
     --border-color: #D8D8D8;
 
+    /* ШРИФТЫ */
     --heading-font: 'Druk Text Wide Cyr', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
     --body-font: 'Raleway', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
 
+    /* АДАПТИВНЫЕ ПАДДИНГИ */
     --screen-edge-padding: min(4rem, 5vw);
-    --main-width: min(1200px, calc(100% - var(--screen-edge-padding)));
+    --main-width: min(1200px, calc(100% - calc(var(--screen-edge-padding) * 2)));
 
     --card-padding-horizontal: min(2rem, 2.5vw);
     --card-padding-vertical: 2rem;
     
+    /* РАЗНОЕ */
     --corner-radius: 30px;
     --card-shadow: 0px 12px 24px rgba(34, 34, 34, 0.12);
     --card-border: 1px solid var(--border-color);
-    /* --card-border-inverted: 1px solid #373737; */
+
+    --text-blue-shadow: 3px 3px 0px color-mix(in srgb, var(--accent-color) 40%, transparent);
+    --svg-blue-shadow: drop-shadow(4px 4px 0px color-mix(in srgb, var(--accent-color) 40%, transparent));
 }
 
 :root[data-theme="dark"] {
@@ -40,4 +45,6 @@
     --surface-color-special: var(--surface-color);
     --card-shadow: 0px 12px 24px rgba(0, 0, 0, 0.35);
     --border-color: #373737;
+    --text-blue-shadow: 3px 3px 0px color-mix(in srgb, var(--accent-color) 70%, transparent);
+    --svg-blue-shadow: drop-shadow(4px 4px 0px color-mix(in srgb, var(--accent-color) 70%, transparent));
 }
