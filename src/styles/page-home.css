@@ -1,48 +1,5 @@
 @import "./variables.css";
 
-/* Обновление типографики для заголовков */
-/* h1, h2, h3, h4, 
-.hero-title,
-.events-title,
-.member-expanded-name {
-    font-family: var(--heading-font);
-    font-weight: 500;
-} */
-
-/* Добавление отступов от краев экрана и между секциями */
-/* #events,
-#about,
-#team,
-#stories,
-#contacts {
-    padding-right: var(--screen-edge-padding);
-    padding-left: var(--screen-edge-padding);
-    padding-top: var(--screen-edge-padding);
-    padding-bottom: var(--screen-edge-padding);
-} */
-
-/* Обновление типографики для карточек */
-/* .story-name,
-.member-name,
-.member-expanded-role {
-    font-family: var(--heading-font);
-    font-weight: 500;
-}
-
-.story-faculty,
-.story-description,
-.member-role,
-.member-expanded-description,
-.member-expanded-contacts {
-    font-family: var(--body-font);
-}
-
-/* Только для секций, где нужен белый фон */
-/* .story-card,
-.event-info,
-.member-expanded-info {
-    background-color: var(--primary-color);
-} */ 
 
 /* Hero Section */
 .hero {
@@ -177,23 +134,6 @@
     box-shadow: var(--card-shadow);
     border: var(--card-border);
 }
-
-/* .contact-info p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-} */
-
-/* .contact-info i {
-    width: 1.1rem;
-    text-align: center;
-} */
-
-/* .contact-info .button {
-    margin-top: 0.8rem;
-    width: fit-content;
-} */
 
 @media (max-width: 900px) {
     .contacts-container {

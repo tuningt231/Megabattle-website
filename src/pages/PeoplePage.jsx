@@ -1,17 +1,18 @@
 import Megabattle from "../components/Megabattle";
 import MemberList from "../components/MemberList";
 import StoriesList from "../components/StoriesList";
+import VisibleScroll from "../components/VisibleScroll";
 import "../styles/page-people.css";
 
 export default function PeoplePage() {
   return (
     <main>
-      <div className="section">
+      <section className="main-width">
         {/* todo: скучновато */}
         <Megabattle className="people-title" />
-      </div>
+      </section>
 
-      <section className="team" id="team">
+      <section id="team" className="team" >
         <h1>КОМАНДА</h1>
         <MemberList />
       </section>

@@ -3,6 +3,7 @@
 
 
 .people-title {
-    margin: 2rem 0;
+    margin-bottom: 2rem;
+    margin-top: 8rem;
     fill: var(--text-color) !important;
 }

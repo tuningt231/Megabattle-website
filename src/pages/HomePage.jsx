@@ -18,26 +18,27 @@ export default function HomePage() {
     return () => Theme.removeListener(setTheme);
   }, []);
 
-  const mapSrc = `https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=17${
+  const mapSrc = `https://yandex.ru/map-widget/v1/org/itmo_university/1536000555/?ll=30.338712%2C59.926503&z=15${
     isDarkTheme ? "&theme=dark" : "&theme=light"
   }`;
 
   return (
     <>
-      <div className="hero" id="home">
-        <div className="video-background">
-          <video autoPlay muted loop playsInline>
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-        </div>
-        <div className="hero-content">
-          {/* <img className="hero-title" src={heroImg} alt="ITMO MEGABATTLE" /> */}
-          <Megabattle className="hero-title" />
-          <p className="hero-slogan">Не для всех, а для каждого</p>
-        </div>
-      </div>
       <main>
-        <section id="socials" className="socials">
+        <section className="hero" id="home">
+          <div className="video-background">
+            <video autoPlay muted loop playsInline>
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          </div>
+          <div className="hero-content">
+            {/* <img className="hero-title" src={heroImg} alt="ITMO MEGABATTLE" /> */}
+            <Megabattle className="hero-title" />
+            <p className="hero-slogan">Не для всех, а для каждого</p>
+          </div>
+        </section>
+
+        <section id="socials" className="socials main-width">
           <div className="social-item">
             <img src={vkIcon} />
             <a
@@ -59,7 +60,8 @@ export default function HomePage() {
             </a>
           </div>
         </section>
-        <section id="about" className="about">
+
+        <section id="about" className="about main-width">
           <h1>О&nbsp;ПРОЕКТЕ</h1>
           <div className="about-content">
             <img
@@ -98,7 +100,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="events" className="events">
+        <section id="events" className="events main-width">
           <h1>БЛИЖАЙШИЕ СОБЫТИЯ</h1>
           <EventList startDate="november 2025" />
         </section>
@@ -108,7 +110,7 @@ export default function HomePage() {
           <Partners />
         </section>
 
-        <section id="contacts" className="contacts">
+        <section id="contacts" className="contacts main-width">
           <h1>КОНТАКТЫ</h1>
           <div className="contacts-container">
             <iframe className="yandex-map" title="Карта ИТМО" src={mapSrc}>

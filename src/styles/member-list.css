@@ -10,20 +10,17 @@
   flex-wrap: wrap;
 }
 
-/* Scroll container */
-.team-members-scroll {
-  display: flex;
-  overflow-x: auto;
-  padding: 1rem 0;
-}
-
 /* Card */
 .team-member {
+  width: clamp(100px, 30vw, 300px);
+  padding: 1.2rem min(4vw, 30px) 0;
+
   text-align: center;
+
   cursor: pointer;
   scroll-snap-align: start;
+  
   transition: transform 0.3s;
-  padding: 0 min(4vw, 30px);
 }
 
 .team-member.active {
@@ -32,8 +29,7 @@
 
 /* Avatar */
 .member-image {
-  width: clamp(100px, 30vw, 200px);
-  height: clamp(100px, 30vw, 200px);
+  aspect-ratio: 1/1;
   margin: 0 auto 1rem;
   border-radius: 50%;
   overflow: hidden;
@@ -73,6 +69,10 @@
   opacity: 0.8;
 }
 
+.team-member.active .member-role {
+  color: var(--accent-color);
+}
+
 
 
 /* Expanded block */
@@ -82,16 +82,7 @@
   margin: 2rem auto;
   max-width: 1200px;
 
-  opacity: 0;
-  transform: translateY(-20px);
   transition: 0.4s;
-  pointer-events: none;
-}
-
-.member-info-expanded.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 /* Image */

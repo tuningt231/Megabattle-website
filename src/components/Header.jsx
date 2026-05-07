@@ -111,7 +111,7 @@ function InnerSpace() {
     >
       <path d="M 0 0 L 999.5 0 L 999.5 69.5 A 30 30 0 0 1 969.5 99.5 L 0 99.5 Z" />
     </svg>
-  )
+  );
 }
 
 export default function Header() {
@@ -147,10 +147,9 @@ export default function Header() {
         {isDarkTheme ? <SunIcon /> : <MoonIcon />}
       </button>
 
-      <InnerSpace/>
+      <InnerSpace />
       <OuterCorner tag="1" />
       <OuterCorner tag="2" />
-      
     </header>
   );
 }

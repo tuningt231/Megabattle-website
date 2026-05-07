@@ -5,11 +5,15 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <img className="footer-logo" src="logo.svg" />
+        <Link to="/">
+          <img className="footer-logo" src="logo.svg" />
+        </Link>
         <div className="footer-info">
           <p>
-            Университет ИТМО
-            <br />© 1993-2026
+            <a href="https://itmo.ru/" target="_blank">
+              Университет ИТМО
+              <br />© 1993-{new Date().getFullYear()}
+            </a>
           </p>
           <p>
             г. Санкт-Петербург

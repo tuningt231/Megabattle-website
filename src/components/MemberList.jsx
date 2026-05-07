@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Api } from "../api";
 import "../styles/member-list.css";
+import VisibleScroll from "./VisibleScroll";
 
-function MemberListInternal({ members, hidden }) {
+function MemberListInternal({ members }) {
   const [activeMember, setActiveMember] = useState(null);
 
   // колбэк на выбор нового просматриваемого участника
@@ -20,8 +21,8 @@ function MemberListInternal({ members, hidden }) {
   }, [members]);
 
   return (
-    <div className="team-members-container" hidden={hidden}>
-      <div className="team-members-scroll">
+    <>
+      <VisibleScroll>
         {members.map((member) => {
           const isActive = activeMember === member;
           return (
@@ -41,28 +42,32 @@ function MemberListInternal({ members, hidden }) {
             </div>
           );
         })}
-      </div>
+      </VisibleScroll>
 
-      {activeMember && (
-        <div className="member-info-expanded active">
-          <div className="member-expanded-image">
-            <img
-              src={Api.normalizeURL(activeMember.bigImage)}
-              alt={activeMember.name}
-            />
+      <div className="main-width">
+        {activeMember && (
+          <div className="member-info-expanded">
+            <div className="member-expanded-image">
+              <img
+                src={Api.normalizeURL(activeMember.bigImage)}
+                alt={activeMember.name}
+              />
+            </div>
+            <div className="member-expanded-info">
+              <h3>{activeMember.name}</h3>
+              <p>
+                <span className="member-expanded-role">
+                  {activeMember.role}
+                </span>
+              </p>
+              <p className="member-expanded-description">
+                {activeMember.description}
+              </p>
+            </div>
           </div>
-          <div className="member-expanded-info">
-            <h3>{activeMember.name}</h3>
-            <p>
-              <span className="member-expanded-role">{activeMember.role}</span>
-            </p>
-            <p className="member-expanded-description">
-              {activeMember.description}
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -86,7 +91,7 @@ export default function MemberList() {
     <>
       <div className="team-filters">
         <button
-          className={`button team-filter${activeFilter === "organizers" ? " active" : ""}`}
+          className={`button ${activeFilter === "organizers" ? " active" : ""}`}
           type="button"
           onClick={() => {
             setActiveFilter("organizers");
@@ -95,7 +100,7 @@ export default function MemberList() {
           Мегаорганизаторы
         </button>
         <button
-          className={`button team-filter${activeFilter === "responsible" ? " active" : ""}`}
+          className={`button ${activeFilter === "responsible" ? " active" : ""}`}
           type="button"
           onClick={() => {
             setActiveFilter("responsible");
@@ -105,10 +110,13 @@ export default function MemberList() {
         </button>
       </div>
 
-      <MemberListInternal members={organizers} hidden={activeFilter !== "organizers"}/>
+      <div hidden={activeFilter !== "organizers"}>
+        <MemberListInternal members={organizers} />
+      </div>
 
-      <MemberListInternal members={responsible} hidden={activeFilter !== "responsible"}/>
-
+      <div hidden={activeFilter !== "responsible"}>
+        <MemberListInternal members={responsible} />
+      </div>
     </>
   );
 }

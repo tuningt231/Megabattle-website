@@ -3,21 +3,6 @@
 
 
 /* Stories Section */
-.stories-container {
-    width: 100%;
-    overflow: hidden;
-}
-
-.stories-scroll {
-    display: flex;
-    gap: min(2vw, 60px);
-    overflow-x: auto;
-    padding: 1rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 1rem;
-}
-
 .story-card {
     flex: 0 0 clamp(200px, 40vw, 300px);
     background-color: var(--surface-color-special);
@@ -32,9 +17,9 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    cursor: pointer;
     box-shadow: var(--card-shadow);
     border: var(--card-border);
+    margin: 1.2em min(1vw, 30px) 2em;
 }
 
 /* Анимации при наведении на карточку */

@@ -17,6 +17,7 @@
     --body-font: 'Raleway', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
 
     --screen-edge-padding: min(4rem, 5vw);
+    --main-width: min(1200px, calc(100% - var(--screen-edge-padding)));
 
     --card-padding-horizontal: min(2rem, 2.5vw);
     --card-padding-vertical: 2rem;

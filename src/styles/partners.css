@@ -1,5 +1,5 @@
 .partners-section {
-  width: 100vw;
+  width: 100%;
   margin: 0 calc(-50vw + 50%);
   overflow: hidden;
 
@@ -102,6 +102,6 @@
 }
 
 /* ===== БЕЗОПАСНОСТЬ ОТ СКРОЛЛА ===== */
-html, body {
+/* html, body {
   overflow-x: hidden;
-}
+} */
