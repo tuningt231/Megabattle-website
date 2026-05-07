@@ -79,8 +79,8 @@ function getLabelInThreeLines(className) {
 }
 
 export default function Megabattle({ className = "" }) {
-  const VAL_1 = 1000;
-  const VAL_2 = 500;
+  const VAL_1 = 600;
+  const VAL_2 = 400;
 
   const getVariant = () => {
     if (window.innerWidth < VAL_2) return 3;

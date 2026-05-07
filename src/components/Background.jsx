@@ -2,21 +2,30 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "../styles/background.css";
 
 export default function Background() {
-  const svgRef = useRef(null);
+  const lastSvg = useRef(null);
+  const observerHelper = useRef(null);
   const container = useRef(null);
 
   // Автоматически продлевать БГ при скролле
   useEffect(() => {
-    // todo: broken when starting in the middle of a page e.g /#contacts
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        observer.disconnect();
-        const newSvg = svgRef.current.cloneNode(true);
-        container.current.appendChild(newSvg);
-        observer.observe(newSvg);
+    const observer = new IntersectionObserver((entries) => {
+      if (container.current.childElementCount > 50) {
+        console.warn('Background too many children');
+        return;
+      }
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const newSvg = lastSvg.current.cloneNode(true);
+          container.current.insertBefore(newSvg, lastSvg.current);
+          observer.disconnect();
+          observer.observe(lastSvg.current);
+          observer.observe(observerHelper.current);
+          break;
+        }
       }
     });
-    observer.observe(svgRef.current);
+    observer.observe(lastSvg.current);
+    observer.observe(observerHelper.current);
     return () => observer.disconnect();
   }, []);
 
@@ -53,7 +62,7 @@ export default function Background() {
           height="1000"
           preserveAspectRatio="none"
           className="vector-item"
-          ref={svgRef}
+          ref={lastSvg}
         >
           <use href="#vector-001" x="21" y="0" />
           <use href="#vector-001" x="14" y="33" />
@@ -63,6 +72,7 @@ export default function Background() {
           <use href="#vector-001" x="-14" y="155" />
           <use href="#vector-001" x="-21" y="190" />
         </svg>
+        <div ref={observerHelper} style={{ height: 10000 }}></div>
       </div>
     </>
   );
