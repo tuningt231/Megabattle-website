@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/footer.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVk, faTelegram, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -20,6 +22,38 @@ export default function Footer() {
               г. Санкт-Петербург
               <br />
               ул. Ломоносова, д.9
+            </p>
+          </div>
+          <div className="footer-socials">
+            <p>
+              <a
+                href="https://vk.com/itmomegabattle"
+                target="_blank"
+                title="Группа в ВК"
+              >
+                <FontAwesomeIcon icon={faVk} />
+                ВКонтакте
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://t.me/itmomegabattle"
+                target="_blank"
+                title="Группа в Telegram"
+              >
+                <FontAwesomeIcon icon={faTelegram} />
+                Telegram
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://github.com/tuningt231/Megabattle-website"
+                target="_blank"
+                title="GitHub"
+              >
+                <FontAwesomeIcon icon={faGithub} />
+                GitHub
+              </a>
             </p>
           </div>
           <div className="footer-policy">

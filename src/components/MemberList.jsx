@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Api } from "../api";
 import "../styles/member-list.css";
 import VisibleScroll from "./VisibleScroll";
+import ExternalLink from "./ExternalLink";
 
 function MemberListInternal({ members }) {
   const [activeMember, setActiveMember] = useState(null);
@@ -63,6 +64,13 @@ function MemberListInternal({ members }) {
               <p className="member-expanded-description">
                 {activeMember.description}
               </p>
+              {activeMember.links?.length > 0 && (
+                <div className="member-expanded-links">
+                  {activeMember.links.map((item, i) => (
+                    <ExternalLink key={i} href={item.link} text={item.text} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -72,7 +80,7 @@ function MemberListInternal({ members }) {
 }
 
 export default function MemberList() {
-  const [activeFilter, setActiveFilter] = useState("organizers");
+  const [activeFilter, setActiveFilter] = useState("responsible");
 
   // получить данные с API (или из кэша)
   const organizers = useQuery({
@@ -90,30 +98,35 @@ export default function MemberList() {
   return (
     <>
       <div className="team-filters">
-        <button
-          className={`button ${activeFilter === "organizers" ? " active" : ""}`}
-          type="button"
-          onClick={() => {
-            setActiveFilter("organizers");
-          }}
+        <div
+          className="team-toggle"
+          data-filter={activeFilter}
         >
-          Мегаорганизаторы
-        </button>
-        <button
-          className={`button ${activeFilter === "responsible" ? " active" : ""}`}
-          type="button"
-          onClick={() => {
-            setActiveFilter("responsible");
-          }}
-        >
-          Мегаответственные
-        </button>
+          <div className="toggle-slider" />
+          <button
+            className={`toggle-btn${activeFilter === "responsible" ? " active" : ""}`}
+            type="button"
+            onClick={() => setActiveFilter("responsible")}
+          >
+            Ответственные
+          </button>
+          <button
+            className={`toggle-btn${activeFilter === "organizers" ? " active" : ""}`}
+            type="button"
+            onClick={() => setActiveFilter("organizers")}
+          >
+            Организаторы
+          </button>
+        </div>
       </div>
 
       <div hidden={activeFilter !== "organizers"}>
         <MemberListInternal members={organizers} />
       </div>
 
+      {/* todo: У нас на экране по ширине помещается примерно 4 человека,
+      то есть последний пятый мегаответственный - ЛОХ так как почти всегда будет
+      за границей экрана  */}
       <div hidden={activeFilter !== "responsible"}>
         <MemberListInternal members={responsible} />
       </div>

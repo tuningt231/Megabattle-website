@@ -2,6 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { Api } from "../api";
 import "../styles/event-list.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar } from "@fortawesome/free-regular-svg-icons";
+import ExternalLink from "./ExternalLink";
 
 const monthNamesForm2 = [
   "января",
@@ -67,7 +71,7 @@ export default function EventList() {
               {/* Дата и место */}
               <p>
                 <span className="event-date">
-                  <i className="fa-regular fa-calendar" aria-hidden="true"></i>
+                  <FontAwesomeIcon icon={faCalendar} aria-hidden="true" />
                   <span>
                     {dateDay} {dateMonth}
                     {hasEventTime ? `, ${eventTime}` : ""}
@@ -75,16 +79,22 @@ export default function EventList() {
                 </span>
                 <br />
                 <span className="event-location">
-                  <i
-                    className="fa-solid fa-location-dot"
-                    aria-hidden="true"
-                  ></i>
+                  <FontAwesomeIcon icon={faLocationDot} aria-hidden="true" />
                   <span>{event.address}</span>
                 </span>
               </p>
 
               {/* Описание */}
               <p className="event-description">{event.description}</p>
+
+              {/* Дополнительные ссылки */}
+              {event.links?.length > 0 && (
+                <div className="event-links">
+                  {event.links.map((item, i) => (
+                    <ExternalLink key={i} href={item.link} text={item.text} />
+                  ))}
+                </div>
+              )}
 
               {/* Ссылка на регистрацию */}
               {event.registrationLink && (

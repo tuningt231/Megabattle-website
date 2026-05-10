@@ -31,6 +31,6 @@ export const Api = {
   },
 
   getPartners() {
-  return fetchJson('data/partners.json');
+    return fetchJson('data/partners.json');
   }
 };

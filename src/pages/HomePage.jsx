@@ -4,10 +4,19 @@ import heroVideo from "/hero-video.mp4";
 import aboutImg from "/images/about-image.png";
 import vkIcon from "/icons/vk.svg";
 import telegramIcon from "/icons/telegram.svg";
+import instagramIcon from "/icons/instagram.svg";
+import tiktokIcon from "/icons/tiktok.svg";
 import "../styles/page-home.css";
 import Megabattle from "../components/Megabattle";
 import Partners from "../components/Partners";
 import { Theme } from "../theme";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faPhone,
+  faAt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faVk, faTelegram } from "@fortawesome/free-brands-svg-icons";
 
 export default function HomePage() {
   const [theme, setTheme] = useState(Theme.get());
@@ -32,31 +41,25 @@ export default function HomePage() {
             </video>
           </div>
           <div className="hero-content">
-            {/* <img className="hero-title" src={heroImg} alt="ITMO MEGABATTLE" /> */}
             <Megabattle className="hero-title" />
             <p className="hero-slogan">Не для всех, а для каждого</p>
           </div>
-        </section>
-
-        <section id="socials" className="socials main-width">
-          <div className="social-item">
-            <img src={vkIcon} />
-            <a
-              href="https://vk.com/itmomegabattle"
-              title="Группа в ВК"
-              target="_blank"
-            >
-              ВКонтакте
+          <div className="hero-socials">
+            <a href="https://vk.com/itmomegabattle" target="_blank">
+              <span>ВКонтакте</span>
+              <img src={vkIcon} />
             </a>
-          </div>
-          <div className="social-item">
-            <img src={telegramIcon} />
-            <a
-              href="https://t.me/itmomegabattle"
-              title="Группа в Telegram"
-              target="_blank"
-            >
-              Telegram
+            <a href="https://www.instagram.com/itmo.megabattle/" target="_blank">
+              <span>Instagram</span>
+              <img src={instagramIcon} />
+            </a>
+            <a href="https://t.me/itmomegabattle" target="_blank">
+              <span>Telegram</span>
+              <img src={telegramIcon} />
+            </a>
+            <a href="https://www.tiktok.com/@itmo_megabattle" target="_blank">
+              <span>TikTok</span>
+              <img src={tiktokIcon} />
             </a>
           </div>
         </section>
@@ -118,18 +121,26 @@ export default function HomePage() {
             </iframe>
             <div className="contact-info">
               <div>
-                <i className="fa-solid fa-location-dot"></i>
+                <FontAwesomeIcon icon={faLocationDot} />
                 ул. Ломоносова, д.9
               </div>
               <div>
-                <i className="fa-solid fa-phone"></i>
-                +7 (999) 999-99-99
+                <FontAwesomeIcon icon={faPhone} />
+                +7 981 188 6044, Олег
               </div>
               <div>
-                <i className="fa-solid fa-at"></i>
-                artem.b@itmo.ru
+                <FontAwesomeIcon icon={faAt} />
+                megabattle@itmo.ru
               </div>
-              <button
+              {/* <div>
+                <FontAwesomeIcon icon={faVk} />
+                <a href="https://vk.com/itmomegabattle" target="_blank">ВКонтакте</a>
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faTelegram} />
+                <a href="https://t.me/itmomegabattle" target="_blank">Telegram</a>
+              </div> */}
+              {/* <button
                 className="button"
                 type="button"
                 onClick={() =>
@@ -141,7 +152,7 @@ export default function HomePage() {
                 }
               >
                 Построить маршрут
-              </button>
+              </button> */}
             </div>
           </div>
         </section>

@@ -54,7 +54,17 @@
 .event-description {
     font-size: 1rem;
     line-height: 1.6;
-    flex-grow: 1;
+}
+
+.event-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.event-button {
+    margin-top: auto;
 }
 
 @media (max-width: 900px) {

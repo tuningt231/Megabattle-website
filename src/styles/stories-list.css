@@ -22,6 +22,17 @@
     margin: 1.2em min(1vw, 30px) 2em;
 }
 
+.story-card[data-tag="0"] { --tag-color: #142A68; }
+.story-card[data-tag="1"] { --tag-color: #68144C; }
+.story-card[data-tag="2"] { --tag-color: #146842; }
+
+.story-card {
+    background:
+        radial-gradient(ellipse 80% 25% at 0% 0%, var(--tag-color) 0%, transparent 100%),
+        radial-gradient(ellipse 100% 35% at 100% 100%, var(--tag-color) 0%, transparent 100%),
+        var(--surface-color-special);
+}
+
 /* Анимации при наведении на карточку */
 .story-card:hover {
     transform: translateY(-10px);
@@ -34,15 +45,13 @@
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 1.5rem;
-    position: relative;
-    background: radial-gradient(circle at center, #4B6BFB, #2541b2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Анимация фотографии при наведении */
 .story-card:hover .story-image-container {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(75, 107, 251, 0.3);
+    box-shadow: 0 0 30px var(--tag-color)
 }
 
 .story-image {

@@ -2,11 +2,15 @@
     {
         "key": "key1",
         "name": "Мероприятие 1",
-        "date": "10 may 2026",
+        "date": "30 may 2026",
         "address": "Ул. Ломоносова, д. 9",
         "description": "Описание мероприятия 1. Здесь будет подробная информация о мероприятии, его целях и программе.",
         "image": "/images/events/event1.jpg",
-        "registrationLink": "https://reg.example.com/event1"
+        "registrationLink": "https://reg.example.com/event1",
+        "links": [
+            { "link": "https://vk.com/test", "text": "ВКонтакте" },
+            { "link": "https://t.me/test", "text": "Telegram" }
+        ]
     },
     {
         "key": "key2",

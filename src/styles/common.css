@@ -81,10 +81,7 @@ body {
 }
 
 /* Иконки с FontAwesome */
-.fa-regular,
-.fa-solid,
-.fa-light,
-.fa-thin {
+.svg-inline--fa {
     width: 1.5em;
 }
 
@@ -106,23 +103,7 @@ h1 {
 h3 {
     font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-/* h1::before {
-    content: '◄ ';
-    text-wrap: nowrap;
-}
-
-h1::after {
-    content: ' ►';
-    text-wrap: nowrap;
-} */
-
-h1::before,
-h1::after {
-    text-wrap: nowrap;
-    content: ' – ';
+    margin-bottom: 0.8rem;
 }
 
 /* Добавление отступов для абзацев */
@@ -133,7 +114,6 @@ p {
 /* Декорация ссылок */
 a {
     color: currentColor;
-    color: var(--accent-color);
     text-decoration: none;
 }
 
