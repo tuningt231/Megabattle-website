@@ -18,20 +18,25 @@ let listeners = new Set();
 // Общее API для переключения темы
 export const Theme = {
   get() {
-    if (currentTheme === null) this.set(getInitialTheme());
+    if (currentTheme === null) this.set(getInitialTheme(), false);
     return currentTheme;
   },
 
-  set(theme) {
+  set(theme, transition=true) {
     if (theme !== "dark" && theme !== "light") return;
     if (currentTheme === theme) return;
 
     currentTheme = theme;
 
+    if (transition) document.documentElement.classList.add("theme-transitioning");
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(THEME_STORAGE_KEY, theme);
 
     listeners.forEach((cb) => cb(theme));
+
+    window.setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 400);
   },
 
   addListener(callback, invoke = true) {
