@@ -101,7 +101,7 @@ export default function VisibleScroll({
     return () => {
       cancelAnimationFrame(frame);
     };
-  }, [autoScroll, autoSpeed]);
+  }, [autoScroll, autoSpeed, childItems.length]);
 
   const pauseAutoScroll = () => {
     if (!autoScroll) return;
@@ -115,52 +115,101 @@ export default function VisibleScroll({
     setIsAutoPaused(false);
   };
 
-  const handlePointerDown = (event) => {
-    if (!autoScroll || (event.pointerType === "mouse" && event.button !== 0)) {
-      return;
-    }
-
+  const beginDrag = ({ pointerId = null, clientX, clientY }) => {
     const el = scrollRef.current;
     if (!el) return;
 
     draggedRef.current = false;
     dragStateRef.current = {
-      pointerId: event.pointerId,
-      startX: event.clientX,
-      startY: event.clientY,
+      pointerId,
+      startX: clientX,
+      startY: clientY,
       scrollLeft: el.scrollLeft,
       isDragging: false,
     };
   };
 
-  const handlePointerMove = (event) => {
+  const moveDrag = ({ pointerId = null, clientX, clientY, preventDefault }) => {
     const dragState = dragStateRef.current;
     const el = scrollRef.current;
     if (!autoScroll || !dragState || !el) return;
+    if (dragState.pointerId != null && pointerId !== dragState.pointerId) return;
 
-    const delta = event.clientX - dragState.startX;
-    const verticalDelta = event.clientY - dragState.startY;
+    const delta = clientX - dragState.startX;
+    const verticalDelta = clientY - dragState.startY;
     if (!dragState.isDragging) {
       if (Math.abs(delta) <= 8) return;
       if (Math.abs(verticalDelta) > Math.abs(delta)) return;
 
       pauseAutoScroll();
       dragState.isDragging = true;
-      el.setPointerCapture?.(event.pointerId);
+      if (pointerId != null) {
+        el.setPointerCapture?.(pointerId);
+      }
     }
 
-    event.preventDefault();
+    preventDefault?.();
     if (Math.abs(delta) > 14) draggedRef.current = true;
     el.scrollLeft = dragState.scrollLeft - delta;
   };
 
-  const handlePointerEnd = (event) => {
+  const endDrag = (pointerId = null) => {
     const el = scrollRef.current;
-    if (el && event.pointerId != null) {
-      el.releasePointerCapture?.(event.pointerId);
+    if (el && pointerId != null && el.hasPointerCapture?.(pointerId)) {
+      el.releasePointerCapture?.(pointerId);
     }
     dragStateRef.current = null;
     if (isMobile) resumeAutoScroll();
+  };
+
+  const handlePointerDown = (event) => {
+    if (!autoScroll || (event.pointerType === "mouse" && event.button !== 0)) {
+      return;
+    }
+
+    beginDrag({
+      pointerId: event.pointerId,
+      clientX: event.clientX,
+      clientY: event.clientY,
+    });
+  };
+
+  const handlePointerMove = (event) => {
+    moveDrag({
+      pointerId: event.pointerId,
+      clientX: event.clientX,
+      clientY: event.clientY,
+      preventDefault: () => event.preventDefault(),
+    });
+  };
+
+  const handlePointerEnd = (event) => {
+    endDrag(event.pointerId);
+  };
+
+  const handleTouchStart = (event) => {
+    if (!autoScroll || event.touches.length !== 1) return;
+
+    const touch = event.touches[0];
+    beginDrag({
+      clientX: touch.clientX,
+      clientY: touch.clientY,
+    });
+  };
+
+  const handleTouchMove = (event) => {
+    if (!autoScroll || event.touches.length !== 1) return;
+
+    const touch = event.touches[0];
+    moveDrag({
+      clientX: touch.clientX,
+      clientY: touch.clientY,
+      preventDefault: () => event.preventDefault(),
+    });
+  };
+
+  const handleTouchEnd = () => {
+    endDrag();
   };
 
   const handleWheel = (event) => {
@@ -214,6 +263,10 @@ export default function VisibleScroll({
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerEnd}
       onPointerCancel={handlePointerEnd}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
       onWheel={handleWheel}
     >
       <div
