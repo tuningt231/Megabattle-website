@@ -32,7 +32,9 @@
     padding-inline: calc(calc(100% - var(--main-width)) / 2);
     overflow-x: auto;
     cursor: grab;
-    touch-action: pan-y;
+    touch-action: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
     scroll-behavior: auto;
 }
 

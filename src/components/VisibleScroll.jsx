@@ -31,9 +31,21 @@ export default function VisibleScroll({
   const checkScroll = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
+
+    if (autoScroll) {
+      const loopWidth = loopGroupRef.current?.scrollWidth ?? 0;
+      if (loopWidth > 0) {
+        if (el.scrollLeft < loopWidth * 0.5) {
+          el.scrollLeft += loopWidth;
+        } else if (el.scrollLeft >= loopWidth * 1.5) {
+          el.scrollLeft -= loopWidth;
+        }
+      }
+    }
+
     setCanScrollLeft(el.scrollLeft > 0);
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
-  }, []);
+  }, [autoScroll]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -68,7 +80,7 @@ export default function VisibleScroll({
     const loopGroup = loopGroupRef.current;
     if (!el || !loopGroup) return undefined;
 
-    let frame = 0;
+    let interval = 0;
     let previousTime = performance.now();
 
     const normalizeScroll = () => {
@@ -82,26 +94,39 @@ export default function VisibleScroll({
       }
     };
 
-    el.scrollLeft = loopGroup.scrollWidth;
+    const setInitialScroll = () => {
+      const loopWidth = loopGroup.scrollWidth;
+      if (loopWidth > 0 && el.scrollLeft === 0) {
+        el.scrollLeft = loopWidth;
+      }
+    };
 
-    const tick = (time) => {
-      const delta = time - previousTime;
+    const tick = () => {
+      const time = performance.now();
+      const delta = Math.min(time - previousTime, 80);
       previousTime = time;
 
+      setInitialScroll();
       if (!isAutoPausedRef.current) {
         el.scrollLeft += delta * autoSpeed;
       }
 
       normalizeScroll();
-      frame = requestAnimationFrame(tick);
     };
 
-    frame = requestAnimationFrame(tick);
+    setInitialScroll();
+    const ro = new ResizeObserver(() => {
+      setInitialScroll();
+      normalizeScroll();
+    });
+    ro.observe(loopGroup);
+    interval = window.setInterval(tick, isMobile ? 32 : 16);
 
     return () => {
-      cancelAnimationFrame(frame);
+      window.clearInterval(interval);
+      ro.disconnect();
     };
-  }, [autoScroll, autoSpeed, childItems.length]);
+  }, [autoScroll, autoSpeed, childItems.length, isMobile]);
 
   const pauseAutoScroll = () => {
     if (!autoScroll) return;
@@ -166,6 +191,10 @@ export default function VisibleScroll({
     if (!autoScroll || (event.pointerType === "mouse" && event.button !== 0)) {
       return;
     }
+    if (isMobile && event.pointerType === "touch") {
+      pauseAutoScroll();
+      return;
+    }
 
     beginDrag({
       pointerId: event.pointerId,
@@ -175,6 +204,8 @@ export default function VisibleScroll({
   };
 
   const handlePointerMove = (event) => {
+    if (isMobile && event.pointerType === "touch") return;
+
     moveDrag({
       pointerId: event.pointerId,
       clientX: event.clientX,
@@ -184,11 +215,20 @@ export default function VisibleScroll({
   };
 
   const handlePointerEnd = (event) => {
+    if (isMobile && event.pointerType === "touch") {
+      resumeAutoScroll();
+      return;
+    }
+
     endDrag(event.pointerId);
   };
 
   const handleTouchStart = (event) => {
     if (!autoScroll || event.touches.length !== 1) return;
+    if (isMobile) {
+      pauseAutoScroll();
+      return;
+    }
 
     const touch = event.touches[0];
     beginDrag({
@@ -199,6 +239,7 @@ export default function VisibleScroll({
 
   const handleTouchMove = (event) => {
     if (!autoScroll || event.touches.length !== 1) return;
+    if (isMobile) return;
 
     const touch = event.touches[0];
     moveDrag({
@@ -209,6 +250,11 @@ export default function VisibleScroll({
   };
 
   const handleTouchEnd = () => {
+    if (isMobile) {
+      resumeAutoScroll();
+      return;
+    }
+
     endDrag();
   };
 
