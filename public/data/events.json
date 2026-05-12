@@ -7,10 +7,7 @@
         "description": "Описание мероприятия 1. Здесь будет подробная информация о мероприятии, его целях и программе.",
         "image": "/images/events/event1.jpg",
         "registrationLink": "https://reg.example.com/event1",
-        "links": [
-            { "link": "https://vk.com/test", "text": "ВКонтакте" },
-            { "link": "https://t.me/test", "text": "Telegram" }
-        ]
+        "links": []
     },
     {
         "key": "key2",

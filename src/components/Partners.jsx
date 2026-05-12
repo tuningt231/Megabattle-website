@@ -1,11 +1,8 @@
-import { useState, useEffect } from "react";
 import { Api } from "../api";
 import "../styles/partners.css";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Partners() {
-  const [activeId, setActiveId] = useState(null);
-
   // получить данные с API (или из кэша)
   const partners = useQuery({
     queryKey: ["partners"],
@@ -17,26 +14,24 @@ export default function Partners() {
   const row2 = partners.filter((_, i) => i % 2 !== 0);
 
   const renderCard = (p, uniqueKey) => {
-    const active = p.id === activeId;
     return (
-      <div
+      <a
         key={uniqueKey}
-        className={`partner-card ${active ? "active" : ""}`}
-        onClick={() => setActiveId(active ? null : p.id)}
+        className="partner-card"
+        href={p.link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={p.name}
       >
         <div className="avatar">
-          <img src={Api.normalizeURL(p.logo)} alt="" />
+          <img src={Api.normalizeURL(p.logo)} alt={p.name} />
         </div>
-        <div className="content">
-          <h3>{p.name}</h3>
-          <p>{p.description}</p>
-        </div>
-      </div>
+      </a>
     );
   };
 
   return (
-    <div className={`partners-section ${activeId ? "has-active" : ""}`}>
+    <div className="partners-section">
       <div className="partners-wrap">
         {/* Верхняя строка — открывается вверх */}
         <div className="carousel-row row-up">

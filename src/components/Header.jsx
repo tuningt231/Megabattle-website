@@ -84,6 +84,15 @@ function MoonIcon() {
   );
 }
 
+function BurgerIcon({ open }) {
+  return (
+    <span className={`burger-icon${open ? " burger-icon--open" : ""}`} aria-hidden="true">
+      <span />
+      <span />
+    </span>
+  );
+}
+
 function OuterCorner({ tag }) {
   return (
     <svg
@@ -116,6 +125,7 @@ function InnerSpace() {
 
 export default function Header() {
   const [theme, setTheme] = useState(Theme.get());
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isDarkTheme = theme === "dark";
 
   useEffect(() => {
@@ -128,11 +138,28 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
-      <Link className="header-item" to="/">
+    <header className={`header${isMenuOpen ? " header--menu-open" : ""}`}>
+      <button
+        type="button"
+        className="burger-toggle header-item"
+        onClick={() => setIsMenuOpen((open) => !open)}
+        aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+        aria-expanded={isMenuOpen}
+      >
+        <BurgerIcon open={isMenuOpen} />
+      </button>
+      <nav className="header-nav" aria-label="Основная навигация">
+        <Link className="header-item" to="/" onClick={() => setIsMenuOpen(false)}>
+          Главная
+        </Link>
+        <Link className="header-item" to="/people" onClick={() => setIsMenuOpen(false)}>
+          Люди
+        </Link>
+      </nav>
+      <Link className="header-item header-link" to="/">
         Главная
       </Link>
-      <Link className="header-item" to="/people">
+      <Link className="header-item header-link" to="/people">
         Люди
       </Link>
       <button

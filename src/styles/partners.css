@@ -1,7 +1,8 @@
 .partners-section {
   width: 100%;
   margin: 0 calc(-50vw + 50%);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 
   display: flex;
   flex-direction: column;
@@ -13,8 +14,10 @@
 /* ===== РЯД ===== */
 .carousel-row {
   width: 100%;
-  overflow: hidden;
-    margin-bottom: 100px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin-bottom: 100px;
+  padding: 16px 0;
   position: relative;
 }
 
@@ -49,6 +52,14 @@
 
   position: relative;
   cursor: pointer;
+  color: currentColor;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: scale(1.08);
+  text-decoration: none;
 }
 
 /* ===== АВАТАРКА ===== */

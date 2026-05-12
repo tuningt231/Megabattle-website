@@ -126,7 +126,9 @@ export default function VisibleScroll({
     dragStateRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
+      startY: event.clientY,
       scrollLeft: el.scrollLeft,
+      isDragging: false,
     };
   };
 
@@ -136,12 +138,22 @@ export default function VisibleScroll({
     if (!autoScroll || !dragState || !el) return;
 
     const delta = event.clientX - dragState.startX;
+    const verticalDelta = event.clientY - dragState.startY;
+    if (!dragState.isDragging) {
+      if (Math.abs(delta) <= 8) return;
+      if (Math.abs(verticalDelta) > Math.abs(delta)) return;
+
+      pauseAutoScroll();
+      dragState.isDragging = true;
+    }
+
     if (Math.abs(delta) > 14) draggedRef.current = true;
     el.scrollLeft = dragState.scrollLeft - delta;
   };
 
   const handlePointerEnd = (event) => {
     dragStateRef.current = null;
+    if (isMobile) resumeAutoScroll();
   };
 
   const handleWheel = (event) => {
@@ -185,7 +197,9 @@ export default function VisibleScroll({
   return (
     <div
       className={`visible-scroll-wrapper${autoScroll ? " visible-scroll-wrapper--loop" : ""}${isAutoPaused ? " visible-scroll-wrapper--paused" : ""}`}
-      onPointerEnter={pauseAutoScroll}
+      onPointerEnter={(event) => {
+        if (event.pointerType !== "touch") pauseAutoScroll();
+      }}
       onPointerLeave={() => {
         if (!dragStateRef.current) resumeAutoScroll();
       }}
@@ -194,8 +208,6 @@ export default function VisibleScroll({
       onPointerUp={handlePointerEnd}
       onPointerCancel={handlePointerEnd}
       onWheel={handleWheel}
-      onTouchStart={pauseAutoScroll}
-      onTouchEnd={resumeAutoScroll}
     >
       <div
         className={`visible-scroll-container${autoScroll ? " visible-scroll-container--loop" : ""}`}

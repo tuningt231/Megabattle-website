@@ -13,7 +13,6 @@ import { Theme } from "../theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
-  faPhone,
   faAt,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -167,10 +166,6 @@ export default function HomePage() {
                 <div className="contact-line">
                   <FontAwesomeIcon icon={faLocationDot} />
                   <span>ул. Ломоносова, д.9</span>
-                </div>
-                <div className="contact-line">
-                  <FontAwesomeIcon icon={faPhone} />
-                  <span>+7 981 188 6044, Олег</span>
                 </div>
                 <div className="contact-line">
                   <FontAwesomeIcon icon={faAt} />

@@ -1,247 +1,282 @@
 [
   {
     "id": 1,
-    "name": "лвлв",
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
     "id": 2,
-    "name": "Microsoft",
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
     "id": 3,
-    "name": "Amazon",
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
     "id": 4,
-    "name": "IBM",
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
     "id": 5,
-    "name": "Intel",
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   },
   {
-    "id": 1,
-    "name": "лвлв",
+    "id": 6,
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
-    "id": 2,
-    "name": "Microsoft",
+    "id": 7,
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
-    "id": 3,
-    "name": "Amazon",
+    "id": 8,
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
-    "id": 4,
-    "name": "IBM",
+    "id": 9,
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
-    "id": 5,
-    "name": "Intel",
+    "id": 10,
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   },
-    {
-    "id": 1,
-    "name": "лвлв",
+  {
+    "id": 11,
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
-    "id": 2,
-    "name": "Microsoft",
+    "id": 12,
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
-    "id": 3,
-    "name": "Amazon",
+    "id": 13,
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
-    "id": 4,
-    "name": "IBM",
+    "id": 14,
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
-    "id": 5,
-    "name": "Intel",
+    "id": 15,
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   },
-    {
-    "id": 1,
-    "name": "лвлв",
+  {
+    "id": 16,
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
-    "id": 2,
-    "name": "Microsoft",
+    "id": 17,
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
-    "id": 3,
-    "name": "Amazon",
+    "id": 18,
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
-    "id": 4,
-    "name": "IBM",
+    "id": 19,
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
-    "id": 5,
-    "name": "Intel",
+    "id": 20,
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   },
-    {
-    "id": 1,
-    "name": "лвлв",
+  {
+    "id": 21,
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
-    "id": 2,
-    "name": "Microsoft",
+    "id": 22,
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
-    "id": 3,
-    "name": "Amazon",
+    "id": 23,
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
-    "id": 4,
-    "name": "IBM",
+    "id": 24,
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
-    "id": 5,
-    "name": "Intel",
+    "id": 25,
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   },
-    {
-    "id": 1,
-    "name": "лвлв",
+  {
+    "id": 26,
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
-    "id": 2,
-    "name": "Microsoft",
+    "id": 27,
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
-    "id": 3,
-    "name": "Amazon",
+    "id": 28,
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
-    "id": 4,
-    "name": "IBM",
+    "id": 29,
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
-    "id": 5,
-    "name": "Intel",
+    "id": 30,
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   },
-    {
-    "id": 1,
-    "name": "лвлв",
+  {
+    "id": 31,
+    "name": "Double B Tea",
     "logo": "/images/partners/double.png",
-    "description": "Технологический партнёр",
-    "link": "https://google.com"
+    "description": "Чайный партнёр",
+    "link": "https://dbtea.ru/",
+    "partnerKey": 1
   },
   {
-    "id": 2,
-    "name": "Microsoft",
+    "id": 32,
+    "name": "Дринкит",
     "logo": "/images/partners/drinkit.png",
-    "description": "Облачные решения",
-    "link": "https://microsoft.com"
+    "description": "Кофейный партнёр",
+    "link": "https://drinkit.ru/",
+    "partnerKey": 2
   },
   {
-    "id": 3,
-    "name": "Amazon",
+    "id": 33,
+    "name": "Kaori Drinks",
     "logo": "/images/partners/kaori.jpg",
-    "description": "Партнёр по облачным технологиям",
-    "link": "https://amazon.com"
+    "description": "Партнёр по напиткам",
+    "link": "https://www.instagram.com/kaori.drinks",
+    "partnerKey": 3
   },
   {
-    "id": 4,
-    "name": "IBM",
+    "id": 34,
+    "name": "Перекрёсток",
     "logo": "/images/partners/perekr.jpeg",
-    "description": "Партнёр по искусственному интеллекту",
-    "link": "https://ibm.com"
+    "description": "Продуктовый партнёр",
+    "link": "https://spb.perekrestok.at/",
+    "partnerKey": 4
   },
   {
-    "id": 5,
-    "name": "Intel",
+    "id": 35,
+    "name": "Подписные издания",
     "logo": "/images/partners/podpisn.jpeg",
-    "description": "Партнёр по аппаратному обеспечению",
-    "link": "https://intel.com"
+    "description": "Книжный партнёр",
+    "link": "https://www.podpisnie.ru/",
+    "partnerKey": 5
   }
 ]
