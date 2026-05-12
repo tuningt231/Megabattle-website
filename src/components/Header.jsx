@@ -156,6 +156,17 @@ export default function Header() {
           Люди
         </Link>
       </nav>
+      <button
+        type="button"
+        className="theme-toggle mobile-theme-toggle header-item"
+        onClick={handleThemeToggle}
+        aria-label={
+          isDarkTheme ? "Включить светлую тему" : "Включить темную тему"
+        }
+        title={isDarkTheme ? "Светлая тема" : "Темная тема"}
+      >
+        {isDarkTheme ? <SunIcon /> : <MoonIcon />}
+      </button>
       <Link className="header-item header-link" to="/">
         Главная
       </Link>
@@ -164,7 +175,7 @@ export default function Header() {
       </Link>
       <button
         type="button"
-        className="theme-toggle header-item"
+        className="theme-toggle desktop-theme-toggle header-item"
         onClick={handleThemeToggle}
         aria-label={
           isDarkTheme ? "Включить светлую тему" : "Включить темную тему"

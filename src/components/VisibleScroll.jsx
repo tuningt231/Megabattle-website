@@ -116,12 +116,13 @@ export default function VisibleScroll({
   };
 
   const handlePointerDown = (event) => {
-    if (!autoScroll || event.button !== 0) return;
+    if (!autoScroll || (event.pointerType === "mouse" && event.button !== 0)) {
+      return;
+    }
 
     const el = scrollRef.current;
     if (!el) return;
 
-    pauseAutoScroll();
     draggedRef.current = false;
     dragStateRef.current = {
       pointerId: event.pointerId,
@@ -145,13 +146,19 @@ export default function VisibleScroll({
 
       pauseAutoScroll();
       dragState.isDragging = true;
+      el.setPointerCapture?.(event.pointerId);
     }
 
+    event.preventDefault();
     if (Math.abs(delta) > 14) draggedRef.current = true;
     el.scrollLeft = dragState.scrollLeft - delta;
   };
 
   const handlePointerEnd = (event) => {
+    const el = scrollRef.current;
+    if (el && event.pointerId != null) {
+      el.releasePointerCapture?.(event.pointerId);
+    }
     dragStateRef.current = null;
     if (isMobile) resumeAutoScroll();
   };
