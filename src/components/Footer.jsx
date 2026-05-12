@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "../styles/footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVk, faTelegram, faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faVk,
+  faTelegram,
+  faGithub,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -53,6 +58,16 @@ export default function Footer() {
               >
                 <FontAwesomeIcon icon={faGithub} />
                 GitHub
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://www.youtube.com/@itmomegabattle"
+                target="_blank"
+                title="YouTube"
+              >
+                <FontAwesomeIcon icon={faYoutube} />
+                YouTube
               </a>
             </p>
           </div>

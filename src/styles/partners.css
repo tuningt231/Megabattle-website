@@ -92,15 +92,6 @@
   }
 }
 
-/* ===== ХОВЕР (опционально, делает живее) ===== */
-.partner-card {
-  transition: transform 0.3s ease;
-}
-
-.partner-card:hover {
-  transform: scale(1.08);
-}
-
 /* ===== БЕЗОПАСНОСТЬ ОТ СКРОЛЛА ===== */
 /* html, body {
   overflow-x: hidden;

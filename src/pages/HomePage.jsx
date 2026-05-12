@@ -16,11 +16,54 @@ import {
   faPhone,
   faAt,
 } from "@fortawesome/free-solid-svg-icons";
-import { faVk, faTelegram } from "@fortawesome/free-brands-svg-icons";
+import {
+  faVk,
+  faTelegram,
+  faInstagram,
+  faTiktok,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function HomePage() {
   const [theme, setTheme] = useState(Theme.get());
   const isDarkTheme = theme === "dark";
+  const contactSocials = [
+    {
+      name: "VK",
+      title: "ВКонтакте",
+      href: "https://vk.com/itmomegabattle",
+      icon: faVk,
+      className: "contact-social--vk",
+    },
+    {
+      name: "TG",
+      title: "Telegram",
+      href: "https://t.me/itmomegabattle",
+      icon: faTelegram,
+      className: "contact-social--telegram",
+    },
+    {
+      name: "YT",
+      title: "YouTube",
+      href: "https://www.youtube.com/@itmomegabattle",
+      icon: faYoutube,
+      className: "contact-social--youtube",
+    },
+    {
+      name: "IG",
+      title: "Instagram",
+      href: "https://www.instagram.com/itmo.megabattle/",
+      icon: faInstagram,
+      className: "contact-social--instagram",
+    },
+    {
+      name: "TT",
+      title: "TikTok",
+      href: "https://www.tiktok.com/@itmo_megabattle",
+      icon: faTiktok,
+      className: "contact-social--tiktok",
+    },
+  ];
 
   useEffect(() => {
     Theme.addListener(setTheme, false);
@@ -120,26 +163,37 @@ export default function HomePage() {
               Карта ИТМО
             </iframe>
             <div className="contact-info">
-              <div>
-                <FontAwesomeIcon icon={faLocationDot} />
-                ул. Ломоносова, д.9
+              <div className="contact-info-main">
+                <div className="contact-line">
+                  <FontAwesomeIcon icon={faLocationDot} />
+                  <span>ул. Ломоносова, д.9</span>
+                </div>
+                <div className="contact-line">
+                  <FontAwesomeIcon icon={faPhone} />
+                  <span>+7 981 188 6044, Олег</span>
+                </div>
+                <div className="contact-line">
+                  <FontAwesomeIcon icon={faAt} />
+                  <span>megabattle@itmo.ru</span>
+                </div>
               </div>
-              <div>
-                <FontAwesomeIcon icon={faPhone} />
-                +7 981 188 6044, Олег
+
+              <div className="contact-socials-panel" aria-label="Социальные сети">
+                {contactSocials.map((social, index) => (
+                  <a
+                    key={social.name}
+                    className={`contact-social-link ${social.className}`}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={social.title}
+                    aria-label={social.title}
+                  >
+                    <FontAwesomeIcon icon={social.icon} />
+                    <span>{social.title}</span>
+                  </a>
+                ))}
               </div>
-              <div>
-                <FontAwesomeIcon icon={faAt} />
-                megabattle@itmo.ru
-              </div>
-              {/* <div>
-                <FontAwesomeIcon icon={faVk} />
-                <a href="https://vk.com/itmomegabattle" target="_blank">ВКонтакте</a>
-              </div>
-              <div>
-                <FontAwesomeIcon icon={faTelegram} />
-                <a href="https://t.me/itmomegabattle" target="_blank">Telegram</a>
-              </div> */}
               {/* <button
                 className="button"
                 type="button"

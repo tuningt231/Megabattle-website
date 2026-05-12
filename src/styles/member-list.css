@@ -32,7 +32,7 @@
   transition: left 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.team-toggle[data-filter="organizers"] .toggle-slider {
+.team-toggle[data-filter="responsible"] .toggle-slider {
   left: 50%;
 }
 
@@ -178,19 +178,51 @@
 
 /* Mobile */
 @media (max-width: 900px) {
+  .team-member {
+    width: 150px;
+    padding: 0.9rem 14px 0;
+  }
+
+  .member-name {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .member-role {
+    font-size: 0.85rem;
+    line-height: 1.25;
+  }
+
   .member-info-expanded {
     flex-direction: column;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 0.75rem;
+    margin: 0.75rem auto;
     padding: 0 0.5rem;
+    max-width: 340px;
   }
 
   .member-expanded-image {
-    max-width: 320px;
+    width: 100%;
+    max-width: 340px;
     margin: 0 auto;
   }
 
   .member-expanded-info {
-    padding: 1.2rem;
+    padding: 0.85rem;
+  }
+
+  .member-expanded-info h3 {
+    font-size: 1.45rem;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .member-expanded-info p {
+    margin: 0.35rem 0;
+  }
+
+  .member-expanded-description {
+    font-size: 0.95rem;
+    line-height: 1.45;
   }
 }

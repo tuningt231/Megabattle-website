@@ -150,13 +150,108 @@
     background: var(--surface-color);
     border-radius: var(--corner-radius);
     padding: var(--card-padding-vertical) var(--card-padding-horizontal);
+    min-height: 400px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 1.6rem;
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+}
+
+.contact-info-main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
-    gap: 0.9rem;
-    box-shadow: var(--card-shadow);
+    gap: 1rem;
+}
+
+.contact-line {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.contact-line svg {
+    justify-self: center;
+}
+
+.contact-socials-panel {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.6rem;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.24);
+}
+
+.contact-social-link {
+    display: flex;
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 48px;
+    padding: 0.58rem 0.72rem;
+    border-radius: 0.85rem;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--text-color);
+    text-decoration: none;
     border: var(--card-border);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.contact-social--vk,
+.contact-social--telegram,
+.contact-social--youtube {
+    grid-row: 1;
+}
+
+.contact-social--vk {
+    grid-column: 1 / span 2;
+}
+
+.contact-social--telegram {
+    grid-column: 3 / span 2;
+}
+
+.contact-social--youtube {
+    grid-column: 5 / span 2;
+}
+
+.contact-social-link:hover {
+    background: var(--surface-color-special);
+    color: var(--text-color-special);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+.contact-social-link svg {
+    width: 1.18rem;
+    font-size: 1.18rem;
+    flex: 0 0 auto;
+}
+
+.contact-social-link span {
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.contact-social--tiktok {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+}
+
+.contact-social--instagram {
+    grid-column: 4 / span 2;
+    grid-row: 2;
 }
 
 @media (max-width: 900px) {
@@ -170,11 +265,37 @@
     }
 
     .contact-info {
-        gap: 0.75rem;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 1.4rem;
     }
 
     .contact-info .button {
         width: 100%;
     }
-}
 
+    .contact-socials-panel {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .contact-social--vk {
+        grid-column: 1 / span 2;
+    }
+
+    .contact-social--telegram {
+        grid-column: 3 / span 2;
+    }
+
+    .contact-social--youtube {
+        grid-column: 5 / span 2;
+    }
+
+    .contact-social--tiktok {
+        grid-column: 2 / span 2;
+    }
+
+    .contact-social--instagram {
+        grid-column: 4 / span 2;
+    }
+}

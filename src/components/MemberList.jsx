@@ -5,7 +5,7 @@ import "../styles/member-list.css";
 import VisibleScroll from "./VisibleScroll";
 import ExternalLink from "./ExternalLink";
 
-function MemberListInternal({ members }) {
+function MemberListInternal({ members, autoScroll = false }) {
   const [activeMember, setActiveMember] = useState(null);
 
   // колбэк на выбор нового просматриваемого участника
@@ -23,7 +23,7 @@ function MemberListInternal({ members }) {
 
   return (
     <>
-      <VisibleScroll>
+      <VisibleScroll autoScroll={autoScroll} showArrows={!autoScroll}>
         {members.map((member) => {
           const isActive = activeMember === member;
           return (
@@ -80,7 +80,7 @@ function MemberListInternal({ members }) {
 }
 
 export default function MemberList() {
-  const [activeFilter, setActiveFilter] = useState("responsible");
+  const [activeFilter, setActiveFilter] = useState("organizers");
 
   // получить данные с API (или из кэша)
   const organizers = useQuery({
@@ -104,24 +104,24 @@ export default function MemberList() {
         >
           <div className="toggle-slider" />
           <button
-            className={`toggle-btn${activeFilter === "responsible" ? " active" : ""}`}
-            type="button"
-            onClick={() => setActiveFilter("responsible")}
-          >
-            Ответственные
-          </button>
-          <button
             className={`toggle-btn${activeFilter === "organizers" ? " active" : ""}`}
             type="button"
             onClick={() => setActiveFilter("organizers")}
           >
             Организаторы
           </button>
+          <button
+            className={`toggle-btn${activeFilter === "responsible" ? " active" : ""}`}
+            type="button"
+            onClick={() => setActiveFilter("responsible")}
+          >
+            Ответственные
+          </button>
         </div>
       </div>
 
       <div hidden={activeFilter !== "organizers"}>
-        <MemberListInternal members={organizers} />
+        <MemberListInternal members={organizers} autoScroll />
       </div>
 
       {/* todo: У нас на экране по ширине помещается примерно 4 человека,

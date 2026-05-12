@@ -28,6 +28,34 @@
     margin-right: calc(calc(100% - var(--main-width)) / 2);
 }
 
+.visible-scroll-container--loop {
+    padding-inline: calc(calc(100% - var(--main-width)) / 2);
+    overflow-x: auto;
+    cursor: grab;
+    touch-action: pan-y;
+    scroll-behavior: auto;
+}
+
+.visible-scroll-container--loop:active {
+    cursor: grabbing;
+}
+
+.visible-scroll-container--loop > *:first-child,
+.visible-scroll-container--loop > *:last-child {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.visible-scroll-loop-track {
+    display: flex;
+    width: max-content;
+}
+
+.visible-scroll-loop-group {
+    display: flex;
+    flex: 0 0 auto;
+}
+
 .visible-scroll-arrow {
     position: absolute;
     top: 50%;
