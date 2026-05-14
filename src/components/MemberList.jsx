@@ -62,7 +62,9 @@ function MemberListInternal({ members, autoScroll = false }) {
                 </span>
               </p>
               <p className="member-expanded-description">
-                {activeMember.description}
+                {activeMember.description.split(/\n+/).map((txt) => (
+                  <p>{txt}</p>
+                ))}
               </p>
               {activeMember.links?.length > 0 && (
                 <div className="member-expanded-links">
@@ -98,10 +100,7 @@ export default function MemberList() {
   return (
     <>
       <div className="team-filters">
-        <div
-          className="team-toggle"
-          data-filter={activeFilter}
-        >
+        <div className="team-toggle" data-filter={activeFilter}>
           <div className="toggle-slider" />
           <button
             className={`toggle-btn${activeFilter === "organizers" ? " active" : ""}`}
@@ -124,9 +123,6 @@ export default function MemberList() {
         <MemberListInternal members={organizers} autoScroll />
       </div>
 
-      {/* todo: У нас на экране по ширине помещается примерно 4 человека,
-      то есть последний пятый мегаответственный - ЛОХ так как почти всегда будет
-      за границей экрана  */}
       <div hidden={activeFilter !== "responsible"}>
         <MemberListInternal members={responsible} />
       </div>

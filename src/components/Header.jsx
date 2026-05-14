@@ -86,10 +86,15 @@ function MoonIcon() {
 
 function BurgerIcon({ open }) {
   return (
-    <span className={`burger-icon${open ? " burger-icon--open" : ""}`} aria-hidden="true">
-      <span />
-      <span />
-    </span>
+    <div
+      className={`burger-icon${open ? " burger-icon--open" : ""}`}
+      aria-hidden="true"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   );
 }
 
@@ -123,36 +128,15 @@ function InnerSpace() {
   );
 }
 
-export default function Header() {
-  const [theme, setTheme] = useState(Theme.get());
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isDarkTheme = theme === "dark";
-
-  useEffect(() => {
-    Theme.addListener(setTheme, false);
-    return () => Theme.removeListener(setTheme);
-  }, []);
-
-  const handleThemeToggle = () => {
-    Theme.set(isDarkTheme ? "light" : "dark");
-  };
-
+// Header для desktop устройств
+function DesktopHeader({ isDarkTheme, handleThemeToggle }) {
   return (
-    <header className={`header${isMenuOpen ? " header--menu-open" : ""}`}>
-      <button
-        type="button"
-        className="burger-toggle header-item"
-        onClick={() => setIsMenuOpen((open) => !open)}
-        aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
-        aria-expanded={isMenuOpen}
-      >
-        <BurgerIcon open={isMenuOpen} />
-      </button>
-      <nav className="header-nav" aria-label="Основная навигация">
-        <Link className="header-item" to="/" onClick={() => setIsMenuOpen(false)}>
+    <header className="desktop-header">
+      <nav aria-label="Основная навигация">
+        <Link className="header-item" to="/">
           Главная
         </Link>
-        <Link className="header-item" to="/people" onClick={() => setIsMenuOpen(false)}>
+        <Link className="header-item" to="/people">
           Люди
         </Link>
       </nav>
@@ -167,27 +151,96 @@ export default function Header() {
       >
         {isDarkTheme ? <SunIcon /> : <MoonIcon />}
       </button>
-      <Link className="header-item header-link" to="/">
-        Главная
-      </Link>
-      <Link className="header-item header-link" to="/people">
-        Люди
-      </Link>
-      <button
-        type="button"
-        className="theme-toggle desktop-theme-toggle header-item"
-        onClick={handleThemeToggle}
-        aria-label={
-          isDarkTheme ? "Включить светлую тему" : "Включить темную тему"
-        }
-        title={isDarkTheme ? "Светлая тема" : "Темная тема"}
-      >
-        {isDarkTheme ? <SunIcon /> : <MoonIcon />}
-      </button>
 
       <InnerSpace />
       <OuterCorner tag="1" />
       <OuterCorner tag="2" />
     </header>
+  );
+}
+
+// Header для мобильных устройств
+function PhoneHeader({ isDarkTheme, handleThemeToggle }) {
+  const [isOpen, setOpen] = useState(false);
+  return (
+    <header className="phone-header">
+      <div className="header-upper-menu">
+        <button
+          type="button"
+          className="open-toggle header-item"
+          onClick={() => setOpen((x) => !x)}
+          aria-label={isOpen ? "Закрыть" : "Открыть"}
+          title={isOpen ? "Закрыть" : "Открыть"}
+        >
+          <BurgerIcon open={isOpen} />
+        </button>
+      </div>
+
+      <nav
+        aria-label="Основная навигация"
+        className={`header-lower-menu${isOpen ? "" : " header-lower-menu--closed"}`}
+        inert={!isOpen ? "" : undefined}
+      >
+        <button
+          type="button"
+          className="theme-toggle header-item"
+          onClick={handleThemeToggle}
+          aria-label={
+            isDarkTheme ? "Включить светлую тему" : "Включить темную тему"
+          }
+          title={isDarkTheme ? "Светлая тема" : "Темная тема"}
+        >
+          {isDarkTheme ? <SunIcon /> : <MoonIcon />}
+        </button>
+
+        <Link onClick={() => setOpen(false)} className="header-item" to="/">
+          Главная
+        </Link>
+        <Link
+          onClick={() => setOpen(false)}
+          className="header-item"
+          to="/people"
+        >
+          Люди
+        </Link>
+      </nav>
+    </header>
+  );
+}
+
+export default function Header() {
+  const [theme, setTheme] = useState(Theme.get());
+  const isDarkTheme = theme === "dark";
+  const [isDesktop, setIsDesktop] = useState(
+    () => window.matchMedia("(min-width: 640px)").matches,
+  );
+
+  // Выбрать, какой header показывать (для компа или телефона)
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)");
+    const handler = (e) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
+    Theme.addListener(setTheme, false);
+    return () => Theme.removeListener(setTheme);
+  }, []);
+
+  const handleThemeToggle = () => {
+    Theme.set(isDarkTheme ? "light" : "dark");
+  };
+
+  return isDesktop ? (
+    <DesktopHeader
+      isDarkTheme={isDarkTheme}
+      handleThemeToggle={handleThemeToggle}
+    />
+  ) : (
+    <PhoneHeader
+      isDarkTheme={isDarkTheme}
+      handleThemeToggle={handleThemeToggle}
+    />
   );
 }

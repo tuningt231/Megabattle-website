@@ -85,16 +85,20 @@ export default function EventList() {
               </p>
 
               {/* Описание */}
-              <p className="event-description">{event.description}</p>
+              {event.description.split(/\n+/).map((txt) => (
+                <p>{txt}</p>
+              ))}
 
               {/* Дополнительные ссылки */}
               {event.links?.length > 0 && (
-                <div className="event-links">
+                <p className="event-links">
                   {event.links.map((item, i) => (
                     <ExternalLink key={i} href={item.link} text={item.text} />
                   ))}
-                </div>
+                </p>
               )}
+
+              <div style={{flexGrow: 1}}></div>
 
               {/* Ссылка на регистрацию */}
               {event.registrationLink && (
