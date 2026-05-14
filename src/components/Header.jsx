@@ -98,7 +98,6 @@ function BurgerIcon({ open }) {
   );
 }
 
-
 function OuterCorner({ tag }) {
   return (
     <svg
@@ -152,23 +151,6 @@ function DesktopHeader({ isDarkTheme, handleThemeToggle }) {
       >
         {isDarkTheme ? <SunIcon /> : <MoonIcon />}
       </button>
-      <Link className="header-item header-link" to="/">
-        Главная
-      </Link>
-      <Link className="header-item header-link" to="/people">
-        Люди
-      </Link>
-      <button
-        type="button"
-        className="theme-toggle desktop-theme-toggle header-item"
-        onClick={handleThemeToggle}
-        aria-label={
-          isDarkTheme ? "Включить светлую тему" : "Включить темную тему"
-        }
-        title={isDarkTheme ? "Светлая тема" : "Темная тема"}
-      >
-        {isDarkTheme ? <SunIcon /> : <MoonIcon />}
-      </button>
 
       <InnerSpace />
       <OuterCorner tag="1" />
@@ -214,7 +196,11 @@ function PhoneHeader({ isDarkTheme, handleThemeToggle }) {
         <Link onClick={() => setOpen(false)} className="header-item" to="/">
           Главная
         </Link>
-        <Link onClick={() => setOpen(false)} className="header-item" to="/people">
+        <Link
+          onClick={() => setOpen(false)}
+          className="header-item"
+          to="/people"
+        >
           Люди
         </Link>
       </nav>
