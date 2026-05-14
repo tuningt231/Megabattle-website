@@ -146,7 +146,7 @@
 /* Info */
 .member-expanded-info {
   flex: 3;
-  padding: 2rem;
+  padding: var(--card-padding-vertical) var(--card-padding-horizontal);
   display: flex;
   flex-direction: column;
 
@@ -163,7 +163,6 @@
 }
 
 .member-expanded-description {
-  line-height: 1.6;
   opacity: 0.9;
 }
 
@@ -207,9 +206,9 @@
     margin: 0 auto;
   }
 
-  .member-expanded-info {
+  /* .member-expanded-info {
     padding: 0.85rem;
-  }
+  } */
 
   .member-expanded-info h3 {
     font-size: 1.45rem;
@@ -217,9 +216,9 @@
     margin-bottom: 0.5rem;
   }
 
-  .member-expanded-info p {
+  /* .member-expanded-info p {
     margin: 0.35rem 0;
-  }
+  } */
 
   .member-expanded-description {
     font-size: 0.95rem;

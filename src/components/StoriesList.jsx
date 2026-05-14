@@ -15,7 +15,11 @@ export default function StoriesList() {
   return (
     <VisibleScroll>
       {stories.map((story, idx) => (
-        <div className="story-card" key={story.key ?? `${story.name}-${idx}`} data-tag={idx % 3}>
+        <div
+          className="story-card"
+          key={story.key ?? `${story.name}-${idx}`}
+          data-tag={idx % 3}
+        >
           <div className="story-image-container">
             <img
               src={Api.normalizeURL(story.image)}
@@ -25,7 +29,11 @@ export default function StoriesList() {
           </div>
           <h3 className="story-name">{story.name}</h3>
           <p className="story-faculty">{story.faculty}</p>
-          <p className="story-description">{story.description}</p>
+          <p className="story-description">
+            {story.description.split(/\n+/).map((txt) => (
+              <p>{txt}</p>
+            ))}
+          </p>
           <p className="story-date">{story.date}</p>
         </div>
       ))}
