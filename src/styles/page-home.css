@@ -50,11 +50,6 @@
     text-shadow: 1px 1px 2px black;
 }
 
-@media (max-width: 450px) {
-    .hero-socials {
-        padding-top: calc(2 * var(--corner-radius) + 1rem);
-    }
-}
 
 .hero-socials img {
     width: 1.6rem;
@@ -80,8 +75,7 @@
 }
 
 .hero-slogan {
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.3rem;
     margin-bottom: 2rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     color: white;
@@ -177,8 +171,9 @@
 }
 
 .contact-socials-panel {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 0.6rem;
     width: 100%;
     margin-top: auto;
@@ -188,7 +183,6 @@
 
 .contact-social-link {
     display: flex;
-    grid-column: span 2;
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
@@ -206,24 +200,6 @@
         color 0.25s ease,
         transform 0.25s ease,
         box-shadow 0.25s ease;
-}
-
-.contact-social--vk,
-.contact-social--telegram,
-.contact-social--youtube {
-    grid-row: 1;
-}
-
-.contact-social--vk {
-    grid-column: 1 / span 2;
-}
-
-.contact-social--telegram {
-    grid-column: 3 / span 2;
-}
-
-.contact-social--youtube {
-    grid-column: 5 / span 2;
 }
 
 .contact-social-link:hover {
@@ -244,16 +220,6 @@
     font-weight: 700;
 }
 
-.contact-social--tiktok {
-    grid-column: 2 / span 2;
-    grid-row: 2;
-}
-
-.contact-social--instagram {
-    grid-column: 4 / span 2;
-    grid-row: 2;
-}
-
 @media (max-width: 900px) {
     .contacts-container {
         grid-template-columns: 1fr;
@@ -269,33 +235,5 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         gap: 1.4rem;
-    }
-
-    .contact-info .button {
-        width: 100%;
-    }
-
-    .contact-socials-panel {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    .contact-social--vk {
-        grid-column: 1 / span 2;
-    }
-
-    .contact-social--telegram {
-        grid-column: 3 / span 2;
-    }
-
-    .contact-social--youtube {
-        grid-column: 5 / span 2;
-    }
-
-    .contact-social--tiktok {
-        grid-column: 2 / span 2;
-    }
-
-    .contact-social--instagram {
-        grid-column: 4 / span 2;
     }
 }

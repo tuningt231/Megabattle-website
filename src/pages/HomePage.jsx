@@ -84,7 +84,7 @@ export default function HomePage() {
           </div>
           <div className="hero-content">
             <Megabattle className="hero-title" />
-            <p className="hero-slogan">Не для всех, а для каждого</p>
+            <p className="hero-slogan">Проект, объединяющий тысячи студентов в одном месте</p>
           </div>
           <div className="hero-socials">
             <a href="https://vk.com/itmomegabattle" target="_blank">
